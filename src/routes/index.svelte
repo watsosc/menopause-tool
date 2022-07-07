@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import { basics } from './results';
+</script>
+
+<h1 class="text-3xl font-bold font-title text-primary uppercase">Menopause History Form</h1>
+<form class="content">
+	<label class="font-body">How old are you?</label>
+	<input type="text" bind:value={$basics.age} />
+</form>
