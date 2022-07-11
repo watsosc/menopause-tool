@@ -4,6 +4,16 @@
 	import TextEntryQuestion from '$lib/TextEntryQuestion.svelte';
 	import HeightTextEntryQuestion from '$lib/HeightTextEntryQuestion.svelte';
 	import TitleBar from '$lib/TitleBar.svelte';
+
+	const bmi = (weight: string, heightFeet: string, heightInch: string) => {
+		if (weight === '' || heightFeet === '') {
+			return null;
+		} else {
+			return (Number(weight) / (Number(heightFeet) * 12 + Number(heightInch)) ** 2) * 703;
+		}
+	};
+
+	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
 </script>
 
 <div class="container mx-auto px-4">
@@ -26,6 +36,10 @@
 					context="pounds"
 					bind:text={$basics.weight}
 				/>
+				<div class="flex flex-col items-center">
+					<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
+					<p class="text-xl font-body font-bold mx-2">{`${bmiValue ?? '_____'} kg/m\u00B2`}</p>
+				</div>
 			</div>
 			<div class="flex flex-col md:w-1/2">
 				<TextEntryQuestion
