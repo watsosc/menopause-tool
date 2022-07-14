@@ -19,7 +19,7 @@
 </script>
 
 <div class="container mx-auto px-4">
-	<h1 class="text-3xl font-extrabold font-title text-title uppercase mx-2 my-4">
+	<h1 class="text-4xl font-extrabold font-title text-title uppercase mx-2 my-4">
 		Menopause History Form
 	</h1>
 	<form>
