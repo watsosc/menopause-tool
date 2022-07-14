@@ -4,6 +4,8 @@
 	import TextEntryQuestion from '$lib/TextEntryQuestion.svelte';
 	import HeightTextEntryQuestion from '$lib/HeightTextEntryQuestion.svelte';
 	import TitleBar from '$lib/TitleBar.svelte';
+	import SingleSelectQuestion from '$lib/SingleSelectQuestion.svelte';
+	import { basicsOptions } from '$lib/selections/basics';
 
 	const bmi = (weight: string, heightFeet: string, heightInch: string) => {
 		if (weight === '' || heightFeet === '') {
@@ -21,7 +23,7 @@
 		Menopause History Form
 	</h1>
 	<form>
-		<div class="flex flex-col md:flex-row gap-4">
+		<div class="flex flex-col md:flex-row gap-4 mb-4">
 			<div class="flex flex-col md:w-1/2">
 				<TextEntryQuestion
 					name="basic-age"
@@ -42,21 +44,21 @@
 				</div>
 			</div>
 			<div class="flex flex-col md:w-1/2">
-				<TextEntryQuestion
-					name="basic-age"
-					title="How old are you?"
-					context="years old"
-					bind:text={$basics.age}
+				<SingleSelectQuestion
+					name="basic-period"
+					title="When was your last period?"
+					bind:selection={$basics.period}
+					options={basicsOptions.period}
 				/>
-				<HeightTextEntryQuestion />
-				<TextEntryQuestion
-					name="basic-weight"
-					title="How much do you weigh?"
-					context="pounds"
-					bind:text={$basics.weight}
+				<SingleSelectQuestion
+					name="basic-period"
+					title="If you are in menopause (typically, one year of not getting a period), have you had any bleeding after that year of not getting your period?"
+					bind:selection={$basics.bleeding}
+					options={basicsOptions.menopause}
 				/>
 			</div>
 		</div>
+		<TitleBar title="Questions about your Menopause Symptoms" />
 	</form>
 </div>
 

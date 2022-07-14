@@ -5,4 +5,6 @@ export const basics = writable({
   heightFeet: '',
   heightInch: '',
   weight: '',
-})
+  period: '',
+  bleeding: '',
+});
