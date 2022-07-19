@@ -6,12 +6,7 @@
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let options: SelectOption[];
-	export let selection: string;
-
-	function handleChange(event: Event) {
-		const target = event.target as HTMLInputElement;
-		selection = target.value;
-	}
+	export let selection: string[];
 </script>
 
 <div class="flex flex-col mb-4">
@@ -24,8 +19,7 @@
 				id={`${name}-${i}`}
 				{name}
 				value={option.id}
-				checked={selection === option.id}
-				on:change|preventDefault={handleChange}
+				bind:group={selection}
 			/>
 			<label class="text-lg font-body ml-2 leading-snug" for={`${name}-${i}`}
 				>{@html option.description}</label

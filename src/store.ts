@@ -8,3 +8,17 @@ export const basics = writable({
   period: '',
   bleeding: '',
 });
+
+export const menopause = writable({
+  symptoms: [],
+  other: '',
+  sleep: '',
+  mood: '',
+});
+
+export const treatment = writable({
+  all: [],
+  current: [],
+  interested: [],
+  medication: '',
+});
