@@ -335,7 +335,7 @@
 			href="/results"
 			class="text-xl font-body rounded-full bg-title text-white py-2 px-4 uppercase shadow-lg"
 		>
-			Generate a personalized menopause education package
+			Generate history summary
 		</a>
 	</div>
 </div>
