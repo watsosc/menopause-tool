@@ -1,15 +1,37 @@
 <script lang="ts">
-	import { basics, menopause, treatment } from '../store';
+	import {
+		basics,
+		menopause,
+		treatment,
+		medication,
+		genetics,
+		history,
+		surgeries,
+		habits,
+		screening
+	} from '../store';
 
 	import TextEntryQuestion from '$lib/TextEntryQuestion.svelte';
 	import HeightTextEntryQuestion from '$lib/HeightTextEntryQuestion.svelte';
 	import TitleBar from '$lib/TitleBar.svelte';
 	import SingleSelectQuestion from '$lib/SingleSelectQuestion.svelte';
-	import { basicsOptions, menopauseOptions, treatmentOptions } from '$lib/selections';
+	import {
+		basicsOptions,
+		menopauseOptions,
+		treatmentOptions,
+		medicationOptions,
+		historyOptions,
+		surgeryOptions,
+		habitsOptions,
+		screeningOptions,
+		geneticsOptions
+	} from '$lib/selections';
 	import MultiSelectQuestion from '$lib/MultiSelectQuestion.svelte';
 	import Card from '$lib/Card.svelte';
 	import QuestionBlock from '$lib/QuestionBlock.svelte';
 	import QuestionColumn from '$lib/QuestionColumn.svelte';
+	import FreeTextEntry from '$lib/FreeTextEntry.svelte';
+	import FreeTextEntryQuestion from '$lib/FreeTextEntryQuestion.svelte';
 
 	const bmi = (weight: string, heightFeet: string, heightInch: string) => {
 		if (weight === '' || heightFeet === '') {
@@ -27,42 +49,44 @@
 		Menopause History Form
 	</h1>
 	<form>
-		<QuestionBlock>
-			<QuestionColumn>
-				<TextEntryQuestion
-					name="basic-age"
-					title="How old are you?"
-					context="years old"
-					bind:text={$basics.age}
-				/>
-				<HeightTextEntryQuestion />
-				<TextEntryQuestion
-					name="basic-weight"
-					title="How much do you weigh?"
-					context="pounds"
-					bind:text={$basics.weight}
-				/>
-				<div class="flex flex-col items-center">
-					<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
-					<p class="text-xl font-body font-bold mx-2">{`${bmiValue ?? '_____'} kg/m\u00B2`}</p>
-				</div>
-			</QuestionColumn>
-			<QuestionColumn>
-				<SingleSelectQuestion
-					name="basic-period"
-					title="When was your last period?"
-					subtitle="Choose the option that best describes you."
-					bind:selection={$basics.period}
-					options={basicsOptions.period}
-				/>
-				<SingleSelectQuestion
-					name="basic-period"
-					title="If you are in menopause (typically, one year of not getting a period), have you had any bleeding after that year of not getting your period?"
-					bind:selection={$basics.bleeding}
-					options={basicsOptions.menopause}
-				/>
-			</QuestionColumn>
-		</QuestionBlock>
+		<Card>
+			<QuestionBlock>
+				<QuestionColumn>
+					<TextEntryQuestion
+						name="basic-age"
+						title="How old are you?"
+						context="years old"
+						bind:text={$basics.age}
+					/>
+					<HeightTextEntryQuestion />
+					<TextEntryQuestion
+						name="basic-weight"
+						title="How much do you weigh?"
+						context="pounds"
+						bind:text={$basics.weight}
+					/>
+					<div class="flex flex-col items-center">
+						<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
+						<p class="text-xl font-body font-bold mx-2">{`${bmiValue ?? '_____'} kg/m\u00B2`}</p>
+					</div>
+				</QuestionColumn>
+				<QuestionColumn>
+					<SingleSelectQuestion
+						name="basic-period"
+						title="When was your last period?"
+						subtitle="Choose the option that best describes you."
+						bind:selection={$basics.period}
+						options={basicsOptions.period}
+					/>
+					<SingleSelectQuestion
+						name="basic-period"
+						title="If you are in menopause (typically, one year of not getting a period), have you had any bleeding after that year of not getting your period?"
+						bind:selection={$basics.bleeding}
+						options={basicsOptions.menopause}
+					/>
+				</QuestionColumn>
+			</QuestionBlock>
+		</Card>
 		<Card>
 			<TitleBar title="Questions about your Menopause Symptoms" />
 			<QuestionBlock>
@@ -80,6 +104,9 @@
 						bind:selection={$menopause.other}
 						options={menopauseOptions.other}
 					/>
+					<div class="-mt-4">
+						<FreeTextEntry name="menopause-other-entry" bind:text={$menopause.otherEntry} />
+					</div>
 				</QuestionColumn>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -135,8 +162,180 @@
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
-		<TitleBar title="Questions about your Medications and Allergies" />
+		<Card>
+			<TitleBar title="Questions about your Medications and Allergies" />
+			<QuestionBlock>
+				<QuestionColumn>
+					<MultiSelectQuestion
+						name="medications-select"
+						title="Do you take any of the following medications?"
+						subtitle="Choose all that apply."
+						bind:selection={$medication.medicationSelection}
+						options={medicationOptions.medications}
+					/>
+				</QuestionColumn>
+				<QuestionColumn>
+					<FreeTextEntryQuestion
+						name="medications-entry"
+						title="Please enter all the medications that you take on a regular basis."
+						bind:text={$medication.medicationEntry}
+					/>
+					<SingleSelectQuestion
+						name="medications-allergies"
+						title="Allergies"
+						bind:selection={$medication.allergiesSelect}
+						options={medicationOptions.allergies}
+					/>
+					<div class="-mt-4">
+						<FreeTextEntry
+							name="medications-allergies-entry"
+							bind:text={$medication.allergiesText}
+						/>
+					</div>
+				</QuestionColumn>
+			</QuestionBlock>
+		</Card>
+		<div class="flex flex-col md:flex-row gap-4">
+			<div class="flex flex-col md:w-1/2 -my-2">
+				<Card>
+					<TitleBar title="Questions about Past Medical History" />
+					<div class="mb-4 p-4">
+						<MultiSelectQuestion
+							name="conditions-select"
+							title="Please indicate if you have any of the following medical conditions now or in the past."
+							subtitle="Choose all that apply."
+							bind:selection={$history.conditions}
+							options={historyOptions.conditions}
+						/>
+						<SingleSelectQuestion
+							name="conditions-blood"
+							title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
+							bind:selection={$history.bloodPressure}
+							options={historyOptions.bloodPressure}
+						/>
+					</div>
+				</Card>
+			</div>
+			<div class="flex flex-col md:w-1/2 -my-2">
+				<Card>
+					<TitleBar title="Questions about Previous Surgeries" />
+					<div class="mb-4 p-4">
+						<MultiSelectQuestion
+							name="surgery-select"
+							title="Have you ever had any of the following surgeries?"
+							subtitle="Choose all that apply."
+							bind:selection={$surgeries.received}
+							options={surgeryOptions.surgeries}
+						/>
+						<SingleSelectQuestion
+							name="surgery-ovaries"
+							title="If you have had your ovaries removed, how old were you?"
+							bind:selection={$surgeries.ovariesRemoved}
+							options={surgeryOptions.ovaries}
+						/>
+						<div class="-mt-4">
+							<FreeTextEntry
+								name="menopause-other-entry"
+								bind:text={$menopause.otherEntry}
+								context="years old"
+							/>
+						</div>
+					</div>
+				</Card>
+			</div>
+		</div>
+		<Card>
+			<TitleBar title="Questions about Habits" />
+			<QuestionBlock>
+				<QuestionColumn>
+					<SingleSelectQuestion
+						name="habits-cannabis"
+						title="Do you use cannabis regularly?"
+						bind:selection={$habits.cannabis}
+						options={habitsOptions.cannabis}
+					/>
+					<SingleSelectQuestion
+						name="habits-smoke"
+						title="Do you currently smoke?"
+						bind:selection={$habits.smoking}
+						options={habitsOptions.smoking}
+					/>
+					<SingleSelectQuestion
+						name="habits-alcohol"
+						title="How much alcohol do you drink in a week?"
+						bind:selection={$habits.alcohol}
+						options={habitsOptions.alcohol}
+					/>
+				</QuestionColumn>
+				<QuestionColumn>
+					<MultiSelectQuestion
+						name="habits-alcohol"
+						title="How much alcohol do you drink in a week?"
+						subtitle="Choose all that apply."
+						bind:selection={$habits.exercise}
+						options={habitsOptions.exercise}
+					/>
+				</QuestionColumn>
+			</QuestionBlock>
+		</Card>
+		<Card>
+			<TitleBar title="Questions about Screening" />
+			<QuestionBlock>
+				<QuestionColumn>
+					<SingleSelectQuestion
+						name="screening-mammogram"
+						title="When was your last mammogram?"
+						bind:selection={$screening.mammogram}
+						options={screeningOptions.mammogram}
+					/>
+					<SingleSelectQuestion
+						name="screening-pap"
+						title="When was your last Pap test?"
+						bind:selection={$screening.pap}
+						options={screeningOptions.pap}
+					/>
+				</QuestionColumn>
+				<QuestionColumn>
+					<SingleSelectQuestion
+						name="screening-bones"
+						title="If you have had a bone density scan, have you been told that you have low bone density (e.g. osteopenia or osteoporosis)?"
+						bind:selection={$screening.bones}
+						options={screeningOptions.bones}
+					/>
+				</QuestionColumn>
+			</QuestionBlock>
+		</Card>
+		<Card>
+			<TitleBar title="Questions about Family and Genetic History" />
+			<QuestionBlock>
+				<QuestionColumn>
+					<MultiSelectQuestion
+						name="genetics-conditions"
+						title="Have you ever been told you carry any of the following genes that may make you more likely to develop certain conditions?"
+						subtitle="Choose all that apply."
+						bind:selection={$genetics.genes}
+						options={geneticsOptions.genes}
+					/>
+				</QuestionColumn>
+				<QuestionColumn>
+					<MultiSelectQuestion
+						name="genetics-family"
+						title="Please indicate if you have a family history of any of the following conditions and which relative had the condition."
+						subtitle="Choose all that apply."
+						bind:selection={$genetics.family}
+						options={geneticsOptions.family}
+					/>
+				</QuestionColumn>
+			</QuestionBlock>
+		</Card>
 	</form>
-</div>
 
-<a href="/results" class="underline text-blue-600">See results</a>
+	<div class="flex flex-row justify-center my-8">
+		<a
+			href="/results"
+			class="text-xl font-body rounded-full bg-title text-white py-2 px-4 uppercase shadow-lg"
+		>
+			Generate a personalized menopause education package
+		</a>
+	</div>
+</div>

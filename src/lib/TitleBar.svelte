@@ -2,7 +2,7 @@
 	export let title: string;
 </script>
 
-<div class="flex flex-row mb-4">
+<div class="flex flex-row">
 	<div class="w-6 bg-secondary" />
 	<div class="bg-primary flex-grow">
 		<p class="text-2xl font-title font-semibold ml-4 my-2">{title}</p>
