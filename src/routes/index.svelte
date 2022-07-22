@@ -32,6 +32,7 @@
 	import QuestionColumn from '$lib/QuestionColumn.svelte';
 	import FreeTextEntry from '$lib/FreeTextEntry.svelte';
 	import FreeTextEntryQuestion from '$lib/FreeTextEntryQuestion.svelte';
+	import MainTitle from '$lib/MainTitle.svelte';
 
 	const bmi = (weight: string, heightFeet: string, heightInch: string) => {
 		if (weight === '' || heightFeet === '') {
@@ -45,9 +46,11 @@
 </script>
 
 <div class="container mx-auto px-4">
-	<h1 class="text-4xl font-extrabold font-title text-title uppercase mx-2 my-4">
-		Menopause History Form
-	</h1>
+	<Card>
+		<MainTitle>
+			<h1 class="small-capper">Menopause History Form</h1>
+		</MainTitle>
+	</Card>
 	<form>
 		<Card>
 			<QuestionBlock>
@@ -88,7 +91,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar title="Questions about your Menopause Symptoms" />
+			<TitleBar>Questions about your Menopause Symptoms</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -127,7 +130,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar title="Questions about your Menopause Treatments" />
+			<TitleBar>Questions about your Menopause Treatments</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -163,7 +166,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar title="Questions about your Medications and Allergies" />
+			<TitleBar>Questions about your Medications and Allergies</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -198,7 +201,7 @@
 		<div class="flex flex-col md:flex-row gap-4">
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar title="Questions about Past Medical History" />
+					<TitleBar>Questions about Past Medical History</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="conditions-select"
@@ -218,7 +221,7 @@
 			</div>
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar title="Questions about Previous Surgeries" />
+					<TitleBar>Questions about Previous Surgeries</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="surgery-select"
@@ -245,7 +248,7 @@
 			</div>
 		</div>
 		<Card>
-			<TitleBar title="Questions about Habits" />
+			<TitleBar>Questions about Habits</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -269,8 +272,8 @@
 				</QuestionColumn>
 				<QuestionColumn>
 					<MultiSelectQuestion
-						name="habits-alcohol"
-						title="How much alcohol do you drink in a week?"
+						name="habits-exercise"
+						title="Please choose the statement(s) that best describe your exercise habits."
 						subtitle="Choose all that apply."
 						bind:selection={$habits.exercise}
 						options={habitsOptions.exercise}
@@ -279,7 +282,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar title="Questions about Screening" />
+			<TitleBar>Questions about Screening</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -306,7 +309,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar title="Questions about Family and Genetic History" />
+			<TitleBar>Questions about Family and Genetic History</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -333,9 +336,15 @@
 	<div class="flex flex-row justify-center my-8">
 		<a
 			href="/results"
-			class="text-xl font-body rounded-full bg-title text-white py-2 px-4 uppercase shadow-lg"
+			class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"
 		>
-			Generate history summary
+			<div class="small-capper">Generate History Summary</div>
 		</a>
 	</div>
 </div>
+
+<style>
+	.small-capper {
+		font-variant: small-caps;
+	}
+</style>
