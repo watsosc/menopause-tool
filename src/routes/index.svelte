@@ -33,14 +33,7 @@
 	import FreeTextEntry from '$lib/FreeTextEntry.svelte';
 	import FreeTextEntryQuestion from '$lib/FreeTextEntryQuestion.svelte';
 	import MainTitle from '$lib/MainTitle.svelte';
-
-	const bmi = (weight: string, heightFeet: string, heightInch: string) => {
-		if (weight === '' || heightFeet === '') {
-			return null;
-		} else {
-			return (Number(weight) / (Number(heightFeet) * 12 + Number(heightInch)) ** 2) * 703;
-		}
-	};
+	import { bmi } from '$lib/bmiCalculator';
 
 	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
 

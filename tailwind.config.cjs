@@ -8,6 +8,8 @@ module.exports = {
       'secondary': 'rgb(107,107,107)',
       'grey': 'rgb(235,234,234)',
       'white': 'rgb(255,255,255)',
+      'green': '#98F5E1',
+      'orange': '#fde4cf'
     },
     fontFamily: {
       'title': ['Nunito'],
