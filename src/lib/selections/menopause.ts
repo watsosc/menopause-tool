@@ -9,8 +9,8 @@ export const menopauseOptions = {
     { id: 'bad-mood', description: 'Worsening mood' },
   ],
   other: [
-    { id: 'listed', description: 'I am most bothered by a symptom(s) on the list above.' },
-    { id: 'free-text', description: 'I am suffering from:' }
+    { id: 'no', description: 'I am most bothered by a symptom(s) on the list above.' },
+    { id: 'yes', description: 'I am suffering from:' }
   ],
   sleep: [
     { id: 'fine', description: 'My sleep is fine.' },

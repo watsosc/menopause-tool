@@ -43,6 +43,10 @@
 	};
 
 	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
+
+	$: ovariesDisabled = $surgeries.ovariesRemoved != 'yes';
+	$: allergiesDisabled = $medication.allergiesSelect != 'yes';
+	$: sufferingDisabled = $menopause.other != 'yes';
 </script>
 
 <div class="container mx-auto px-4">
@@ -107,8 +111,12 @@
 						bind:selection={$menopause.other}
 						options={menopauseOptions.other}
 					/>
-					<div class="-mt-4">
-						<FreeTextEntry name="menopause-other-entry" bind:text={$menopause.otherEntry} />
+					<div class="-mt-2">
+						<FreeTextEntry
+							name="menopause-other-entry"
+							bind:text={$menopause.otherEntry}
+							disabled={sufferingDisabled}
+						/>
 					</div>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -189,10 +197,11 @@
 						bind:selection={$medication.allergiesSelect}
 						options={medicationOptions.allergies}
 					/>
-					<div class="-mt-4">
+					<div class="-mt-2">
 						<FreeTextEntry
 							name="medications-allergies-entry"
 							bind:text={$medication.allergiesText}
+							disabled={allergiesDisabled}
 						/>
 					</div>
 				</QuestionColumn>
@@ -236,11 +245,12 @@
 							bind:selection={$surgeries.ovariesRemoved}
 							options={surgeryOptions.ovaries}
 						/>
-						<div class="-mt-4">
+						<div class="-mt-2">
 							<FreeTextEntry
-								name="menopause-other-entry"
-								bind:text={$menopause.otherEntry}
+								name="surgery-ovaries-age"
+								bind:text={$surgeries.ovariesAge}
 								context="years old"
+								disabled={ovariesDisabled}
 							/>
 						</div>
 					</div>

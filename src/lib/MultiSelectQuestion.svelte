@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Checkbox from './Checkbox.svelte';
 	import QuestionLabel from './QuestionLabel.svelte';
 	import type { SelectOption } from './selections/selectOption';
 
@@ -8,10 +7,8 @@
 	export let subtitle: string | null = null;
 	export let options: SelectOption[];
 	export let selection: string[];
-	console.log(selection);
 
 	$: selected = selection;
-	console.log(selected);
 </script>
 
 <div class="flex flex-col mb-4">
