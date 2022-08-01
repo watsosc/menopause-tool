@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { bmi } from '$lib/bmiCalculator';
 
-	import Card from '$lib/layouts/Card.svelte';
-	import Content from '$lib/layouts/Content.svelte';
+	import { Card, Content } from '$lib/layouts';
 	import ResponseDisplay from '$lib/answers/ResponseDisplay.svelte';
 	import { basics } from '../../store';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';

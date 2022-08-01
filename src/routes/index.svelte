@@ -11,10 +11,16 @@
 		screening
 	} from '../store';
 
-	import TextEntryQuestion from '$lib/questions/TextEntryQuestion.svelte';
-	import HeightTextEntryQuestion from '$lib/questions/HeightTextEntryQuestion.svelte';
-	import TitleBar from '$lib/titles/QuestionTitleBar.svelte';
-	import SingleSelectQuestion from '$lib/questions/SingleSelectQuestion.svelte';
+	import {
+		TextEntryQuestion,
+		HeightTextEntryQuestion,
+		SingleSelectQuestion,
+		MultiSelectQuestion,
+		FreeTextEntry,
+		FreeTextEntryQuestion
+	} from '$lib/questions';
+	import { Card, QuestionBlock, QuestionColumn } from '$lib/layouts';
+	import { QuestionTitleBar as TitleBar, MainTitle } from '$lib/titles';
 	import {
 		basicsOptions,
 		menopauseOptions,
@@ -26,13 +32,6 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
-	import MultiSelectQuestion from '$lib/questions/MultiSelectQuestion.svelte';
-	import Card from '$lib/layouts/Card.svelte';
-	import QuestionBlock from '$lib/layouts/QuestionBlock.svelte';
-	import QuestionColumn from '$lib/layouts/QuestionColumn.svelte';
-	import FreeTextEntry from '$lib/questions/FreeTextEntry.svelte';
-	import FreeTextEntryQuestion from '$lib/questions/FreeTextEntryQuestion.svelte';
-	import MainTitle from '$lib/titles/MainTitle.svelte';
 	import { bmi } from '$lib/bmiCalculator';
 
 	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
