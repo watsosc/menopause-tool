@@ -1,8 +1,13 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { medication } from '../../store';
-	import { getDescription, medicationOptions } from '$lib/selections';
+	import { getMultiSelectAnswer, medicationOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+
+	const selectedMedications = getMultiSelectAnswer(
+		medicationOptions.medications,
+		$medication.medicationSelection
+	);
 </script>
 
 <div class="container mx-auto px-4">
@@ -15,8 +20,8 @@
 			</p>
 			{#if $medication.medicationSelection.length > 0}
 				<ul class="list-disc ml-10">
-					{#each $medication.medicationSelection as med}
-						<li class="font-body text-xl">{getDescription(medicationOptions.medications, med)}</li>
+					{#each selectedMedications as medication}
+						<li class="font-body text-xl">{medication}</li>
 					{/each}
 				</ul>
 			{:else}
@@ -24,16 +29,16 @@
 					<li class="font-body text-xl">None</li>
 				</ul>
 			{/if}
-			<p class="font-body text-xl">
+			<p class="font-body text-xl mt-4">
 				{#if !!$medication.medicationEntry}
 					You were then asked to list all medications you take on a regular basis. You indicated you
 					take the following medications: {$medication.medicationEntry}
 				{:else}
 					You were asked to list all medications you take on a regular basis. You indicated you take
-					no medication at the moment.
+					<b>no medication</b> at the moment.
 				{/if}
 			</p>
-			<p class="font-body text-xl">
+			<p class="font-body text-xl mt-4">
 				{#if !!$medication.allergiesText}
 					Regarding allergies, you have indicated the following allergies: {$medication.allergiesText}
 				{:else}

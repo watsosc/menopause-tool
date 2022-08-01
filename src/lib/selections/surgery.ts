@@ -5,10 +5,23 @@ export const surgeryOptions = {
     {
       id: 'endometriosis',
       description: 'Surgery for endometriosis',
+      answer: 'Surgery for endometriosis',
       suboptions: [
-        { id: 'endometriosis-diagnostic', description: 'Procedure to diagnose and/or resect endometriosis but <b>not</b> removal of ovaries and/or uterus' },
-        { id: 'endometriosis-uterus', description: 'Removal of uterus and ovaries' },
-        { id: 'endometriosis-ovaries', description: 'Removal of both ovaries' },
+        {
+          id: 'endometriosis-diagnostic',
+          description: 'Procedure to diagnose and/or resect endometriosis but <b>not</b> removal of ovaries and/or uterus',
+          answer: 'procedure to diagnose and/or resect endometriosis but <b>not</b> removal of ovaries and/or uterus'
+        },
+        {
+          id: 'endometriosis-uterus',
+          description: 'Removal of uterus and ovaries',
+          answer: 'removal of uterus and ovaries',
+        },
+        {
+          id: 'endometriosis-ovaries',
+          description: 'Removal of both ovaries',
+          answer: 'removal of both ovaries'
+        },
       ]
     },
   ],
