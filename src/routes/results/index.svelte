@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Basics from './Basics.svelte';
+	import Habits from './Habits.svelte';
 	import History from './History.svelte';
 	import Medications from './Medications.svelte';
 	import Surgery from './Surgery.svelte';
@@ -13,5 +14,6 @@
 <Treatments />
 <Medications />
 <Surgery />
+<Habits />
 
 <a href="/" class="underline text-blue-600">Back to main</a>
