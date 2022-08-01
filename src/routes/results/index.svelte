@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Basics from './Basics.svelte';
+	import Genetics from './Genetics.svelte';
 	import Habits from './Habits.svelte';
 	import History from './History.svelte';
 	import Medications from './Medications.svelte';
@@ -17,5 +18,6 @@
 <Surgery />
 <Habits />
 <Screening />
+<Genetics />
 
 <a href="/" class="underline text-blue-600">Back to main</a>

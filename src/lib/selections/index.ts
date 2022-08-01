@@ -9,18 +9,10 @@ import { surgeryOptions } from './surgery';
 import { historyOptions } from './history';
 import type { SelectOption } from './selectOption';
 
-const getDescription = (list: SelectOption[], response: string) => {
-  const selection = list.find(
-    (option: SelectOption) => option.id == response
-  );
-
-  return selection?.description;
-};
-
 const getAnswer = (list: SelectOption[], response: string) => {
   const selection = list.find((option: SelectOption) => option.id == response);
 
-  return selection?.answer;
+  return selection?.answer || selection?.description;
 };
 
 const getMultiSelectList = (list: SelectOption[], selected: string[]) => {
@@ -32,12 +24,17 @@ const getMultiSelectList = (list: SelectOption[], selected: string[]) => {
   return options.replace(/,(?!.*,)/gmi, ' and');
 };
 
-const getMultiSelectAnswer = (list: SelectOption[], selected: string[]): string[] => {
+const getMultiSelectAnswer = (
+  list: SelectOption[],
+  selected: string[],
+  formatter: (x: string, y: string) => string
+): string[] => {
   return list
     .filter((option: SelectOption) => selected.includes(option.id))
     .map((option: SelectOption): string => {
+      const response = option.answer || option.description;
       if (!option.suboptions) {
-        return option.answer || option.description;
+        return response;
       }
 
       const subSelection = selected.filter(
@@ -45,12 +42,11 @@ const getMultiSelectAnswer = (list: SelectOption[], selected: string[]): string[
           (suboption: SelectOption) => suboption.id == selection
         )
       )
-      return `${option.answer} (${getMultiSelectList(option.suboptions, subSelection)})`;
+      return formatter(response, getMultiSelectList(option.suboptions, subSelection));
     });
 };
 
 export {
-  getDescription,
   getAnswer,
   getMultiSelectList,
   getMultiSelectAnswer,

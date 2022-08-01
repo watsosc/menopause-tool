@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { history } from '../../store';
-	import { getDescription, historyOptions } from '$lib/selections';
+	import { getAnswer, historyOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 </script>
 
@@ -17,7 +17,7 @@
 				<ul class="list-disc ml-10">
 					{#each $history.conditions as condition}
 						<li class="font-body text-xl">
-							{getDescription(historyOptions.conditions, condition)}
+							{getAnswer(historyOptions.conditions, condition)}
 						</li>
 					{/each}
 				</ul>

@@ -6,7 +6,8 @@
 
 	const selectedMedications = getMultiSelectAnswer(
 		medicationOptions.medications,
-		$medication.medicationSelection
+		$medication.medicationSelection,
+		(primary, suboptions) => `${primary} (${suboptions})`
 	);
 </script>
 

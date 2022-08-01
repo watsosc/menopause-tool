@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { menopause } from '../../store';
-	import { getAnswer, getDescription, menopauseOptions } from '$lib/selections';
+	import { getAnswer, menopauseOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 </script>
 
@@ -15,7 +15,7 @@
 			{#if $menopause.symptoms.length > 0}
 				<ul class="list-disc ml-10">
 					{#each $menopause.symptoms as symptom}
-						<li class="font-body text-xl">{getDescription(menopauseOptions.symptoms, symptom)}</li>
+						<li class="font-body text-xl">{getAnswer(menopauseOptions.symptoms, symptom)}</li>
 					{/each}
 				</ul>
 			{/if}

@@ -4,7 +4,11 @@
 	import { getMultiSelectAnswer, surgeryOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 
-	const selectedSurgeries = getMultiSelectAnswer(surgeryOptions.surgeries, $surgeries.received);
+	const selectedSurgeries = getMultiSelectAnswer(
+		surgeryOptions.surgeries,
+		$surgeries.received,
+		(primary, suboptions) => `${primary} (${suboptions})`
+	);
 </script>
 
 <div class="container mx-auto px-4">
