@@ -3,6 +3,7 @@
 	import Habits from './Habits.svelte';
 	import History from './History.svelte';
 	import Medications from './Medications.svelte';
+	import Screening from './Screening.svelte';
 	import Surgery from './Surgery.svelte';
 	import Symptoms from './Symptoms.svelte';
 	import Treatments from './Treatments.svelte';
@@ -15,5 +16,6 @@
 <Medications />
 <Surgery />
 <Habits />
+<Screening />
 
 <a href="/" class="underline text-blue-600">Back to main</a>

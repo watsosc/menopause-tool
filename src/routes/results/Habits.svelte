@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { habits } from '../../store';
-	import { getAnswer, getMultiSelectList, habitsOptions } from '$lib/selections';
+	import { getAnswer, habitsOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 </script>
 
