@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { basics } from '../store';
+	import { basics } from '../../store';
 	import TextInput from './TextInput.svelte';
 
 	const labelTextStyle = 'text-xl font-body font-bold mx-2';

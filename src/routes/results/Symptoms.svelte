@@ -1,37 +1,22 @@
 <script lang="ts">
-	import Card from '$lib/Card.svelte';
-	import Content from '$lib/Content.svelte';
-	import TitleBar from '$lib/TitleBar.svelte';
+	import Card from '$lib/layouts/Card.svelte';
+	import Content from '$lib/layouts/Content.svelte';
 	import { menopause } from '../../store';
-	import { menopauseOptions } from '$lib/selections';
-	import type { SelectOption } from '$lib/selections/selectOption';
-
-	const getDescription = (response: string) => {
-		const selection = menopauseOptions.symptoms.find(
-			(option: SelectOption) => option.id == response
-		);
-
-		return selection?.description;
-	};
-
-	const getAnswer = (list: SelectOption[], response: string) => {
-		const selection = list.find((option: SelectOption) => option.id == response);
-
-		return selection?.answer;
-	};
+	import { getAnswer, getDescription, menopauseOptions } from '$lib/selections';
+	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 </script>
 
 <div class="container mx-auto px-4">
 	<Card>
-		<TitleBar color="green">Current Menopause Symptoms</TitleBar>
+		<SummaryTitleBar>Current Menopause Symptoms</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
 				The symptoms of menopause that you <b>currently</b> experience are:
 			</p>
 			{#if $menopause.symptoms.length > 0}
-				<ul>
+				<ul class="list-disc ml-10">
 					{#each $menopause.symptoms as symptom}
-						<li class="font-body text-xl">{getDescription(symptom)}</li>
+						<li class="font-body text-xl">{getDescription(menopauseOptions.symptoms, symptom)}</li>
 					{/each}
 				</ul>
 			{/if}
@@ -44,7 +29,7 @@
 				Regarding <b>sleep</b>, you have indicated:
 			</p>
 			{#if !!$menopause.sleep}
-				<ul>
+				<ul class="list-disc ml-10">
 					<li class="font-body text-xl">{getAnswer(menopauseOptions.sleep, $menopause.sleep)}</li>
 				</ul>
 			{/if}
@@ -52,7 +37,7 @@
 				Regarding <b>mood</b>, you have indicated:
 			</p>
 			{#if !!$menopause.mood}
-				<ul>
+				<ul class="list-disc ml-10">
 					<li class="font-body text-xl">
 						{getAnswer(menopauseOptions.depression, $menopause.mood)}
 					</li>

@@ -11,10 +11,10 @@
 		screening
 	} from '../store';
 
-	import TextEntryQuestion from '$lib/TextEntryQuestion.svelte';
-	import HeightTextEntryQuestion from '$lib/HeightTextEntryQuestion.svelte';
-	import TitleBar from '$lib/TitleBar.svelte';
-	import SingleSelectQuestion from '$lib/SingleSelectQuestion.svelte';
+	import TextEntryQuestion from '$lib/questions/TextEntryQuestion.svelte';
+	import HeightTextEntryQuestion from '$lib/questions/HeightTextEntryQuestion.svelte';
+	import TitleBar from '$lib/titles/QuestionTitleBar.svelte';
+	import SingleSelectQuestion from '$lib/questions/SingleSelectQuestion.svelte';
 	import {
 		basicsOptions,
 		menopauseOptions,
@@ -26,13 +26,13 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
-	import MultiSelectQuestion from '$lib/MultiSelectQuestion.svelte';
-	import Card from '$lib/Card.svelte';
-	import QuestionBlock from '$lib/QuestionBlock.svelte';
-	import QuestionColumn from '$lib/QuestionColumn.svelte';
-	import FreeTextEntry from '$lib/FreeTextEntry.svelte';
-	import FreeTextEntryQuestion from '$lib/FreeTextEntryQuestion.svelte';
-	import MainTitle from '$lib/MainTitle.svelte';
+	import MultiSelectQuestion from '$lib/questions/MultiSelectQuestion.svelte';
+	import Card from '$lib/layouts/Card.svelte';
+	import QuestionBlock from '$lib/layouts/QuestionBlock.svelte';
+	import QuestionColumn from '$lib/layouts/QuestionColumn.svelte';
+	import FreeTextEntry from '$lib/questions/FreeTextEntry.svelte';
+	import FreeTextEntryQuestion from '$lib/questions/FreeTextEntryQuestion.svelte';
+	import MainTitle from '$lib/titles/MainTitle.svelte';
 	import { bmi } from '$lib/bmiCalculator';
 
 	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
@@ -40,6 +40,7 @@
 	$: ovariesDisabled = $surgeries.ovariesRemoved != 'yes';
 	$: allergiesDisabled = $medication.allergiesSelect != 'yes';
 	$: sufferingDisabled = $menopause.other != 'yes';
+	$: treatmentHelpingDisabled = $treatment.current.length === 0;
 </script>
 
 <div class="container mx-auto px-4">
@@ -144,8 +145,9 @@
 					<SingleSelectQuestion
 						name="therapy-medication"
 						title="If you are taking a medication for your menopause symptoms, is it helping you?"
-						bind:selection={$treatment.medication}
+						bind:selection={$treatment.helping}
 						options={treatmentOptions.helping}
+						disabled={treatmentHelpingDisabled}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>

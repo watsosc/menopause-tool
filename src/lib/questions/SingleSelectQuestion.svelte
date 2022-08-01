@@ -1,18 +1,19 @@
 <script lang="ts">
 	import Checkbox from './Checkbox.svelte';
 	import QuestionLabel from './QuestionLabel.svelte';
-	import type { SelectOption } from './selections/selectOption';
+	import type { SelectOption } from '../selections/selectOption';
 
 	export let name: string;
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let options: SelectOption[];
 	export let selection: string;
+	export let disabled: boolean = false;
 </script>
 
 <div class="flex flex-col mb-4">
 	<QuestionLabel {name} label={title} {subtitle} />
 	{#each options as option, i (option.id)}
-		<Checkbox {name} id={i} {option} bind:selection />
+		<Checkbox {name} id={i} {option} bind:selection {disabled} />
 	{/each}
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import QuestionLabel from './QuestionLabel.svelte';
-	import type { SelectOption } from './selections/selectOption';
+	import type { SelectOption } from '../selections/selectOption';
 
 	export let name: string;
 	export let title: string;

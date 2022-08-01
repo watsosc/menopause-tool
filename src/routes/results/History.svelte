@@ -1,17 +1,9 @@
 <script lang="ts">
-	import Card from '$lib/Card.svelte';
-	import Content from '$lib/Content.svelte';
-	import ResponseDisplay from '$lib/ResponseDisplay.svelte';
-	import TitleBar from '$lib/TitleBar.svelte';
+	import Card from '$lib/layouts/Card.svelte';
+	import Content from '$lib/layouts/Content.svelte';
 	import { basics } from '../../store';
-	import { basicsOptions } from '$lib/selections';
-	import type { SelectOption } from '$lib/selections/selectOption';
-
-	const answer = (response: string) => {
-		const selection = basicsOptions.period.find((option: SelectOption) => option.id == response);
-
-		return selection?.answer;
-	};
+	import { basicsOptions, getAnswer } from '$lib/selections';
+	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 
 	const bleeding = () => {
 		if ($basics.bleeding == 'yes') {
@@ -27,10 +19,13 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<TitleBar color="green">Menstrual History</TitleBar>
+		<SummaryTitleBar>Menstrual History</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
-				Regarding your last menstrual period, you have indicated {@html answer($basics.period)}.
+				Regarding your last menstrual period, you have indicated {@html getAnswer(
+					basicsOptions.period,
+					$basics.period
+				)}.
 			</p>
 			{#if bleeding() !== null}
 				<p class="font-body text-xl mt-4">
