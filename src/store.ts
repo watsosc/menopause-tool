@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { derived, writable } from "svelte/store";
 
 export const basics = writable({
   age: '',
@@ -8,6 +8,19 @@ export const basics = writable({
   period: '',
   bleeding: '',
 });
+
+export const bmi = derived(
+  basics,
+  $basics => {
+    if ($basics.weight === '' || $basics.heightFeet === '') {
+      return null;
+    } else {
+      return ((
+        Number($basics.weight) / (Number($basics.heightFeet) * 12 + Number($basics.heightInch)) ** 2
+      ) * 703).toFixed(2);
+    }
+  }
+)
 
 type Menopause = {
   symptoms: string[];
@@ -24,6 +37,11 @@ export const menopause = writable<Menopause>({
   otherEntry: '',
 });
 
+export const menopauseEntryDisabled = derived(
+  menopause,
+  $menopause => $menopause.other != 'yes'
+)
+
 type Treatment = {
   all: string[];
   current: string[];
@@ -37,6 +55,11 @@ export const treatment = writable<Treatment>({
   helping: '',
 });
 
+export const treatmentEntryDisabled = derived(
+  treatment,
+  $treatment => $treatment.current.length === 0
+)
+
 type Medication = {
   medicationSelection: string[];
   medicationEntry: string;
@@ -49,6 +72,11 @@ export const medication = writable<Medication>({
   allergiesSelect: '',
   allergiesText: '',
 });
+
+export const medicationEntryDisabled = derived(
+  medication,
+  $medication => $medication.allergiesSelect != 'yes'
+)
 
 type History = {
   conditions: string[];
@@ -69,6 +97,11 @@ export const surgeries = writable<Surgeries>({
   ovariesRemoved: '',
   ovariesAge: '',
 });
+
+export const surgeriesEntryDisabled = derived(
+  surgeries,
+  $surgeries => $surgeries.ovariesRemoved != 'yes'
+)
 
 type Habits = {
   cannabis: string;

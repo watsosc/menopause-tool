@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { bmi } from '$lib/bmiCalculator';
-
 	import { Card, Content } from '$lib/layouts';
 	import ResponseDisplay from '$lib/answers/ResponseDisplay.svelte';
-	import { basics } from '../../store';
+	import { basics, bmi } from '../../store';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
-
-	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
 </script>
 
 <div class="container mx-auto px-4">
@@ -23,7 +19,7 @@
 				and you are <ResponseDisplay response={$basics.heightFeet} context={'feet'} />,
 				<ResponseDisplay response={$basics.heightInch} context={'inches'} />
 				tall. Based on this information, your Body Mass Index (BMI) is <ResponseDisplay
-					response={bmiValue}
+					response={$bmi}
 					context={'kg/m²'}
 				/>.
 			</p>

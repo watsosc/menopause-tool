@@ -8,7 +8,12 @@
 		history,
 		surgeries,
 		habits,
-		screening
+		screening,
+		bmi,
+		menopauseEntryDisabled,
+		medicationEntryDisabled,
+		treatmentEntryDisabled,
+		surgeriesEntryDisabled
 	} from '../store';
 
 	import {
@@ -32,14 +37,6 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
-	import { bmi } from '$lib/bmiCalculator';
-
-	$: bmiValue = bmi($basics.weight, $basics.heightFeet, $basics.heightInch)?.toFixed(2);
-
-	$: ovariesDisabled = $surgeries.ovariesRemoved != 'yes';
-	$: allergiesDisabled = $medication.allergiesSelect != 'yes';
-	$: sufferingDisabled = $menopause.other != 'yes';
-	$: treatmentHelpingDisabled = $treatment.current.length === 0;
 </script>
 
 <div class="container mx-auto px-4">
@@ -67,7 +64,7 @@
 					/>
 					<div class="flex flex-col items-center">
 						<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
-						<p class="text-xl font-body font-bold mx-2">{`${bmiValue ?? '_____'} kg/m\u00B2`}</p>
+						<p class="text-xl font-body font-bold mx-2">{`${$bmi ?? '_____'} kg/m\u00B2`}</p>
 					</div>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -108,7 +105,7 @@
 						<FreeTextEntry
 							name="menopause-other-entry"
 							bind:text={$menopause.otherEntry}
-							disabled={sufferingDisabled}
+							disabled={$menopauseEntryDisabled}
 						/>
 					</div>
 				</QuestionColumn>
@@ -146,7 +143,7 @@
 						title="If you are taking a medication for your menopause symptoms, is it helping you?"
 						bind:selection={$treatment.helping}
 						options={treatmentOptions.helping}
-						disabled={treatmentHelpingDisabled}
+						disabled={$treatmentEntryDisabled}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -195,7 +192,7 @@
 						<FreeTextEntry
 							name="medications-allergies-entry"
 							bind:text={$medication.allergiesText}
-							disabled={allergiesDisabled}
+							disabled={$medicationEntryDisabled}
 						/>
 					</div>
 				</QuestionColumn>
@@ -244,7 +241,7 @@
 								name="surgery-ovaries-age"
 								bind:text={$surgeries.ovariesAge}
 								context="years old"
-								disabled={ovariesDisabled}
+								disabled={$surgeriesEntryDisabled}
 							/>
 						</div>
 					</div>
