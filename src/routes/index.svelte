@@ -37,6 +37,10 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
+
+	function onSubmit(e: SubmitEvent) {
+		const formData = new FormData(e.target as HTMLFormElement);
+	}
 </script>
 
 <div class="container mx-auto px-4">
@@ -45,7 +49,7 @@
 			<h1 class="small-capper">Menopause History Form</h1>
 		</MainTitle>
 	</Card>
-	<form>
+	<form on:submit|preventDefault={onSubmit}>
 		<Card>
 			<QuestionBlock>
 				<QuestionColumn>
@@ -77,7 +81,7 @@
 					/>
 					<SingleSelectQuestion
 						name="basic-period"
-						title="If you are in menopause (typically, one year of not getting a period), have you had any bleeding after that year of not getting your period?"
+						title="If it has been <b>one year or more</b> since your last period, have you had any vaginal bleeding?"
 						bind:selection={$basics.bleeding}
 						options={basicsOptions.menopause}
 					/>
@@ -138,21 +142,22 @@
 						bind:selection={$treatment.all}
 						options={treatmentOptions.all}
 					/>
-					<SingleSelectQuestion
-						name="therapy-medication"
-						title="If you are taking a medication for your menopause symptoms, is it helping you?"
-						bind:selection={$treatment.helping}
-						options={treatmentOptions.helping}
-						disabled={$treatmentEntryDisabled}
-					/>
-				</QuestionColumn>
-				<QuestionColumn>
 					<MultiSelectQuestion
 						name="therapy-current"
 						title="What menopause therapies are you using <u>now</u> to manage your menopause symptoms?"
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.current}
 						options={treatmentOptions.current}
+					/>
+				</QuestionColumn>
+				<QuestionColumn>
+					<SingleSelectQuestion
+						name="therapy-medication"
+						title="If you are taking a medication for your menopause symptoms, is it helping you?"
+						subtitle="Choose the option that best describes you."
+						bind:selection={$treatment.helping}
+						options={treatmentOptions.helping}
+						disabled={$treatmentEntryDisabled}
 					/>
 					<MultiSelectQuestion
 						name="therapy-interested"
@@ -302,7 +307,7 @@
 				<QuestionColumn>
 					<SingleSelectQuestion
 						name="screening-bones"
-						title="If you have had a bone density scan, have you been told that you have low bone density (e.g. osteopenia or osteoporosis)?"
+						title="If you have had a bone density scan, have you been told that you have low bone density (e.g., osteopenia or osteoporosis)?"
 						bind:selection={$screening.bones}
 						options={screeningOptions.bones}
 					/>
@@ -335,12 +340,12 @@
 	</form>
 
 	<div class="flex flex-row justify-center my-8">
-		<a
-			href="/results"
+		<button
+			type="submit"
 			class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"
 		>
 			<div class="small-capper">Generate History Summary</div>
-		</a>
+		</button>
 	</div>
 </div>
 

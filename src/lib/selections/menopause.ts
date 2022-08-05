@@ -4,9 +4,9 @@ export const menopauseOptions = {
     { id: 'night-sweat', description: 'Night sweats' },
     { id: 'vaginal-dryness', description: 'Vaginal dryness or vaginal itch' },
     { id: 'poor-sleep', description: 'Poor sleep' },
-    { id: 'low-libido', description: 'Lower libido (i.e. sex drive)' },
+    { id: 'low-libido', description: 'Lower libido (e.g., sex drive)' },
     { id: 'brain-fog', description: '\'Brain fog\'' },
-    { id: 'bad-mood', description: 'Worsening mood' },
+    { id: 'bad-mood', description: 'Worsening mood, anxiery and/or irritability' },
   ],
   other: [
     { id: 'no', description: 'I am most bothered by a symptom(s) on the list above.' },
@@ -27,6 +27,11 @@ export const menopauseOptions = {
       id: 'void',
       description: '<b>Yes</b>, I am waking at night because I have to void.',
       answer: 'You are waking to void.',
+    },
+    {
+      id: 'other',
+      description: '<b>No</b>, I am waking at night for another reason.',
+      answer: 'You are waking at night for another reason.',
     },
   ],
   depression: [

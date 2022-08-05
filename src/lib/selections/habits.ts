@@ -42,19 +42,14 @@ export const habitsOptions = {
   ],
   exercise: [
     {
-      id: 'aerobic',
-      description: 'I do aerobic exercise.',
-      answer: 'Do aerobic exercise',
-    },
-    {
-      id: 'weight',
-      description: 'I do weight bearing exercise.',
-      answer: 'Do weight bearing exercise'
+      id: 'none',
+      description: 'I do not excercise.',
+      answer: 'Do not exercise',
     },
     {
       id: 'frequent',
-      description: 'I exercise at least 3 times per week for 40-60 minutes.',
-      answer: 'Exercise at least 3 times per week for 40-60 minutes'
+      description: 'I make an effort to incorporate exercise into my life.',
+      answer: 'Make an effort to incorporate exercise into your life.'
     },
   ],
 }

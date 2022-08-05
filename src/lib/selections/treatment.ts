@@ -7,7 +7,7 @@ export const treatmentOptions = {
     },
     {
       id: 'herbal',
-      description: 'Over-the-counter herbal options (e.g.: soy, black cohosh)',
+      description: 'Over-the-counter herbal options (e.g., soy, black cohosh)',
       answer: 'over-the-counter herbal options',
     },
     {
@@ -17,8 +17,8 @@ export const treatmentOptions = {
     },
     {
       id: 'compound-hormone',
-      description: 'Compounded hormone therapy (e.g. bioidentical hormone therapy)',
-      answer: 'compounded hormone therapy (e.g. bioidentical hormone therapy)',
+      description: 'Compounded hormone therapy (e.g., bioidentical hormone therapy)',
+      answer: 'compounded hormone therapy (e.g., bioidentical hormone therapy)',
     },
     {
       id: 'hormone',
@@ -51,7 +51,7 @@ export const treatmentOptions = {
     },
     {
       id: 'herbal',
-      description: 'Over-the-counter herbal options (e.g.: soy, black cohosh)',
+      description: 'Over-the-counter herbal options (e.g., soy, black cohosh)',
       answer: 'over-the-counter herbal options',
     },
     {
@@ -61,8 +61,8 @@ export const treatmentOptions = {
     },
     {
       id: 'compound-hormone',
-      description: 'Compounded hormone therapy (e.g. bioidentical hormone therapy)',
-      answer: 'compounded hormone therapy (e.g. bioidentical hormone therapy)',
+      description: 'Compounded hormone therapy (e.g., bioidentical hormone therapy)',
+      answer: 'compounded hormone therapy (e.g., bioidentical hormone therapy)',
     },
     {
       id: 'hormone',
@@ -79,7 +79,7 @@ export const treatmentOptions = {
     },
     {
       id: 'herbal',
-      description: 'Over-the-counter herbal options (e.g.: soy, black cohosh)',
+      description: 'Over-the-counter herbal options (e.g., soy, black cohosh)',
       answer: 'over-the-counter herbal options',
     },
     {

@@ -6,7 +6,7 @@ export const historyOptions = {
     { id: 'heart-disease', description: 'Coronary Heart Disease' },
     { id: 'heart-attack', description: 'Heart Attack' },
     { id: 'stroke', description: 'Stroke' },
-    { id: 'blood-clot', description: 'Blood Clot (e.g. leg, lung, or elsewhere)' },
+    { id: 'blood-clot', description: 'Blood Clot (e.g., leg, lung, or elsewhere)' },
     { id: 'thrombo', description: 'Thrombophilia' },
     { id: 'liver-disease', description: 'Liver Disease' },
     { id: 'blood-pressure', description: 'High Blood Pressure' },

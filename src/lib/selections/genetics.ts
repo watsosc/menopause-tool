@@ -10,7 +10,7 @@ export const geneticsOptions = {
     },
     {
       id: 'clot',
-      description: 'A gene that increases my risk of blood clot (e.g. Factor V Leiden)',
+      description: 'A gene that increases my risk of blood clot (e.g., Factor V Leiden)',
       answer: 'a gene that increases your risk of blood clot'
     },
     {
@@ -25,7 +25,7 @@ export const geneticsOptions = {
         {
           id: 'breast-cancer-close',
           description: 'Mother, father, sister or brother',
-          answer: 'at least one first degree relative had this (e.g. mother, father, sister or brother)',
+          answer: 'at least one first degree relative had this (e.g., mother, father, sister or brother)',
         },
         {
           id: 'breast-cancer-distant',
@@ -38,11 +38,11 @@ export const geneticsOptions = {
       id: 'ovarian-cancer', description: 'Ovarian Cancer', suboptions: [
         {
           id: 'ovarian-cancer-close', description: 'Mother or sister',
-          answer: 'at least one first degree relative had this (e.g. mother or sister)',
+          answer: 'at least one first degree relative had this (e.g., mother or sister)',
         },
         {
           id: 'ovarian-cancer-distant', description: 'Aunt or grandparent',
-          answer: 'at least one second degree relative had this (e.g., aunt, grandparent)',
+          answer: 'at least one second degree relative had this (e.g., aunt or grandparent)',
         },
       ]
     },
@@ -50,7 +50,7 @@ export const geneticsOptions = {
       id: 'blood-clot', description: 'Blood Clot (leg or lungs)', suboptions: [
         {
           id: 'blood-clot-close', description: 'Mother, father, sister or brother',
-          answer: 'at least one first degree relative had this (e.g. mother, father, sister or brother)',
+          answer: 'at least one first degree relative had this (e.g., mother, father, sister or brother)',
         },
         {
           id: 'blood-clot-distant', description: 'Aunt, uncle or grandparent',
@@ -62,7 +62,7 @@ export const geneticsOptions = {
       id: 'stroke', description: 'Stroke', suboptions: [
         {
           id: 'stroke-close', description: 'Mother, father, sister or brother',
-          answer: 'at least one first degree relative had this (e.g. mother, father, sister or brother)',
+          answer: 'at least one first degree relative had this (e.g., mother, father, sister or brother)',
         },
         {
           id: 'stroke-distant', description: 'Aunt, uncle or grandparent',
@@ -74,7 +74,7 @@ export const geneticsOptions = {
       id: 'heart', description: 'Heart Attack', suboptions: [
         {
           id: 'heart-close', description: 'Mother, father, sister or brother',
-          answer: 'at least one first degree relative had this (e.g. mother, father, sister or brother)',
+          answer: 'at least one first degree relative had this (e.g., mother, father, sister or brother)',
         },
         {
           id: 'heart-distant', description: 'Aunt, uncle or grandparent',

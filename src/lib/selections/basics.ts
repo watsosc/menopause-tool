@@ -2,7 +2,7 @@ export const basicsOptions = {
   period: [
     {
       id: 'regular',
-      description: 'I am still getting my period regularly.',
+      description: 'I am still getting my period <b>regularly</b>.',
       answer: 'you are still getting your period regularly',
     },
     {
@@ -24,6 +24,11 @@ export const basicsOptions = {
       id: 'surgery',
       description: 'I had a uterine surgery (e.g., hysterectomy, uterine ablation) and that stopped my periods but I still have my ovaries.',
       answer: ' have had a uterine surgery (e.g., hysterectomy, uterine ablation) and that stopped your periods but you still have your ovaries'
+    },
+    {
+      id: 'medication',
+      description: 'I use a medication that has stopped my periods (e.g., Lupron, Mirena IUD, birth control pill).',
+      answer: ' are using a medication that has stopped my periods (e.g., Lupron, Mirena IUD, birth control pill)'
     }
   ],
   menopause: [
