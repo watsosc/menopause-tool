@@ -37,9 +37,10 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
-	import { basicsSchema } from '$lib/validation/schema';
+	import { basicsSchema, menopauseSchema } from '$lib/validation/schema';
 	import { goto } from '$app/navigation';
 
+	let passed = new Set();
 	let errors = {};
 
 	type Inner = {
@@ -59,13 +60,26 @@
 	};
 
 	const onSubmit = () => {
+		errors = {};
+
 		basicsSchema
 			.validate($basics, { abortEarly: false })
 			.then(() => {
-				goto('/results');
+				passed.add('basics');
 			})
 			.catch((e) => {
-				errors = extractErrors(e);
+				errors = { ...errors, ...extractErrors(e) };
+				console.log(JSON.stringify(errors, null, 2));
+			});
+
+		menopauseSchema
+			.validate($menopause, { abortEarly: false })
+			.then(() => {
+				passed.add('menopause');
+			})
+			.catch((e) => {
+				console.log(JSON.stringify($menopause, null, 2));
+				errors = { ...errors, ...extractErrors(e) };
 				console.log(JSON.stringify(errors, null, 2));
 			});
 	};
@@ -292,12 +306,6 @@
 						options={habitsOptions.cannabis}
 					/>
 					<SingleSelectQuestion
-						name="habits-smoke"
-						title="Do you currently smoke?"
-						bind:selection={$habits.smoking}
-						options={habitsOptions.smoking}
-					/>
-					<SingleSelectQuestion
 						name="habits-alcohol"
 						title="How much alcohol do you drink in a week?"
 						bind:selection={$habits.alcohol}
@@ -305,10 +313,15 @@
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
-					<MultiSelectQuestion
+					<SingleSelectQuestion
+						name="habits-smoke"
+						title="Do you currently smoke?"
+						bind:selection={$habits.smoking}
+						options={habitsOptions.smoking}
+					/>
+					<SingleSelectQuestion
 						name="habits-exercise"
-						title="Please choose the statement(s) that best describe your exercise habits."
-						subtitle="Choose all that apply."
+						title="Please choose the statement that best describes your exercise habits."
 						bind:selection={$habits.exercise}
 						options={habitsOptions.exercise}
 					/>

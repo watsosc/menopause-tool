@@ -39,7 +39,7 @@ export const menopause = writable<Menopause>({
 
 export const menopauseEntryDisabled = derived(
   menopause,
-  $menopause => $menopause.other != 'yes'
+  $menopause => $menopause.other !== 'yes'
 )
 
 type Treatment = {
@@ -75,7 +75,7 @@ export const medication = writable<Medication>({
 
 export const medicationEntryDisabled = derived(
   medication,
-  $medication => $medication.allergiesSelect != 'yes'
+  $medication => $medication.allergiesSelect !== 'yes'
 )
 
 type History = {
@@ -100,20 +100,20 @@ export const surgeries = writable<Surgeries>({
 
 export const surgeriesEntryDisabled = derived(
   surgeries,
-  $surgeries => $surgeries.ovariesRemoved != 'yes'
+  $surgeries => $surgeries.ovariesRemoved !== 'yes'
 )
 
 type Habits = {
   cannabis: string;
   smoking: string;
   alcohol: string;
-  exercise: string[];
+  exercise: string;
 }
 export const habits = writable<Habits>({
   cannabis: '',
   smoking: '',
   alcohol: '',
-  exercise: [],
+  exercise: '',
 });
 
 export const screening = writable({

@@ -43,7 +43,7 @@ export const habitsOptions = {
   exercise: [
     {
       id: 'none',
-      description: 'I do not excercise.',
+      description: 'I do not exercise.',
       answer: 'Do not exercise',
     },
     {

@@ -9,7 +9,11 @@
 
 	const handleChange = (event: Event) => {
 		const target = event.target as HTMLInputElement;
-		selection = target.value;
+		if (selection === target.value) {
+			selection = '';
+		} else {
+			selection = target.value;
+		}
 	};
 </script>
 
