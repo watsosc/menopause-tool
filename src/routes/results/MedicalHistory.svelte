@@ -33,9 +33,9 @@
 				</ul>
 			{/if}
 			<p class="font-body text-xl">
-				{#if $history.bloodPressure == 'uncontrolled'}
+				{#if $history.bloodPressure === 'uncontrolled'}
 					You have high blood pressure but it is not controlled.
-				{:else if $history.bloodPressure == 'controlled'}
+				{:else if $history.bloodPressure === 'controlled'}
 					You have a high blood pressure but it is controlled.
 				{:else}
 					You have no history of high blood pressure.

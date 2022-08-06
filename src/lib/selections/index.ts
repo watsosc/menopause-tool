@@ -10,7 +10,7 @@ import { historyOptions } from './history';
 import type { SelectOption } from './selectOption';
 
 const getAnswer = (list: SelectOption[], response: string) => {
-  const selection = list.find((option: SelectOption) => option.id == response);
+  const selection = list.find((option: SelectOption) => option.id === response);
 
   return selection?.answer || selection?.description;
 };
@@ -39,7 +39,7 @@ const getMultiSelectAnswer = (
 
       const subSelection = selected.filter(
         (selection) => option.suboptions?.some(
-          (suboption: SelectOption) => suboption.id == selection
+          (suboption: SelectOption) => suboption.id === selection
         )
       )
       return formatter(response, getMultiSelectList(option.suboptions, subSelection));

@@ -5,10 +5,10 @@
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 
 	const bleeding = () => {
-		if ($basics.bleeding == 'yes') {
+		if ($basics.bleeding === 'yes') {
 			return `You indicated that you <b>may have had postmenopausal bleeding</b>.`;
 		}
-		if ($basics.bleeding == 'no') {
+		if ($basics.bleeding === 'no') {
 			return `You have <b>not</b> had any postmenopausal bleeding.`;
 		}
 

@@ -6,6 +6,11 @@
 	export let option: SelectOption;
 	export let selection: string;
 	export let disabled: boolean = false;
+
+	const handleChange = (event: Event) => {
+		const target = event.target as HTMLInputElement;
+		selection = target.value;
+	};
 </script>
 
 <div class="flex flex-row items-start mt-1">
@@ -15,8 +20,9 @@
 		id={`${name}-${id}`}
 		{name}
 		value={option.id}
-		bind:group={selection}
 		{disabled}
+		checked={selection === option.id}
+		on:change|preventDefault={handleChange}
 	/>
 	<label class="text-lg font-body ml-2 leading-snug" for={`${name}-${id}`}>
 		{@html option.description}

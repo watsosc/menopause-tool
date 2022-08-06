@@ -37,10 +37,38 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
+	import { basicsSchema } from '$lib/validation/schema';
+	import { goto } from '$app/navigation';
 
-	function onSubmit(e: SubmitEvent) {
-		const formData = new FormData(e.target as HTMLFormElement);
-	}
+	let errors = {};
+
+	type Inner = {
+		path: string;
+		message: string;
+	};
+
+	type Container = {
+		inner: Inner[];
+	};
+
+	const extractErrors = (props: Container) => {
+		const { inner } = props;
+		return inner.reduce((acc, err) => {
+			return { ...acc, [err.path]: err.message };
+		}, {});
+	};
+
+	const onSubmit = () => {
+		basicsSchema
+			.validate($basics, { abortEarly: false })
+			.then(() => {
+				goto('/results');
+			})
+			.catch((e) => {
+				errors = extractErrors(e);
+				console.log(JSON.stringify(errors, null, 2));
+			});
+	};
 </script>
 
 <div class="container mx-auto px-4">
@@ -337,16 +365,16 @@
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
-	</form>
 
-	<div class="flex flex-row justify-center my-8">
-		<button
-			type="submit"
-			class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"
-		>
-			<div class="small-capper">Generate History Summary</div>
-		</button>
-	</div>
+		<div class="flex flex-row justify-center my-8">
+			<button
+				type="submit"
+				class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"
+			>
+				<div class="small-capper">Generate History Summary</div>
+			</button>
+		</div>
+	</form>
 </div>
 
 <style>

@@ -19,7 +19,7 @@
 					{/each}
 				</ul>
 			{/if}
-			{#if $menopause.other == 'yes'}
+			{#if $menopause.other === 'yes'}
 				<p class="font-body text-xl mt-2">
 					You have also indicated that you are suffering from: {$menopause.otherEntry}.
 				</p>
