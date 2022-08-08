@@ -9,7 +9,8 @@ module.exports = {
       'grey': 'rgb(235,234,234)',
       'white': 'rgb(255,255,255)',
       'green': '#98F5E1',
-      'orange': '#fde4cf'
+      'orange': '#fde4cf',
+      'error': '#db2777'
     },
     fontFamily: {
       'title': ['Nunito'],

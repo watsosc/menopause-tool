@@ -13,7 +13,9 @@
 		menopauseEntryDisabled,
 		medicationEntryDisabled,
 		treatmentEntryDisabled,
-		surgeriesEntryDisabled
+		surgeriesEntryDisabled,
+		bleedingEntryDisabled,
+		store
 	} from '../store';
 
 	import {
@@ -37,11 +39,8 @@
 		screeningOptions,
 		geneticsOptions
 	} from '$lib/selections';
-	import { basicsSchema, menopauseSchema } from '$lib/validation/schema';
+	import { schema } from '$lib/validation/schema';
 	import { goto } from '$app/navigation';
-
-	let passed = new Set();
-	let errors = {};
 
 	type Inner = {
 		path: string;
@@ -51,6 +50,12 @@
 	type Container = {
 		inner: Inner[];
 	};
+
+	type Error = {
+		[key: string]: string;
+	};
+
+	let errors: Error = {};
 
 	const extractErrors = (props: Container) => {
 		const { inner } = props;
@@ -62,24 +67,13 @@
 	const onSubmit = () => {
 		errors = {};
 
-		basicsSchema
-			.validate($basics, { abortEarly: false })
+		schema
+			.validate($store, { abortEarly: false })
 			.then(() => {
-				passed.add('basics');
+				goto('/results');
 			})
 			.catch((e) => {
-				errors = { ...errors, ...extractErrors(e) };
-				console.log(JSON.stringify(errors, null, 2));
-			});
-
-		menopauseSchema
-			.validate($menopause, { abortEarly: false })
-			.then(() => {
-				passed.add('menopause');
-			})
-			.catch((e) => {
-				console.log(JSON.stringify($menopause, null, 2));
-				errors = { ...errors, ...extractErrors(e) };
+				errors = extractErrors(e);
 				console.log(JSON.stringify(errors, null, 2));
 			});
 	};
@@ -96,17 +90,22 @@
 			<QuestionBlock>
 				<QuestionColumn>
 					<TextEntryQuestion
-						name="basic-age"
+						name="age"
 						title="How old are you?"
 						context="years old"
 						bind:text={$basics.age}
+						error={errors['age']}
 					/>
-					<HeightTextEntryQuestion />
+					<HeightTextEntryQuestion
+						feetError={errors['heightFeet']}
+						inchError={errors['heightInch']}
+					/>
 					<TextEntryQuestion
-						name="basic-weight"
+						name="weight"
 						title="How much do you weigh?"
 						context="pounds"
 						bind:text={$basics.weight}
+						error={errors['weight']}
 					/>
 					<div class="flex flex-col items-center">
 						<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
@@ -115,17 +114,20 @@
 				</QuestionColumn>
 				<QuestionColumn>
 					<SingleSelectQuestion
-						name="basic-period"
+						name="period"
 						title="When was your last period?"
 						subtitle="Choose the option that best describes you."
 						bind:selection={$basics.period}
+						error={errors['period']}
 						options={basicsOptions.period}
 					/>
 					<SingleSelectQuestion
-						name="basic-period"
+						name="bleeding"
 						title="If it has been <b>one year or more</b> since your last period, have you had any vaginal bleeding?"
 						bind:selection={$basics.bleeding}
+						error={errors['bleeding']}
 						options={basicsOptions.menopause}
+						disabled={$bleedingEntryDisabled}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>

@@ -34,6 +34,5 @@ export const basicsOptions = {
   menopause: [
     { id: 'yes', description: 'Yes' },
     { id: 'no', description: 'No' },
-    { id: 'not-applicable', description: 'It has been less than a year since my last period.' },
   ]
 }

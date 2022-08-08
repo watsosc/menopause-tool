@@ -10,7 +10,10 @@ export const basicsSchema = yup.object().shape({
   heightInch: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   weight: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   period: yup.string().required(REQUIRED),
-  bleeding: yup.string().required(REQUIRED),
+  bleeding: yup.string().when("period", {
+    is: (value: string) => value === 'one-year' || value === 'ten-year',
+    then: yup.string().required(REQUIRED_WHEN("I have not had my period in over a year")),
+  }),
 });
 
 export const menopauseSchema = yup.object().shape({
@@ -75,3 +78,13 @@ export const geneticSchema = yup.object().shape({
   genes: yup.array().of(yup.string()).optional(),
   family: yup.array().of(yup.string()).optional(),
 })
+
+export const schema = basicsSchema
+  .concat(menopauseSchema)
+  .concat(treatmentsSchema)
+  .concat(medicationsSchema)
+  .concat(historySchema)
+  .concat(surgeriesSchema)
+  .concat(habitsSchema)
+  .concat(screeningSchema)
+  .concat(geneticSchema);

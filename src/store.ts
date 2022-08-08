@@ -9,6 +9,11 @@ export const basics = writable({
   bleeding: '',
 });
 
+export const bleedingEntryDisabled = derived(
+  basics,
+  $basics => !['one-year', 'ten-year'].includes($basics.period)
+)
+
 export const bmi = derived(
   basics,
   $basics => {
@@ -130,3 +135,26 @@ export const genetics = writable<Genetics>({
   genes: [],
   family: [],
 });
+
+export const store = derived(
+  [basics, menopause, treatment, medication, history, surgeries, habits, screening, genetics],
+  ([$basics,
+    $menopause,
+    $treatment,
+    $medication,
+    $history,
+    $surgeries,
+    $habits,
+    $screening,
+    $genetics]) => ({
+      ...$basics,
+      ...$menopause,
+      ...$treatment,
+      ...$medication,
+      ...$history,
+      ...$surgeries,
+      ...$habits,
+      ...$screening,
+      ...$genetics,
+    })
+)

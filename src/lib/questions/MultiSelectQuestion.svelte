@@ -7,8 +7,21 @@
 	export let subtitle: string | null = null;
 	export let options: SelectOption[];
 	export let selection: string[];
+	export let error: string = '';
+	export let errorOption: string = '';
 
 	$: selected = selection;
+
+	$: errorMessage = error;
+	$: isError = Boolean(error);
+	$: errorField = errorOption;
+
+	const inputClasses = {
+		default:
+			'w-5 h-5 mx-2 mt-1 rounded border-primary border-2 text-title focus:ring-2 focus:ring-title disabled:border-grey disabled:text-white',
+		error:
+			'w-5 h-5 mx-2 mt-1 rounded border-error border-2 text-title focus:ring-2 focus:ring-title'
+	};
 </script>
 
 <div class="flex flex-col mb-4">
@@ -16,7 +29,7 @@
 	{#each options as option, i (option.id)}
 		<div class="flex flex-row items-start mt-1">
 			<input
-				class="w-5 h-5 mx-2 mt-1 rounded border-primary border-2 text-title focus:ring-2 focus:ring-title"
+				class={inputClasses['default']}
 				type="checkbox"
 				id={`${name}-${i}`}
 				{name}
@@ -32,7 +45,7 @@
 				<div class="ml-2">
 					<div class="flex flex-row items-start mt-1">
 						<input
-							class="w-5 h-5 mx-2 mt-1 rounded border-primary border-2 text-title focus:ring-2 focus:ring-title"
+							class={inputClasses[isError && errorField === option.id ? 'error' : 'default']}
 							type="checkbox"
 							id={`${name}-${i}-${j}`}
 							{name}
@@ -45,6 +58,9 @@
 					</div>
 				</div>
 			{/each}
+			{#if isError && errorField === option.id}
+				<p class="flex-row w-full mt-2 mb-1 mx-4 text-error">{@html errorMessage}</p>
+			{/if}
 		{/if}
 	{/each}
 </div>
