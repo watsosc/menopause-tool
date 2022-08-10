@@ -103,9 +103,14 @@ export const surgeries = writable<Surgeries>({
   ovariesAge: '',
 });
 
-export const surgeriesEntryDisabled = derived(
+export const surgeriesOvariesDisabled = derived(
   surgeries,
-  $surgeries => $surgeries.ovariesRemoved !== 'yes'
+  $surgeries => !$surgeries.received.includes('bilateral')
+)
+
+export const surgeriesEntryDisabled = derived(
+  [surgeries, surgeriesOvariesDisabled],
+  ([$surgeries, $surgeriesOvariesDisabled]) => $surgeriesOvariesDisabled || $surgeries.ovariesRemoved !== 'yes'
 )
 
 type Habits = {

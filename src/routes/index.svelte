@@ -1,4 +1,13 @@
 <script lang="ts">
+	import Genetics from '$lib/titles/icons/genetics.svg';
+	import Habits from '$lib/titles/icons/habits.svg';
+	import Medications from '$lib/titles/icons/meds-allergies.svg';
+	import Past from '$lib/titles/icons/pastmedical.svg';
+	import Screening from '$lib/titles/icons/screening.svg';
+	import Surgeries from '$lib/titles/icons/surgeries.svg';
+	import Symptoms from '$lib/titles/icons/symptoms.svg';
+	import Treatment from '$lib/titles/icons/treatment.svg';
+
 	import {
 		basics,
 		menopause,
@@ -15,6 +24,7 @@
 		treatmentEntryDisabled,
 		surgeriesEntryDisabled,
 		bleedingEntryDisabled,
+		surgeriesOvariesDisabled,
 		store
 	} from '../store';
 
@@ -74,7 +84,6 @@
 			})
 			.catch((e) => {
 				errors = extractErrors(e);
-				console.log(JSON.stringify(errors, null, 2));
 			});
 	};
 </script>
@@ -133,7 +142,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar>Questions about your Menopause Symptoms</TitleBar>
+			<TitleBar Icon={Symptoms}>Questions about your Menopause Symptoms</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -142,18 +151,21 @@
 						subtitle="Choose all that apply."
 						bind:selection={$menopause.symptoms}
 						options={menopauseOptions.symptoms}
+						error={errors['symptoms']}
 					/>
 					<SingleSelectQuestion
 						name="menopause-other"
 						title="If you have any other symptoms that you think are caused by menopause, please write them here:"
 						bind:selection={$menopause.other}
 						options={menopauseOptions.other}
+						error={errors['other']}
 					/>
 					<div class="-mt-2">
 						<FreeTextEntry
 							name="menopause-other-entry"
 							bind:text={$menopause.otherEntry}
 							disabled={$menopauseEntryDisabled}
+							error={errors['otherEntry']}
 						/>
 					</div>
 				</QuestionColumn>
@@ -164,6 +176,7 @@
 						subtitle="Choose the option that best describes you."
 						bind:selection={$menopause.sleep}
 						options={menopauseOptions.sleep}
+						error={errors['sleep']}
 					/>
 					<SingleSelectQuestion
 						name="menopause-mood"
@@ -171,12 +184,13 @@
 						subtitle="Choose the option that best describes you."
 						bind:selection={$menopause.mood}
 						options={menopauseOptions.depression}
+						error={errors['mood']}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar>Questions about your Menopause Treatments</TitleBar>
+			<TitleBar Icon={Treatment}>Questions about your Menopause Treatments</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -185,6 +199,7 @@
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.all}
 						options={treatmentOptions.all}
+						error={errors['all']}
 					/>
 					<MultiSelectQuestion
 						name="therapy-current"
@@ -192,6 +207,7 @@
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.current}
 						options={treatmentOptions.current}
+						error={errors['current']}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -202,6 +218,7 @@
 						bind:selection={$treatment.helping}
 						options={treatmentOptions.helping}
 						disabled={$treatmentEntryDisabled}
+						error={errors['helping']}
 					/>
 					<MultiSelectQuestion
 						name="therapy-interested"
@@ -209,12 +226,13 @@
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.interested}
 						options={treatmentOptions.interested}
+						error={errors['interested']}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar>Questions about your Medications and Allergies</TitleBar>
+			<TitleBar Icon={Medications}>Questions about your Medications and Allergies</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -223,6 +241,7 @@
 						subtitle="Choose all that apply."
 						bind:selection={$medication.medicationSelection}
 						options={medicationOptions.medications}
+						error={errors['medicationSelection']}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -230,18 +249,21 @@
 						name="medications-entry"
 						title="Please enter all the medications that you take on a regular basis."
 						bind:text={$medication.medicationEntry}
+						error={errors['medicationEntry']}
 					/>
 					<SingleSelectQuestion
 						name="medications-allergies"
 						title="Allergies"
 						bind:selection={$medication.allergiesSelect}
 						options={medicationOptions.allergies}
+						error={errors['allergiesSelect']}
 					/>
 					<div class="-mt-2">
 						<FreeTextEntry
 							name="medications-allergies-entry"
 							bind:text={$medication.allergiesText}
 							disabled={$medicationEntryDisabled}
+							error={errors['allergiesText']}
 						/>
 					</div>
 				</QuestionColumn>
@@ -250,7 +272,7 @@
 		<div class="flex flex-col md:flex-row gap-4">
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar>Questions about Past Medical History</TitleBar>
+					<TitleBar Icon={Past}>Questions about Past Medical History</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="conditions-select"
@@ -258,19 +280,21 @@
 							subtitle="Choose all that apply."
 							bind:selection={$history.conditions}
 							options={historyOptions.conditions}
+							error={errors['conditions']}
 						/>
 						<SingleSelectQuestion
 							name="conditions-blood"
 							title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
 							bind:selection={$history.bloodPressure}
 							options={historyOptions.bloodPressure}
+							error={errors['bloodPressure']}
 						/>
 					</div>
 				</Card>
 			</div>
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar>Questions about Previous Surgeries</TitleBar>
+					<TitleBar Icon={Surgeries}>Questions about Previous Surgeries</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="surgery-select"
@@ -278,12 +302,15 @@
 							subtitle="Choose all that apply."
 							bind:selection={$surgeries.received}
 							options={surgeryOptions.surgeries}
+							error={errors['received']}
 						/>
 						<SingleSelectQuestion
 							name="surgery-ovaries"
 							title="If you have had your ovaries removed, how old were you?"
 							bind:selection={$surgeries.ovariesRemoved}
 							options={surgeryOptions.ovaries}
+							error={errors['ovariesRemoved']}
+							disabled={$surgeriesOvariesDisabled}
 						/>
 						<div class="-mt-2">
 							<FreeTextEntry
@@ -291,6 +318,7 @@
 								bind:text={$surgeries.ovariesAge}
 								context="years old"
 								disabled={$surgeriesEntryDisabled}
+								error={errors['ovariesAge']}
 							/>
 						</div>
 					</div>
@@ -298,7 +326,7 @@
 			</div>
 		</div>
 		<Card>
-			<TitleBar>Questions about Habits</TitleBar>
+			<TitleBar Icon={Habits}>Questions about Habits</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -306,12 +334,14 @@
 						title="Do you use cannabis regularly?"
 						bind:selection={$habits.cannabis}
 						options={habitsOptions.cannabis}
+						error={errors['cannabis']}
 					/>
 					<SingleSelectQuestion
 						name="habits-alcohol"
 						title="How much alcohol do you drink in a week?"
 						bind:selection={$habits.alcohol}
 						options={habitsOptions.alcohol}
+						error={errors['alcohol']}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -320,18 +350,20 @@
 						title="Do you currently smoke?"
 						bind:selection={$habits.smoking}
 						options={habitsOptions.smoking}
+						error={errors['smoking']}
 					/>
 					<SingleSelectQuestion
 						name="habits-exercise"
 						title="Please choose the statement that best describes your exercise habits."
 						bind:selection={$habits.exercise}
 						options={habitsOptions.exercise}
+						error={errors['exercise']}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar>Questions about Screening</TitleBar>
+			<TitleBar Icon={Screening}>Questions about Screening</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -339,12 +371,14 @@
 						title="When was your last mammogram?"
 						bind:selection={$screening.mammogram}
 						options={screeningOptions.mammogram}
+						error={errors['mammogram']}
 					/>
 					<SingleSelectQuestion
 						name="screening-pap"
 						title="When was your last Pap test?"
 						bind:selection={$screening.pap}
 						options={screeningOptions.pap}
+						error={errors['pap']}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -353,12 +387,13 @@
 						title="If you have had a bone density scan, have you been told that you have low bone density (e.g., osteopenia or osteoporosis)?"
 						bind:selection={$screening.bones}
 						options={screeningOptions.bones}
+						error={errors['bones']}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar>Questions about Family and Genetic History</TitleBar>
+			<TitleBar Icon={Genetics}>Questions about Family and Genetic History</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -367,6 +402,7 @@
 						subtitle="Choose all that apply."
 						bind:selection={$genetics.genes}
 						options={geneticsOptions.genes}
+						error={errors['genes']}
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
@@ -376,6 +412,7 @@
 						subtitle="Choose all that apply."
 						bind:selection={$genetics.family}
 						options={geneticsOptions.family}
+						error={errors['family']}
 					/>
 				</QuestionColumn>
 			</QuestionBlock>

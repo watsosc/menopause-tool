@@ -54,7 +54,10 @@ export const historySchema = yup.object().shape({
 
 export const surgeriesSchema = yup.object().shape({
   received: yup.array().of(yup.string()).optional(),
-  ovariesRemoved: yup.string().required(REQUIRED),
+  ovariesRemoved: yup.string().when("received", {
+    is: (values: string[]) => values.includes('bilateral'),
+    then: yup.string().required(REQUIRED),
+  }),
   ovariesAge: yup.string().when("ovariesRemoved", {
     is: "yes",
     then: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
