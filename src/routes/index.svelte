@@ -84,6 +84,7 @@
 			})
 			.catch((e) => {
 				errors = extractErrors(e);
+				console.log(errors);
 			});
 	};
 </script>

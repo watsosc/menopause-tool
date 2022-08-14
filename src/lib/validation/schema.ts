@@ -38,7 +38,18 @@ export const treatmentsSchema = yup.object().shape({
 });
 
 export const medicationsSchema = yup.object().shape({
-  medicationSelection: yup.array().of(yup.string()).optional(),
+  medicationSelection: yup.array().of(yup.string()).test({
+    name: 'sub-select',
+    message: "Must select a sub-option when 'Medication to help my menopause symptoms' is selected",
+    test: (value) => {
+      const containsMenopause = Boolean(value?.includes('menopause'));
+      const containsSuboption = Boolean(value?.reduce(
+        (acc, current) => acc && current !== undefined &&
+          ["menopause-hormone", "menopause-compound", "menopause-other"].includes(current), true));
+
+      return containsMenopause && containsSuboption;
+    }
+  }),
   medicationEntry: yup.string().optional(),
   allergiesSelect: yup.string().required(REQUIRED),
   allergiesText: yup.string().when("allergiesSelect", {
@@ -79,7 +90,22 @@ export const screeningSchema = yup.object().shape({
 
 export const geneticSchema = yup.object().shape({
   genes: yup.array().of(yup.string()).optional(),
-  family: yup.array().of(yup.string()).optional(),
+  family: yup.array().of(yup.string()).test({
+    name: 'sub-select',
+    message: "Must select which relative had the selected condition(s).",
+    test: (value) => {
+      if (value === undefined) {
+        return true;
+      }
+      const selectedConditions = value.filter(
+        (val) => !val?.endsWith('-close') && !val?.endsWith('-distant'));
+      const validConditions = selectedConditions.length === 0 ||
+        selectedConditions.every(
+          (cond) => value.includes(`${cond}-close`) || value.includes(`${cond}-distant`));
+
+      return validConditions;
+    }
+  }),
 })
 
 export const schema = basicsSchema

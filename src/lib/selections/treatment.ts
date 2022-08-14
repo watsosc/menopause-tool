@@ -1,6 +1,11 @@
 export const treatmentOptions = {
   all: [
     {
+      id: 'none',
+      description: 'None',
+      answer: 'none',
+    },
+    {
       id: 'life-mod',
       description: 'Lifestyle modifications',
       answer: 'lifestyle modifications',
@@ -44,6 +49,11 @@ export const treatmentOptions = {
     },
   ],
   current: [
+    {
+      id: 'none',
+      description: 'None',
+      answer: 'none',
+    },
     {
       id: 'life-mod',
       description: 'Lifestyle modifications',

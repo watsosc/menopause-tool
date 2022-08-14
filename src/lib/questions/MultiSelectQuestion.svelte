@@ -58,9 +58,9 @@
 					</div>
 				</div>
 			{/each}
-			{#if isError && errorField === option.id}
-				<p class="flex-row w-full mt-2 mb-1 mx-4 text-error">{@html errorMessage}</p>
-			{/if}
 		{/if}
 	{/each}
+	{#if isError}
+		<p class="flex-row w-full mt-2 mb-1 mx-4 text-error">{@html errorMessage}</p>
+	{/if}
 </div>
