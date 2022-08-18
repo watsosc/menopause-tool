@@ -53,7 +53,7 @@ export const medicationsSchema = yup.object().shape({
         (acc, current) => acc || (current !== undefined &&
           ["menopause-hormone", "menopause-compound", "menopause-other"].includes(current)), false));
 
-      return containsMenopause && containsSuboption;
+      return !containsMenopause || containsSuboption;
     }
   }),
   medicationEntry: yup.string().optional(),
@@ -75,7 +75,7 @@ export const surgeriesSchema = yup.object().shape({
     is: (values: string[]) => values.includes('bilateral'),
     then: yup.string().required(REQUIRED),
   }),
-  ovariesAge: yup.string().when("ovariesRemoved", {
+  ovariesAge: yup.number().when("ovariesRemoved", {
     is: "yes",
     then: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
   }),

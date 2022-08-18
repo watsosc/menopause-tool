@@ -3,6 +3,7 @@
 	import Genetics from './Genetics.svelte';
 	import Habits from './Habits.svelte';
 	import History from './History.svelte';
+	import MedicalHistory from './MedicalHistory.svelte';
 	import Medications from './Medications.svelte';
 	import Screening from './Screening.svelte';
 	import Surgery from './Surgery.svelte';
@@ -15,6 +16,7 @@
 <Symptoms />
 <Treatments />
 <Medications />
+<MedicalHistory />
 <Surgery />
 <Habits />
 <Screening />
