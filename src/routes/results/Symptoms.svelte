@@ -20,22 +20,22 @@
 				</ul>
 			{/if}
 			{#if $menopause.other === 'yes'}
-				<p class="font-body text-xl mt-2">
+				<p class="font-body text-xl mt-4">
 					You have also indicated that you are suffering from: {$menopause.otherEntry}.
 				</p>
 			{/if}
-			<p class="font-body text-xl mt-4">
-				Regarding <b>sleep</b>, you have indicated:
-			</p>
 			{#if !!$menopause.sleep}
+				<p class="font-body text-xl mt-4">
+					Regarding <b>sleep</b>, you have indicated:
+				</p>
 				<ul class="list-disc ml-10">
 					<li class="font-body text-xl">{getAnswer(menopauseOptions.sleep, $menopause.sleep)}</li>
 				</ul>
 			{/if}
-			<p class="font-body text-xl mt-4">
-				Regarding <b>mood</b>, you have indicated:
-			</p>
 			{#if !!$menopause.mood}
+				<p class="font-body text-xl mt-4">
+					Regarding <b>mood</b>, you have indicated:
+				</p>
 				<ul class="list-disc ml-10">
 					<li class="font-body text-xl">
 						{getAnswer(menopauseOptions.depression, $menopause.mood)}

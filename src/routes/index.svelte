@@ -131,14 +131,16 @@
 						error={errors['period']}
 						options={basicsOptions.period}
 					/>
-					<SingleSelectQuestion
-						name="bleeding"
-						title="If it has been <b>one year or more</b> since your last period, have you had any vaginal bleeding?"
-						bind:selection={$basics.bleeding}
-						error={errors['bleeding']}
-						options={basicsOptions.menopause}
-						disabled={$bleedingEntryDisabled}
-					/>
+					{#if !$bleedingEntryDisabled}
+						<SingleSelectQuestion
+							name="bleeding"
+							title="If it has been <b>one year or more</b> since your last period, have you had any vaginal bleeding?"
+							bind:selection={$basics.bleeding}
+							error={errors['bleeding']}
+							options={basicsOptions.menopause}
+							disabled={$bleedingEntryDisabled}
+						/>
+					{/if}
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
@@ -171,22 +173,26 @@
 					</div>
 				</QuestionColumn>
 				<QuestionColumn>
-					<SingleSelectQuestion
-						name="menopause-sleep"
-						title="Regarding <u>sleep</u>, are you waking with a night sweat or to void?"
-						subtitle="Choose the option that best describes you."
-						bind:selection={$menopause.sleep}
-						options={menopauseOptions.sleep}
-						error={errors['sleep']}
-					/>
-					<SingleSelectQuestion
-						name="menopause-mood"
-						title="Regarding <u>mood</u>, do you have a history of depression or anxiety outside of the time of menopause?"
-						subtitle="Choose the option that best describes you."
-						bind:selection={$menopause.mood}
-						options={menopauseOptions.depression}
-						error={errors['mood']}
-					/>
+					{#if $menopause.symptoms.includes('poor-sleep')}
+						<SingleSelectQuestion
+							name="menopause-sleep"
+							title="Regarding <u>sleep</u>, are you waking with a night sweat or to void?"
+							subtitle="Choose the option that best describes you."
+							bind:selection={$menopause.sleep}
+							options={menopauseOptions.sleep}
+							error={errors['sleep']}
+						/>
+					{/if}
+					{#if $menopause.symptoms.includes('bad-mood')}
+						<SingleSelectQuestion
+							name="menopause-mood"
+							title="Regarding <u>mood</u>, do you have a history of depression or anxiety outside of the time of menopause?"
+							subtitle="Choose the option that best describes you."
+							bind:selection={$menopause.mood}
+							options={menopauseOptions.depression}
+							error={errors['mood']}
+						/>
+					{/if}
 				</QuestionColumn>
 			</QuestionBlock>
 		</Card>
@@ -212,15 +218,17 @@
 					/>
 				</QuestionColumn>
 				<QuestionColumn>
-					<SingleSelectQuestion
-						name="therapy-medication"
-						title="If you are taking a medication for your menopause symptoms, is it helping you?"
-						subtitle="Choose the option that best describes you."
-						bind:selection={$treatment.helping}
-						options={treatmentOptions.helping}
-						disabled={$treatmentEntryDisabled}
-						error={errors['helping']}
-					/>
+					{#if !$treatmentEntryDisabled}
+						<SingleSelectQuestion
+							name="therapy-medication"
+							title="If you are taking a medication for your menopause symptoms, is it helping you?"
+							subtitle="Choose the option that best describes you."
+							bind:selection={$treatment.helping}
+							options={treatmentOptions.helping}
+							disabled={$treatmentEntryDisabled}
+							error={errors['helping']}
+						/>
+					{/if}
 					<MultiSelectQuestion
 						name="therapy-interested"
 						title="What menopause therapies are you most interested in?"
@@ -305,23 +313,25 @@
 							options={surgeryOptions.surgeries}
 							error={errors['received']}
 						/>
-						<SingleSelectQuestion
-							name="surgery-ovaries"
-							title="If you have had your ovaries removed, how old were you?"
-							bind:selection={$surgeries.ovariesRemoved}
-							options={surgeryOptions.ovaries}
-							error={errors['ovariesRemoved']}
-							disabled={$surgeriesOvariesDisabled}
-						/>
-						<div class="-mt-2">
-							<FreeTextEntry
-								name="surgery-ovaries-age"
-								bind:text={$surgeries.ovariesAge}
-								context="years old"
-								disabled={$surgeriesEntryDisabled}
-								error={errors['ovariesAge']}
+						{#if !$surgeriesOvariesDisabled}
+							<SingleSelectQuestion
+								name="surgery-ovaries"
+								title="If you have had your ovaries removed, how old were you?"
+								bind:selection={$surgeries.ovariesRemoved}
+								options={surgeryOptions.ovaries}
+								error={errors['ovariesRemoved']}
+								disabled={$surgeriesOvariesDisabled}
 							/>
-						</div>
+							<div class="-mt-2">
+								<FreeTextEntry
+									name="surgery-ovaries-age"
+									bind:text={$surgeries.ovariesAge}
+									context="years old"
+									disabled={$surgeriesEntryDisabled}
+									error={errors['ovariesAge']}
+								/>
+							</div>
+						{/if}
 					</div>
 				</Card>
 			</div>
@@ -409,7 +419,7 @@
 				<QuestionColumn>
 					<MultiSelectQuestion
 						name="genetics-family"
-						title="Please indicate if you have a family history of any of the following conditions and which relative had the condition."
+						title="Please indicate if you have a family history of any of the following conditions and which relative has/had the condition."
 						subtitle="Choose all that apply."
 						bind:selection={$genetics.family}
 						options={geneticsOptions.family}

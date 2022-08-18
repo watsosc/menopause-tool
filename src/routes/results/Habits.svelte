@@ -18,19 +18,7 @@
 			<p class="font-body text-xl mt-4">
 				{getAnswer(habitsOptions.alcohol, $habits.alcohol)}
 			</p>
-
-			{#if $habits.exercise.length > 0}
-				<p class="font-body text-xl mt-4">Regarding exercise, you indicated you:</p>
-				<ul class="list-disc ml-10">
-					{#each $habits.exercise as exercise}
-						<li class="font-body text-xl">{getAnswer(habitsOptions.exercise, exercise)}</li>
-					{/each}
-				</ul>
-			{:else}
-				<p class="font-body text-xl mt-4">
-					Regarding exercise, you indicated that you do not exercise.
-				</p>
-			{/if}
+			<p class="font-body text-xl mt-4">{getAnswer(habitsOptions.exercise, $habits.exercise)}</p>
 		</Content>
 	</Card>
 </div>

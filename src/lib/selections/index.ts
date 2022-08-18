@@ -16,6 +16,10 @@ const getAnswer = (list: SelectOption[], response: string) => {
 };
 
 const getMultiSelectList = (list: SelectOption[], selected: string[]) => {
+  if (selected.length === 1) {
+    return list.find((option: SelectOption) => selected[0] === option.id)?.answer || '';
+  }
+
   const options = list
     .filter((option: SelectOption) => selected.includes(option.id))
     .map((option: SelectOption) => option.answer)

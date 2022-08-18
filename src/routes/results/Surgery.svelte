@@ -32,10 +32,10 @@
 				</p>
 			{/if}
 			<p class="font-body text-xl mt-4">
-				{#if $surgeries.ovariesRemoved === 'no'}
-					Regarding ovaries specifically, you have never had surgery to remove your ovaries.
-				{:else}
+				{#if $surgeries.ovariesRemoved === 'yes'}
 					You had your ovaries removed when you were {$surgeries.ovariesAge} years old.
+				{:else}
+					Regarding ovaries specifically, you have never had surgery to remove your ovaries.
 				{/if}
 			</p>
 		</Content>

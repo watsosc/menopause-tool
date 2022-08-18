@@ -19,8 +19,14 @@ export const basicsSchema = yup.object().shape({
 export const menopauseSchema = yup.object().shape({
   symptoms: yup.array().of(yup.string()).optional(),
   other: yup.string().required(REQUIRED),
-  sleep: yup.string().required(REQUIRED),
-  mood: yup.string().required(REQUIRED),
+  sleep: yup.string().when("symptoms", {
+    is: (value: string[]) => value?.includes('poor-sleep'),
+    then: yup.string().required(REQUIRED_WHEN("poor sleep")),
+  }),
+  mood: yup.string().when("symptoms", {
+    is: (value: string[]) => value?.includes('bad-mood'),
+    then: yup.string().required(REQUIRED_WHEN("bad mood")),
+  }),
   otherEntry: yup.string().when("other", {
     is: "yes",
     then: yup.string().required(REQUIRED_WHEN("I am suffering from"))
@@ -44,8 +50,8 @@ export const medicationsSchema = yup.object().shape({
     test: (value) => {
       const containsMenopause = Boolean(value?.includes('menopause'));
       const containsSuboption = Boolean(value?.reduce(
-        (acc, current) => acc && current !== undefined &&
-          ["menopause-hormone", "menopause-compound", "menopause-other"].includes(current), true));
+        (acc, current) => acc || (current !== undefined &&
+          ["menopause-hormone", "menopause-compound", "menopause-other"].includes(current)), false));
 
       return containsMenopause && containsSuboption;
     }

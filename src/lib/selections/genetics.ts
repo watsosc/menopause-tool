@@ -25,12 +25,12 @@ export const geneticsOptions = {
         {
           id: 'breast-cancer-close',
           description: 'Mother, father, sister or brother',
-          answer: 'at least one first degree relative had this (e.g., mother, father, sister or brother)',
+          answer: 'at least one first degree relative has/had this (e.g., mother, father, sister or brother)',
         },
         {
           id: 'breast-cancer-distant',
           description: 'Aunt, uncle or grandparent',
-          answer: 'at least one second degree relative had this (e.g., aunt, uncle, grandparent)',
+          answer: 'at least one second degree relative has/had this (e.g., aunt, uncle, grandparent)',
         },
       ]
     },
@@ -38,11 +38,11 @@ export const geneticsOptions = {
       id: 'ovarian-cancer', description: 'Ovarian Cancer', suboptions: [
         {
           id: 'ovarian-cancer-close', description: 'Mother or sister',
-          answer: 'at least one first degree relative had this (e.g., mother or sister)',
+          answer: 'at least one first degree relative has/had this (e.g., mother or sister)',
         },
         {
           id: 'ovarian-cancer-distant', description: 'Aunt or grandparent',
-          answer: 'at least one second degree relative had this (e.g., aunt or grandparent)',
+          answer: 'at least one second degree relative has/had this (e.g., aunt or grandparent)',
         },
       ]
     },

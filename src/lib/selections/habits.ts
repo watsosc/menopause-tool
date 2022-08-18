@@ -44,12 +44,12 @@ export const habitsOptions = {
     {
       id: 'none',
       description: 'I do not exercise.',
-      answer: 'Do not exercise',
+      answer: 'You do not exercise.',
     },
     {
       id: 'frequent',
       description: 'I make an effort to incorporate exercise into my life.',
-      answer: 'Make an effort to incorporate exercise into your life.'
+      answer: 'You make an effort to incorporate exercise into your life.'
     },
   ],
 }
