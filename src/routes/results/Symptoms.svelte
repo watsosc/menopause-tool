@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Symptoms from '$lib/titles/icons/symptoms.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { menopause } from '../../store';
 	import { getAnswer, menopauseOptions } from '$lib/selections';
@@ -7,7 +8,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Current Menopause Symptoms</SummaryTitleBar>
+		<SummaryTitleBar Icon={Symptoms}>Current Menopause Symptoms</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
 				The symptoms of menopause that you <b>currently</b> experience are:

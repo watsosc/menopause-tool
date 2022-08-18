@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Surgeries from '$lib/titles/icons/surgeries.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { surgeries } from '../../store';
 	import { getMultiSelectAnswer, surgeryOptions } from '$lib/selections';
@@ -13,7 +14,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Previous Surgeries</SummaryTitleBar>
+		<SummaryTitleBar Icon={Surgeries}>Previous Surgeries</SummaryTitleBar>
 		<Content>
 			{#if $surgeries.received.length > 0}
 				<p class="font-body text-xl">

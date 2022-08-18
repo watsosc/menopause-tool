@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Habits from '$lib/titles/icons/habits.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { habits } from '../../store';
 	import { getAnswer, habitsOptions } from '$lib/selections';
@@ -7,7 +8,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Habits</SummaryTitleBar>
+		<SummaryTitleBar Icon={Habits}>Habits</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
 				{getAnswer(habitsOptions.cannabis, $habits.cannabis)}

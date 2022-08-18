@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Genetics from '$lib/titles/icons/genetics.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { genetics } from '../../store';
 	import { getAnswer, geneticsOptions, getMultiSelectAnswer } from '$lib/selections';
@@ -13,7 +14,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Family and Genetic History</SummaryTitleBar>
+		<SummaryTitleBar Icon={Genetics}>Family and Genetic History</SummaryTitleBar>
 		<Content>
 			{#if $genetics.genes.length > 0}
 				<p class="font-body text-xl">You have been told that you carry:</p>

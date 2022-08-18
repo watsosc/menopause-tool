@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Past from '$lib/titles/icons/pastmedical.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { history } from '../../store';
 	import { getAnswer, historyOptions } from '$lib/selections';
@@ -7,7 +8,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Medications</SummaryTitleBar>
+		<SummaryTitleBar Icon={Past}>Past Medical History</SummaryTitleBar>
 		<Content>
 			{#if $history.conditions.length > 0}
 				<p class="font-body text-xl">

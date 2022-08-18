@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Screening from '$lib/titles/icons/screening.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { screening } from '../../store';
 	import { getAnswer, screeningOptions } from '$lib/selections';
@@ -7,7 +8,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Screening</SummaryTitleBar>
+		<SummaryTitleBar Icon={Screening}>Screening</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
 				{getAnswer(screeningOptions.mammogram, $screening.mammogram)}

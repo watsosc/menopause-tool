@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Treatment from '$lib/titles/icons/treatment.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { treatment } from '../../store';
 	import { getAnswer, getMultiSelectList, treatmentOptions } from '$lib/selections';
@@ -7,7 +8,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Menopause Treatments</SummaryTitleBar>
+		<SummaryTitleBar Icon={Treatment}>Menopause Treatments</SummaryTitleBar>
 		<Content>
 			{#if $treatment.all.length > 0}
 				<p class="font-body text-xl">

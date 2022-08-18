@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Medications from '$lib/titles/icons/meds-allergies.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { medication } from '../../store';
 	import { getMultiSelectAnswer, medicationOptions } from '$lib/selections';
@@ -13,7 +14,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Medications</SummaryTitleBar>
+		<SummaryTitleBar Icon={Medications}>Medications</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
 				You were given a list of different types of medications. From this list, you indicated you
