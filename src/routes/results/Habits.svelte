@@ -10,16 +10,28 @@
 	<Card>
 		<SummaryTitleBar Icon={Habits}>Habits</SummaryTitleBar>
 		<Content>
-			<p class="font-body text-xl">
-				{getAnswer(habitsOptions.cannabis, $habits.cannabis)}
-			</p>
-			<p class="font-body text-xl mt-4">
-				{getAnswer(habitsOptions.smoking, $habits.smoking)}
-			</p>
-			<p class="font-body text-xl mt-4">
-				{getAnswer(habitsOptions.alcohol, $habits.alcohol)}
-			</p>
-			<p class="font-body text-xl mt-4">{getAnswer(habitsOptions.exercise, $habits.exercise)}</p>
+			<div class="flex flex-row items-center">
+				<p class="font-body font-bold text-xl w-[150px]">Cannabis</p>
+				<p class="font-body text-xl">
+					{getAnswer(habitsOptions.cannabis, $habits.cannabis)}
+				</p>
+			</div>
+			<div class="flex flex-row items-center mt-4">
+				<p class="font-body font-bold text-xl w-[150px]">Smoking</p>
+				<p class="font-body text-xl">
+					{getAnswer(habitsOptions.smoking, $habits.smoking)}
+				</p>
+			</div>
+			<div class="flex flex-row items-center mt-4">
+				<p class="font-body font-bold text-xl w-[150px]">Alcohol</p>
+				<p class="font-body text-xl">
+					{getAnswer(habitsOptions.alcohol, $habits.alcohol)}
+				</p>
+			</div>
+			<div class="flex flex-row items-center mt-4">
+				<p class="font-body font-bold text-xl w-[150px]">Exercise</p>
+				<p class="font-body text-xl">{getAnswer(habitsOptions.exercise, $habits.exercise)}</p>
+			</div>
 		</Content>
 	</Card>
 </div>

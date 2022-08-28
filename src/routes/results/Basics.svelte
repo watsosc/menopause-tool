@@ -9,12 +9,18 @@
 	<Card>
 		<SummaryTitleBar>Menopause History Summary</SummaryTitleBar>
 		<Content>
-			<p class="font-body text-xl">
-				Thank you for completing the Menopause History Form! We have summarized the information you
-				have provided based on your responses to the history questions.
+			<p class="font-body text-xl font-bold">
+				Thank you for completing the Menopause History Form.
 			</p>
 			<p class="font-body text-xl mt-4">
-				You are <ResponseDisplay response={$basics.age} context={'years old'} />. Your weight is
+				We have summarized the information you have provided based on your responses to the history
+				questions.
+			</p>
+			<p class="font-body text-xl mt-4">
+				You are <ResponseDisplay response={$basics.age} context={'years old'} />.
+			</p>
+			<p class="font-body text-xl mt-4">
+				Your weight is
 				<ResponseDisplay response={$basics.weight} context={'pounds'} />
 				and you are <ResponseDisplay response={$basics.heightFeet} context={'feet'} />,
 				<ResponseDisplay response={$basics.heightInch} context={'inches'} />

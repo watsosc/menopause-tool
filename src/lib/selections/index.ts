@@ -16,6 +16,10 @@ const getAnswer = (list: SelectOption[], response: string) => {
 };
 
 const getMultiSelectList = (list: SelectOption[], selected: string[]) => {
+  return selected.map((selection) => getAnswer(list, selection)).filter((selection) => Boolean(selection)) as string[];
+};
+
+const getMultiSelectPhrase = (list: SelectOption[], selected: string[]) => {
   if (selected.length === 1) {
     return list.find((option: SelectOption) => selected[0] === option.id)?.answer || '';
   }
@@ -46,12 +50,13 @@ const getMultiSelectAnswer = (
           (suboption: SelectOption) => suboption.id === selection
         )
       )
-      return formatter(response, getMultiSelectList(option.suboptions, subSelection));
+      return formatter(response, getMultiSelectPhrase(option.suboptions, subSelection));
     });
 };
 
 export {
   getAnswer,
+  getMultiSelectPhrase,
   getMultiSelectList,
   getMultiSelectAnswer,
   basicsOptions,

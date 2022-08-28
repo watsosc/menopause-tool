@@ -66,7 +66,10 @@ export const medicationsSchema = yup.object().shape({
 
 export const historySchema = yup.object().shape({
   conditions: yup.array().of(yup.string()).optional(),
-  bloodPressure: yup.string().required(REQUIRED),
+  bloodPressure: yup.string().when("conditions", {
+    is: (values: string[]) => values.includes('blood-pressure'),
+    then: yup.string().required(REQUIRED),
+  })
 });
 
 export const surgeriesSchema = yup.object().shape({
@@ -75,7 +78,7 @@ export const surgeriesSchema = yup.object().shape({
     is: (values: string[]) => values.includes('bilateral'),
     then: yup.string().required(REQUIRED),
   }),
-  ovariesAge: yup.number().when("ovariesRemoved", {
+  ovariesAge: yup.string().when("ovariesRemoved", {
     is: "yes",
     then: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
   }),

@@ -10,15 +10,24 @@
 	<Card>
 		<SummaryTitleBar Icon={Screening}>Screening</SummaryTitleBar>
 		<Content>
-			<p class="font-body text-xl">
-				{getAnswer(screeningOptions.mammogram, $screening.mammogram)}
-			</p>
-			<p class="font-body text-xl mt-4">
-				{getAnswer(screeningOptions.pap, $screening.pap)}
-			</p>
-			<p class="font-body text-xl mt-4">
-				{getAnswer(screeningOptions.bones, $screening.bones)}
-			</p>
+			<div class="flex flex-row items-center">
+				<p class="font-body font-bold text-xl w-[150px]">Mammogram</p>
+				<p class="font-body text-xl">
+					{getAnswer(screeningOptions.mammogram, $screening.mammogram)}
+				</p>
+			</div>
+			<div class="flex flex-row mt-4 items-center">
+				<p class="font-body font-bold text-xl w-[150px]">Pap Test</p>
+				<p class="font-body text-xl">
+					{getAnswer(screeningOptions.pap, $screening.pap)}
+				</p>
+			</div>
+			<div class="flex flex-row mt-4 items-center">
+				<p class="font-body font-bold text-xl w-[150px]">Bone Mineral Density</p>
+				<p class="font-body text-xl">
+					{getAnswer(screeningOptions.bones, $screening.bones)}
+				</p>
+			</div>
 		</Content>
 	</Card>
 </div>

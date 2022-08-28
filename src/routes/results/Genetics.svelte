@@ -2,14 +2,17 @@
 	import Genetics from '$lib/titles/icons/genetics.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { genetics } from '../../store';
-	import { getAnswer, geneticsOptions, getMultiSelectAnswer } from '$lib/selections';
+	import { geneticsOptions, getMultiSelectAnswer, getMultiSelectList } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 
 	const selectedFamilyHistory = getMultiSelectAnswer(
 		geneticsOptions.family,
 		$genetics.family,
 		(primary, suboptions) => `${primary} and ${suboptions}`
 	);
+
+	const genes = getMultiSelectList(geneticsOptions.genes, $genetics.genes);
 </script>
 
 <div class="container mx-auto px-4">
@@ -18,11 +21,7 @@
 		<Content>
 			{#if $genetics.genes.length > 0}
 				<p class="font-body text-xl">You have been told that you carry:</p>
-				<ul class="list-disc ml-10">
-					{#each $genetics.genes as gene}
-						<li class="font-body text-xl">{@html getAnswer(geneticsOptions.genes, gene)}</li>
-					{/each}
-				</ul>
+				<CheckmarkList list={genes} />
 			{:else}
 				<p class="font-body text-xl">
 					As far as you know, you do not carry any genes that increase your risk of developing
@@ -34,11 +33,7 @@
 				<p class="font-body text-xl mt-4">
 					You indicated that you have a <b>family history</b> of the following health condition(s):
 				</p>
-				<ul class="list-disc ml-10">
-					{#each selectedFamilyHistory as family}
-						<li class="font-body text-xl">{@html family}</li>
-					{/each}
-				</ul>
+				<CheckmarkList list={selectedFamilyHistory} />
 			{:else}
 				<p class="font-body text-xl mt-4">
 					You indicated that you have no family history of breast cancer, ovarian cancer, blood

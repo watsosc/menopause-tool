@@ -4,12 +4,20 @@
 	import { surgeries } from '../../store';
 	import { getMultiSelectAnswer, surgeryOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+	import { CheckmarkList } from '$lib/answers';
 
 	const selectedSurgeries = getMultiSelectAnswer(
 		surgeryOptions.surgeries,
 		$surgeries.received,
 		(primary, suboptions) => `${primary} (${suboptions})`
 	);
+	const ovariesText = () => {
+		if ($surgeries.ovariesRemoved === 'yes') {
+			return `You had your ovaries removed when you were ${$surgeries.ovariesAge} years old`;
+		}
+
+		return 'You have never had surgery to remove your ovaries';
+	};
 </script>
 
 <div class="container mx-auto px-4">
@@ -17,28 +25,18 @@
 		<SummaryTitleBar Icon={Surgeries}>Previous Surgeries</SummaryTitleBar>
 		<Content>
 			{#if $surgeries.received.length > 0}
-				<p class="font-body text-xl">
+				<p class="font-body text-xl font-bold">
 					From our predetermined list of procedures, you indicated you have had the following
 					surgeries:
 				</p>
-				<ul class="list-disc ml-10">
-					{#each selectedSurgeries as surgery}
-						<li class="font-body text-xl">{surgery}</li>
-					{/each}
-				</ul>
+				<CheckmarkList list={selectedSurgeries} />
 			{:else}
 				<p class="font-body text-xl">
-					You <b>have not</b> had any surgery to diagnose and/or resect endometriosis, nor have you had
-					surgery to remove your uterus, and/or ovaries and fallopian tubes.
+					You <b>have not</b> had any surgery to remove your uterus, and/or ovaries and fallopian tubes.
 				</p>
 			{/if}
-			<p class="font-body text-xl mt-4">
-				{#if $surgeries.ovariesRemoved === 'yes'}
-					You had your ovaries removed when you were {$surgeries.ovariesAge} years old.
-				{:else}
-					Regarding ovaries specifically, you have never had surgery to remove your ovaries.
-				{/if}
-			</p>
+			<p class="font-body text-xl mt-4 font-bold">Regarding your ovaries:</p>
+			<CheckmarkList list={[ovariesText()]} />
 		</Content>
 	</Card>
 </div>

@@ -18,13 +18,13 @@ export const medicationOptions = {
         },
         {
           id: 'menopause-compound',
-          description: 'Compounded hormone therapy (e.g. bioidentical hormone therapy)',
-          answer: 'compounded hormone therapy (e.g. bioidentical hormone therapy)'
+          description: 'Compounded hormone therapy (e.g., bioidentical hormone therapy)',
+          answer: 'compounded hormone therapy (e.g., bioidentical hormone therapy)'
         },
         {
           id: 'menopause-other',
-          description: 'Nonhormonal medication',
-          answer: 'nonhormonal medication',
+          description: 'Non-hormonal medication',
+          answer: 'non-hormonal medication',
         },
       ]
     },

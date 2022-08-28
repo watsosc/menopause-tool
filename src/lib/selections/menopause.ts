@@ -6,18 +6,13 @@ export const menopauseOptions = {
     { id: 'poor-sleep', description: 'Poor sleep' },
     { id: 'low-libido', description: 'Lower libido (e.g., sex drive)' },
     { id: 'brain-fog', description: '\'Brain fog\'' },
-    { id: 'bad-mood', description: 'Worsening mood, anxiery and/or irritability' },
+    { id: 'bad-mood', description: 'Worsening mood, anxiety and/or irritability' },
   ],
   other: [
     { id: 'no', description: 'I am most bothered by a symptom(s) on the list above.' },
     { id: 'yes', description: 'I am suffering from:' }
   ],
   sleep: [
-    {
-      id: 'fine',
-      description: 'My sleep is fine.',
-      answer: 'Your sleep is fine.',
-    },
     {
       id: 'sweat',
       description: '<b>Yes</b>, I am waking with a night sweat.',
@@ -35,11 +30,6 @@ export const menopauseOptions = {
     },
   ],
   depression: [
-    {
-      id: 'fine',
-      description: 'My mood is fine.',
-      answer: 'Your mood is fine.',
-    },
     {
       id: 'struggling',
       description: 'I am struggling with my mood and it only started around the time of menopause.',

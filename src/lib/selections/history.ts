@@ -15,7 +15,6 @@ export const historyOptions = {
     { id: 'other-cancer', description: 'A cancer other than breast, endometrial, or ovarian.' },
   ],
   bloodPressure: [
-    { id: 'no', description: 'I do not have a history of high blood pressure.' },
     { id: 'controlled', description: 'I have high blood pressure but it is controlled.' },
     { id: 'uncontrolled', description: 'I have high blood pressure and it is <b>not</b> controlled well.' },
   ],

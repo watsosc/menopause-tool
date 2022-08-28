@@ -4,6 +4,7 @@
 	import { medication } from '../../store';
 	import { getMultiSelectAnswer, medicationOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 
 	const selectedMedications = getMultiSelectAnswer(
 		medicationOptions.medications,
@@ -14,39 +15,39 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar Icon={Medications}>Medications</SummaryTitleBar>
+		<SummaryTitleBar Icon={Medications}>Medications & Allergies</SummaryTitleBar>
 		<Content>
-			<p class="font-body text-xl">
+			<p class="font-body text-xl font-bold">
 				You were given a list of different types of medications. From this list, you indicated you
 				are taking the following medications/types of medications:
 			</p>
 			{#if $medication.medicationSelection.length > 0}
-				<ul class="list-disc ml-10">
-					{#each selectedMedications as medication}
-						<li class="font-body text-xl">{medication}</li>
-					{/each}
-				</ul>
+				<CheckmarkList list={selectedMedications} />
 			{:else}
-				<ul class="list-disc ml-10">
-					<li class="font-body text-xl">None</li>
-				</ul>
+				<CheckmarkList list={['None']} />
 			{/if}
-			<p class="font-body text-xl mt-4">
-				{#if !!$medication.medicationEntry}
+			{#if !!$medication.medicationEntry}
+				<p class="font-body text-xl mt-4 font-bold">
 					You were then asked to list all medications you take on a regular basis. You indicated you
-					take the following medications: {$medication.medicationEntry}
-				{:else}
+					take the following medications:
+				</p>
+				<p class="font-body text-xl mt-1 ml-10">{$medication.medicationEntry}</p>
+			{:else}
+				<p class="font-body text-xl mt-4">
 					You were asked to list all medications you take on a regular basis. You indicated you take
 					<b>no medication</b> at the moment.
-				{/if}
-			</p>
-			<p class="font-body text-xl mt-4">
-				{#if !!$medication.allergiesText}
-					Regarding allergies, you have indicated the following allergies: {$medication.allergiesText}
-				{:else}
+				</p>
+			{/if}
+			{#if !!$medication.allergiesText}
+				<p class="font-body text-xl mt-4 font-bold">
+					Regarding allergies, you have indicated the following allergies:
+				</p>
+				<p class="font-body text-xl mt-1 ml-10">{$medication.allergiesText}</p>
+			{:else}
+				<p class="font-body text-xl mt-4">
 					Regarding allergies, you have indicated you have <b>no</b> allergies.
-				{/if}
-			</p>
+				</p>
+			{/if}
 		</Content>
 	</Card>
 </div>

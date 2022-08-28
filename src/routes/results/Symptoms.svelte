@@ -4,6 +4,13 @@
 	import { menopause } from '../../store';
 	import { getAnswer, menopauseOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+
+	const symptoms = $menopause.symptoms
+		.map((symptom) => getAnswer(menopauseOptions.symptoms, symptom))
+		.filter((symptom) => Boolean(symptom)) as string[];
+	const sleep = getAnswer(menopauseOptions.sleep, $menopause.sleep);
+	const mood = getAnswer(menopauseOptions.depression, $menopause.mood);
 </script>
 
 <div class="container mx-auto px-4">
@@ -14,34 +21,27 @@
 				The symptoms of menopause that you <b>currently</b> experience are:
 			</p>
 			{#if $menopause.symptoms.length > 0}
-				<ul class="list-disc ml-10">
-					{#each $menopause.symptoms as symptom}
-						<li class="font-body text-xl">{getAnswer(menopauseOptions.symptoms, symptom)}</li>
-					{/each}
-				</ul>
+				<CheckmarkList list={symptoms} />
 			{/if}
 			{#if $menopause.other === 'yes'}
-				<p class="font-body text-xl mt-4">
-					You have also indicated that you are suffering from: {$menopause.otherEntry}.
+				<p class="font-body text-xl mt-4 font-bold">
+					You have also indicated that you are suffering from:
+				</p>
+				<p class="font-body text-xl mt-2 ml-10">
+					{$menopause.otherEntry}.
 				</p>
 			{/if}
-			{#if !!$menopause.sleep}
+			{#if !!sleep}
 				<p class="font-body text-xl mt-4">
 					Regarding <b>sleep</b>, you have indicated:
 				</p>
-				<ul class="list-disc ml-10">
-					<li class="font-body text-xl">{getAnswer(menopauseOptions.sleep, $menopause.sleep)}</li>
-				</ul>
+				<CheckmarkList list={[sleep]} />
 			{/if}
-			{#if !!$menopause.mood}
+			{#if !!mood}
 				<p class="font-body text-xl mt-4">
 					Regarding <b>mood</b>, you have indicated:
 				</p>
-				<ul class="list-disc ml-10">
-					<li class="font-body text-xl">
-						{getAnswer(menopauseOptions.depression, $menopause.mood)}
-					</li>
-				</ul>
+				<CheckmarkList list={[mood]} />
 			{/if}
 		</Content>
 	</Card>

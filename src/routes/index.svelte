@@ -291,13 +291,15 @@
 							options={historyOptions.conditions}
 							error={errors['conditions']}
 						/>
-						<SingleSelectQuestion
-							name="conditions-blood"
-							title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
-							bind:selection={$history.bloodPressure}
-							options={historyOptions.bloodPressure}
-							error={errors['bloodPressure']}
-						/>
+						{#if $history.conditions.includes('blood-pressure')}
+							<SingleSelectQuestion
+								name="conditions-blood"
+								title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
+								bind:selection={$history.bloodPressure}
+								options={historyOptions.bloodPressure}
+								error={errors['bloodPressure']}
+							/>
+						{/if}
 					</div>
 				</Card>
 			</div>
