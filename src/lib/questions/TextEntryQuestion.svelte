@@ -6,7 +6,7 @@
 	export let title: string;
 	export let text: string;
 	export let context: string;
-	export let error: string = '';
+	export let error: string | null = null;
 
 	$: errorMessage = error;
 	$: isError = Boolean(error);
@@ -15,7 +15,7 @@
 <div class="flex flex-col mb-2">
 	<QuestionLabel {name} label={title} />
 	<div class="flex items-center">
-		<TextInput {name} bind:text error={isError} />
+		<TextInput {name} bind:text bind:error />
 		<p class="text-xl font-body ml-2 font-extralight">{context}</p>
 	</div>
 	{#if isError}

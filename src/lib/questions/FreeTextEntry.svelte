@@ -5,7 +5,7 @@
 	export let name: string;
 	export let context: string | null = null;
 	export let disabled: boolean = false;
-	export let error: string = '';
+	export let error: string | null = null;
 
 	$: disable = disabled;
 
@@ -18,6 +18,10 @@
 		error:
 			'flex w-full mx-2 mb-2 border-0 border-error border-b-2 focus:border-0 focus:border-b-2 focus:ring-0'
 	};
+
+	const handleBlur = () => {
+		error = null;
+	};
 </script>
 
 <div class="flex-col">
@@ -29,6 +33,7 @@
 			bind:value={text}
 			disabled={disable}
 			id={name}
+			on:blur|preventDefault={handleBlur}
 		/>
 		{#if !!context}
 			<p class="text-xl w-full font-body ml-2 font-extralight">{context}</p>

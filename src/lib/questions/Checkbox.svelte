@@ -6,7 +6,9 @@
 	export let option: SelectOption;
 	export let selection: string;
 	export let disabled: boolean = false;
-	export let error: boolean = false;
+	export let error: string | null = null;
+
+	const hasError = Boolean(error);
 
 	const handleChange = (event: Event) => {
 		const target = event.target as HTMLInputElement;
@@ -15,6 +17,10 @@
 		} else {
 			selection = target.value;
 		}
+	};
+
+	const handleFocus = () => {
+		error = null;
 	};
 
 	const inputClasses = {
@@ -27,7 +33,7 @@
 
 <div class="flex flex-row items-start mt-1">
 	<input
-		class={inputClasses[error ? 'error' : 'default']}
+		class={inputClasses[hasError ? 'error' : 'default']}
 		type="checkbox"
 		id={`${name}-${id}`}
 		{name}
@@ -35,6 +41,7 @@
 		{disabled}
 		checked={selection === option.id}
 		on:change|preventDefault={handleChange}
+		on:focus={handleFocus}
 	/>
 	<label class="text-lg font-body ml-2 leading-snug" for={`${name}-${id}`}>
 		{@html option.description}

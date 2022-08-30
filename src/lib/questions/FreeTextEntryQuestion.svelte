@@ -6,10 +6,10 @@
 	export let title: string;
 	export let text: string;
 	export let context: string | null = null;
-	export let error: string = '';
+	export let error: string | null = null;
 </script>
 
 <div class="flex flex-col mb-2">
 	<QuestionLabel {name} label={title} />
-	<FreeTextEntry {name} bind:text {context} {error} />
+	<FreeTextEntry {name} bind:text {context} bind:error />
 </div>

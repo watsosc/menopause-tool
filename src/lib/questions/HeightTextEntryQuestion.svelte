@@ -5,8 +5,8 @@
 	const labelTextStyle = 'text-xl font-body font-bold mx-2';
 	const name = 'basics-height';
 
-	export let feetError: string = '';
-	export let inchError: string = '';
+	export let feetError: string | null = null;
+	export let inchError: string | null = null;
 
 	$: fErrorMessage = feetError;
 	$: iErrorMessage = inchError;
@@ -19,7 +19,7 @@
 	<div class="flex flex-col items-start md:flex-row md:items-center">
 		<div class="flex-col">
 			<div class="flex items-center">
-				<TextInput name={`${name}-feet`} bind:text={$basics.heightFeet} error={isFeetError} />
+				<TextInput name={`${name}-feet`} bind:text={$basics.heightFeet} bind:error={feetError} />
 				<p class="text-xl font-body mx-2 font-extralight">feet</p>
 			</div>
 			{#if isFeetError}
@@ -30,7 +30,7 @@
 		</div>
 		<div class="flex-col">
 			<div class="flex items-center">
-				<TextInput name={`${name}-inch`} bind:text={$basics.heightInch} error={isInchError} />
+				<TextInput name={`${name}-inch`} bind:text={$basics.heightInch} bind:error={inchError} />
 				<p class="text-xl font-body ml-2 font-extralight">inches</p>
 			</div>
 			{#if isInchError}

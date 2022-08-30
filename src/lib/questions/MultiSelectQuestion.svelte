@@ -7,7 +7,7 @@
 	export let subtitle: string | null = null;
 	export let options: SelectOption[];
 	export let selection: string[];
-	export let error: string = '';
+	export let error: string | null = null;
 	export let errorOption: string = '';
 
 	$: selected = selection;
@@ -21,6 +21,10 @@
 			'w-5 h-5 mx-2 mt-1 rounded border-primary border-2 text-title focus:ring-2 focus:ring-title disabled:border-grey disabled:text-white',
 		error:
 			'w-5 h-5 mx-2 mt-1 rounded border-error border-2 text-title focus:ring-2 focus:ring-title'
+	};
+
+	const handleBlur = () => {
+		error = null;
 	};
 </script>
 
@@ -51,6 +55,7 @@
 							{name}
 							value={suboption.id}
 							bind:group={selection}
+							on:blur|preventDefault={handleBlur}
 						/>
 						<label class="text-lg font-body ml-2 leading-snug" for={`${name}-${i}-${j}`}>
 							{@html suboption.description}
