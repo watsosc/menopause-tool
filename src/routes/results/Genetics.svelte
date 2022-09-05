@@ -17,7 +17,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar Icon={Genetics}>Family and Genetic History</SummaryTitleBar>
+		<SummaryTitleBar>Family and Genetic History</SummaryTitleBar>
 		<Content>
 			{#if $genetics.genes.length > 0}
 				<p class="font-body text-xl">You have been told that you carry:</p>

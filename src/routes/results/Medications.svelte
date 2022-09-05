@@ -15,7 +15,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar Icon={Medications}>Medications & Allergies</SummaryTitleBar>
+		<SummaryTitleBar>Medications & Allergies</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl font-bold">
 				You were given a list of different types of medications. From this list, you indicated you
@@ -40,12 +40,12 @@
 			{/if}
 			{#if !!$medication.allergiesText}
 				<p class="font-body text-xl mt-4 font-bold">
-					Regarding allergies, you have indicated the following allergies:
+					Regarding <b>allergies</b>, you have indicated the following <b>allergies</b>:
 				</p>
 				<p class="font-body text-xl mt-1 ml-10">{$medication.allergiesText}</p>
 			{:else}
 				<p class="font-body text-xl mt-4">
-					Regarding allergies, you have indicated you have <b>no</b> allergies.
+					Regarding <b>allergies</b>, you have indicated you have <b>no allergies</b>.
 				</p>
 			{/if}
 		</Content>

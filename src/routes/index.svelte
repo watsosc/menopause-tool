@@ -1,13 +1,4 @@
 <script lang="ts">
-	import Genetics from '$lib/titles/icons/genetics.svg';
-	import Habits from '$lib/titles/icons/habits.svg';
-	import Medications from '$lib/titles/icons/meds-allergies.svg';
-	import Past from '$lib/titles/icons/pastmedical.svg';
-	import Screening from '$lib/titles/icons/screening.svg';
-	import Surgeries from '$lib/titles/icons/surgeries.svg';
-	import Symptoms from '$lib/titles/icons/symptoms.svg';
-	import Treatment from '$lib/titles/icons/treatment.svg';
-
 	import {
 		basics,
 		menopause,
@@ -25,7 +16,9 @@
 		surgeriesEntryDisabled,
 		bleedingEntryDisabled,
 		surgeriesOvariesDisabled,
-		store
+		store,
+		reset,
+		bloodPressureEntryDisabled
 	} from '../store';
 
 	import {
@@ -94,9 +87,17 @@
 		<MainTitle>
 			<h1 class="small-capper">Menopause History Form</h1>
 		</MainTitle>
+		<QuestionBlock>
+			<p class="text-xl font-body">
+				You are invited to answer questions about your medical history in the form below. Completing
+				this form will allow you to generate a Menopause History Summary followed by a personalized
+				Menopause Education Package. Data entered into this form is not being retained.
+			</p>
+		</QuestionBlock>
 	</Card>
 	<form on:submit|preventDefault={onSubmit}>
 		<Card>
+			<TitleBar>Questions about your Age, Body Mass Index (BMI) and Menstrual Period</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<TextEntryQuestion
@@ -145,7 +146,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar Icon={Symptoms}>Questions about your Menopause Symptoms</TitleBar>
+			<TitleBar>Questions about your Menopause Symptoms</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -174,20 +175,20 @@
 				</QuestionColumn>
 				<QuestionColumn>
 					{#if $menopause.symptoms.includes('poor-sleep')}
-						<SingleSelectQuestion
+						<MultiSelectQuestion
 							name="menopause-sleep"
-							title="Regarding <u>sleep</u>, are you waking with a night sweat or to void?"
-							subtitle="Choose the option that best describes you."
+							title="Regarding <u>sleep</u>, are you waking with a night sweat and/or to void?"
+							subtitle="Choose all that apply."
 							bind:selection={$menopause.sleep}
 							options={menopauseOptions.sleep}
 							error={errors['sleep']}
 						/>
 					{/if}
 					{#if $menopause.symptoms.includes('bad-mood')}
-						<SingleSelectQuestion
+						<MultiSelectQuestion
 							name="menopause-mood"
 							title="Regarding <u>mood</u>, do you have a history of depression or anxiety outside of the time of menopause?"
-							subtitle="Choose the option that best describes you."
+							subtitle="Choose all that apply."
 							bind:selection={$menopause.mood}
 							options={menopauseOptions.depression}
 							error={errors['mood']}
@@ -197,7 +198,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar Icon={Treatment}>Questions about your Menopause Treatments</TitleBar>
+			<TitleBar>Questions about your Menopause Treatments</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -208,20 +209,22 @@
 						options={treatmentOptions.all}
 						error={errors['all']}
 					/>
-					<MultiSelectQuestion
-						name="therapy-current"
-						title="What menopause therapies are you using <u>now</u> to manage your menopause symptoms?"
-						subtitle="Choose all that apply."
-						bind:selection={$treatment.current}
-						options={treatmentOptions.current}
-						error={errors['current']}
-					/>
+					{#if $treatment.all.length > 0}
+						<MultiSelectQuestion
+							name="therapy-current"
+							title="What menopause therapies are you using <u>now</u> to manage your menopause symptoms?"
+							subtitle="Choose all that apply."
+							bind:selection={$treatment.current}
+							options={treatmentOptions.current}
+							error={errors['current']}
+						/>
+					{/if}
 				</QuestionColumn>
 				<QuestionColumn>
 					{#if !$treatmentEntryDisabled}
 						<SingleSelectQuestion
 							name="therapy-medication"
-							title="If you are taking a medication for your menopause symptoms, is it helping you?"
+							title="If you are currently using a menopause therapy for your symptoms, is it/are they helping you?"
 							subtitle="Choose the option that best describes you."
 							bind:selection={$treatment.helping}
 							options={treatmentOptions.helping}
@@ -241,7 +244,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar Icon={Medications}>Questions about your Medications and Allergies</TitleBar>
+			<TitleBar>Questions about your Medications and Allergies</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -281,7 +284,7 @@
 		<div class="flex flex-col md:flex-row gap-4">
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar Icon={Past}>Questions about Past Medical History</TitleBar>
+					<TitleBar>Questions about Past Medical History</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="conditions-select"
@@ -291,7 +294,7 @@
 							options={historyOptions.conditions}
 							error={errors['conditions']}
 						/>
-						{#if $history.conditions.includes('blood-pressure')}
+						{#if !bloodPressureEntryDisabled}
 							<SingleSelectQuestion
 								name="conditions-blood"
 								title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
@@ -305,7 +308,7 @@
 			</div>
 			<div class="flex flex-col md:w-1/2 -my-2">
 				<Card>
-					<TitleBar Icon={Surgeries}>Questions about Previous Surgeries</TitleBar>
+					<TitleBar>Questions about Previous Surgeries</TitleBar>
 					<div class="mb-4 p-4">
 						<MultiSelectQuestion
 							name="surgery-select"
@@ -339,7 +342,7 @@
 			</div>
 		</div>
 		<Card>
-			<TitleBar Icon={Habits}>Questions about Habits</TitleBar>
+			<TitleBar>Questions about Habits</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -376,7 +379,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar Icon={Screening}>Questions about Screening</TitleBar>
+			<TitleBar>Questions about Screening</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<SingleSelectQuestion
@@ -406,7 +409,7 @@
 			</QuestionBlock>
 		</Card>
 		<Card>
-			<TitleBar Icon={Genetics}>Questions about Family and Genetic History</TitleBar>
+			<TitleBar>Questions about Family and Genetic History</TitleBar>
 			<QuestionBlock>
 				<QuestionColumn>
 					<MultiSelectQuestion
@@ -431,7 +434,13 @@
 			</QuestionBlock>
 		</Card>
 
-		<div class="flex flex-row justify-center my-8">
+		<div class="flex flex-row justify-around my-8">
+			<button
+				class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"
+				on:click|preventDefault={reset}
+			>
+				<div class="small-capper">Reset Form</div>
+			</button>
 			<button
 				type="submit"
 				class="text-xl font-body rounded-full bg-title text-white py-2 px-6 shadow-lg"

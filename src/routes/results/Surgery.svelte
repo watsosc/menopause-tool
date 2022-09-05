@@ -22,7 +22,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar Icon={Surgeries}>Previous Surgeries</SummaryTitleBar>
+		<SummaryTitleBar>Previous Surgeries</SummaryTitleBar>
 		<Content>
 			{#if $surgeries.received.length > 0}
 				<p class="font-body text-xl font-bold">

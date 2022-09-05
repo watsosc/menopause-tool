@@ -7,7 +7,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar>Menopause History Summary</SummaryTitleBar>
+		<SummaryTitleBar>Age and Body Mass Index (BMI)</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl font-bold">
 				Thank you for completing the Menopause History Form.

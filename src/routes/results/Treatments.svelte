@@ -14,7 +14,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<SummaryTitleBar Icon={Treatment}>Menopause Treatments</SummaryTitleBar>
+		<SummaryTitleBar>Menopause Treatments</SummaryTitleBar>
 		<Content>
 			{#if $treatment.all.length > 0}
 				<p class="font-body text-xl">
@@ -42,7 +42,7 @@
 					You are not <b>currently</b> using any treatments to help your menopause symptoms.
 				</p>
 			{/if}
-			{#if $treatment.current.length > 0}
+			{#if $treatment.interested.length > 0}
 				<p class="font-body text-xl mt-4">
 					Regarding menopause therapy, <b>you are most interested in</b>:
 				</p>

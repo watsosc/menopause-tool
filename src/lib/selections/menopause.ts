@@ -45,5 +45,10 @@ export const menopauseOptions = {
       description: '<b>Yes</b>, I have a history of postpartum depression.',
       answer: 'You have a history of postpartum depression.',
     },
+    {
+      id: 'postmenstrual',
+      description: '<b>Yes</b>, I have a history of premenstrual syndrome (PMS) or premenstrual dysphoric disorder (PMDD).',
+      answer: 'You have a history of premenstrual syndrome (PMS) or premenstrual dysphoric disorder (PMDD).'
+    }
   ]
 }

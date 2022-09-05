@@ -1,6 +1,6 @@
 import { derived, writable } from "svelte/store";
 
-export const basics = writable({
+const initializeBasics = () => ({
   age: '',
   heightFeet: '',
   heightInch: '',
@@ -8,6 +8,7 @@ export const basics = writable({
   period: '',
   bleeding: '',
 });
+export const basics = writable(initializeBasics());
 
 export const bleedingEntryDisabled = derived(
   basics,
@@ -27,81 +28,91 @@ export const bmi = derived(
   }
 )
 
+const initializeMenopause = () => ({
+  symptoms: [],
+  other: '',
+  sleep: [],
+  mood: [],
+  otherEntry: '',
+});
 type Menopause = {
   symptoms: string[];
   other: string;
-  sleep: string;
-  mood: string;
+  sleep: string[];
+  mood: string[];
   otherEntry: string;
 }
-export const menopause = writable<Menopause>({
-  symptoms: [],
-  other: '',
-  sleep: '',
-  mood: '',
-  otherEntry: '',
-});
+export const menopause = writable<Menopause>(initializeMenopause());
 
 export const menopauseEntryDisabled = derived(
   menopause,
   $menopause => $menopause.other !== 'yes'
 )
 
+const initializeTreatment = () => ({
+  all: [],
+  current: [],
+  interested: [],
+  helping: '',
+});
 type Treatment = {
   all: string[];
   current: string[];
   interested: string[];
   helping: string;
 }
-export const treatment = writable<Treatment>({
-  all: [],
-  current: [],
-  interested: [],
-  helping: '',
-});
+export const treatment = writable<Treatment>(initializeTreatment());
 
 export const treatmentEntryDisabled = derived(
   treatment,
   $treatment => $treatment.current.length === 0
 )
 
+const initializeMedication = () => ({
+  medicationSelection: [],
+  medicationEntry: '',
+  allergiesSelect: '',
+  allergiesText: '',
+});
 type Medication = {
   medicationSelection: string[];
   medicationEntry: string;
   allergiesSelect: string;
   allergiesText: string;
 }
-export const medication = writable<Medication>({
-  medicationSelection: [],
-  medicationEntry: '',
-  allergiesSelect: '',
-  allergiesText: '',
-});
+export const medication = writable<Medication>(initializeMedication());
 
 export const medicationEntryDisabled = derived(
   medication,
   $medication => $medication.allergiesSelect !== 'yes'
 )
 
+const initializeHistory = () => ({
+  conditions: [],
+  bloodPressure: '',
+});
 type History = {
   conditions: string[];
   bloodPressure: string;
 }
-export const history = writable<History>({
-  conditions: [],
-  bloodPressure: '',
-});
+export const history = writable<History>(initializeHistory());
 
+export const bloodPressureEntryDisabled = derived(
+  history,
+  $history => !$history.conditions.includes('blood-pressure')
+);
+
+export const initializeSurgeries = () => ({
+  received: [],
+  ovariesRemoved: '',
+  ovariesAge: '',
+});
 type Surgeries = {
   received: string[];
   ovariesRemoved: string;
   ovariesAge: string;
 }
-export const surgeries = writable<Surgeries>({
-  received: [],
-  ovariesRemoved: '',
-  ovariesAge: '',
-});
+export const surgeries = writable<Surgeries>(initializeSurgeries());
 
 export const surgeriesOvariesDisabled = derived(
   surgeries,
@@ -113,33 +124,48 @@ export const surgeriesEntryDisabled = derived(
   ([$surgeries, $surgeriesOvariesDisabled]) => $surgeriesOvariesDisabled || $surgeries.ovariesRemoved !== 'yes'
 )
 
+const initializeHabits = () => ({
+  cannabis: '',
+  smoking: '',
+  alcohol: '',
+  exercise: '',
+});
 type Habits = {
   cannabis: string;
   smoking: string;
   alcohol: string;
   exercise: string;
 }
-export const habits = writable<Habits>({
-  cannabis: '',
-  smoking: '',
-  alcohol: '',
-  exercise: '',
-});
+export const habits = writable<Habits>(initializeHabits());
 
-export const screening = writable({
+const initializeScreening = () => ({
   mammogram: '',
   pap: '',
   bones: '',
 });
+export const screening = writable(initializeScreening());
 
+const initializeGenetics = () => ({
+  genes: [],
+  family: [],
+});
 type Genetics = {
   genes: string[];
   family: string[];
 }
-export const genetics = writable<Genetics>({
-  genes: [],
-  family: [],
-});
+export const genetics = writable<Genetics>(initializeGenetics());
+
+export const reset = () => {
+  basics.set(initializeBasics());
+  menopause.set(initializeMenopause());
+  treatment.set(initializeTreatment());
+  medication.set(initializeMedication());
+  history.set(initializeHistory());
+  surgeries.set(initializeSurgeries());
+  habits.set(initializeHabits());
+  screening.set(initializeScreening());
+  genetics.set(initializeGenetics());
+}
 
 export const store = derived(
   [basics, menopause, treatment, medication, history, surgeries, habits, screening, genetics],

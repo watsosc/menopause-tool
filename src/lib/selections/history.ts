@@ -12,7 +12,8 @@ export const historyOptions = {
     { id: 'blood-pressure', description: 'High Blood Pressure' },
     { id: 'migraine', description: 'Migraine Headaches' },
     { id: 'endo', description: 'Endometriosis' },
-    { id: 'other-cancer', description: 'A cancer other than breast, endometrial, or ovarian.' },
+    { id: 'other-cancer', description: 'A cancer other than breast, endometrial, or ovarian' },
+    { id: 'miscarriage', description: '3 or more miscarriages or early pregnancy losses' }
   ],
   bloodPressure: [
     { id: 'controlled', description: 'I have high blood pressure but it is controlled.' },
