@@ -42,7 +42,7 @@
 			class="text-xl font-body rounded-full bg-green py-2 px-6 shadow-lg"
 			on:click={() => goto('/education')}
 		>
-			<div class="small-capper">Generate Personalized Menopause Education Package</div>
+			<div class="small-capper">Generate Education Package</div>
 		</button>
 	</div>
 </div>
