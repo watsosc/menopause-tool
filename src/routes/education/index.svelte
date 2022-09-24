@@ -1,8 +1,10 @@
 <script>
 	import { habits } from '../../store';
 	import Alcohol from './Alcohol.svelte';
+	import BreastScreening from './BreastScreening.svelte';
 	import Cannabis from './Cannabis.svelte';
 	import Definition from './Definition.svelte';
+	import Exercise from './Exercise.svelte';
 	import Period from './Period.svelte';
 	import Smoking from './Smoking.svelte';
 	import Title from './Title.svelte';
@@ -26,3 +28,5 @@
 {#if $habits.alcohol !== 'none'}
 	<Alcohol />
 {/if}
+<Exercise />
+<BreastScreening />

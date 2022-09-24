@@ -7,7 +7,7 @@
 
 <div class="container mx-auto px-4">
 	<Card>
-		<EducationTitleBar>Menopausal Weight Changes</EducationTitleBar>
+		<EducationTitleBar>Cannabis Use and Menopause</EducationTitleBar>
 		<Content>
 			<div class="flex flex-row justify-center">
 				<img class="max-w-[250px]" src="/images/cannabis.png" alt="Cannabis leaf" />
