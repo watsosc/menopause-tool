@@ -1,8 +1,10 @@
 <script>
 	import { habits } from '../../store';
 	import Alcohol from './Alcohol.svelte';
+	import BoneHealth from './BoneHealth.svelte';
 	import BreastScreening from './BreastScreening.svelte';
 	import Cannabis from './Cannabis.svelte';
+	import CervicalScreening from './CervicalScreening.svelte';
 	import Definition from './Definition.svelte';
 	import Exercise from './Exercise.svelte';
 	import Period from './Period.svelte';
@@ -30,3 +32,5 @@
 {/if}
 <Exercise />
 <BreastScreening />
+<CervicalScreening />
+<BoneHealth />
