@@ -12,7 +12,7 @@
 			<div class="flex flex-row justify-center">
 				<img class="max-w-[250px]" src="/images/cigarette.png" alt="Cigarette" />
 			</div>
-			<Paragraph>
+			<Paragraph customized>
 				<b>You have indicated that you currently smoke.</b> Smoking has several negative health
 				impacts.
 				<br /><br />

@@ -12,7 +12,7 @@
 			<div class="flex flex-row justify-center">
 				<img class="max-w-[250px]" src="/images/cannabis.png" alt="Cannabis leaf" />
 			</div>
-			<Paragraph>
+			<Paragraph customized>
 				<b>You have indicated that you use cannabis regularly.</b> Patients use cannabis for many
 				different reasons.
 				<br /><br />

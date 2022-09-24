@@ -22,15 +22,17 @@
 				phase.
 			</Paragraph>
 			{#if $bmi && Number($bmi) > 25}
-				<Paragraph>
+				<Paragraph customized>
 					<b>Based on your current weight and height, your body mass index (BMI) is</b>
 					<ResponseDisplay response={$bmi} context={'kg/m²'} />
 					<b>, which is a higher BMI than typically recommended.</b>
 					<br /><br />
-					Maintaining a healthy weight can reduce the risk of developing new health issues in the long-term.
+					Your doctor may recommend weight loss for many different reasons. In general, achieving and
+					maintaining a healthy weight can help improve health in the short-term and reduce the risk
+					of developing new health issues in the long-term.
 				</Paragraph>
 			{:else if $bmi && Number($bmi) > 20}
-				<Paragraph>
+				<Paragraph customized>
 					<b>Based on your current weight and height, your body mass index (BMI) is</b>
 					<ResponseDisplay response={$bmi} context={'kg/m²'} />
 					<b>, which is considered a normal BMI.</b>
@@ -38,7 +40,7 @@
 					Maintaining a healthy weight can reduce the risk of developing new health issues in the long-term.
 				</Paragraph>
 			{:else}
-				<Paragraph>
+				<Paragraph customized>
 					<b>Based on your current weight and height, your body mass index (BMI) is</b>
 					<ResponseDisplay response={$bmi} context={'kg/m²'} />
 					<b>, which is a lower BMI than typically recommended.</b>

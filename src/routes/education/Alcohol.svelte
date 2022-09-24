@@ -14,7 +14,7 @@
 				<img class="max-w-[250px]" src="/images/wine.png" alt="Filled wine glass" />
 			</div>
 			{#if $habits.alcohol === 'low'}
-				<Paragraph>
+				<Paragraph customized>
 					<b>You have indicated that you drink alcohol but consume 7 or fewer drinks per week.</b>
 					One standard drink includes:
 					<ul class="ml-8 list-disc">
@@ -22,7 +22,8 @@
 						<li>12 fluid oz of regular beer (about 5% alcohol)</li>
 						<li>1.5 fluid oz (one shot) of 80-proof distilled spirits</li>
 					</ul>
-					Your current alcohol consumption is considered<b>MODERATE</b>.
+					Your current alcohol consumption is considered
+					<b>MODERATE</b>.
 					<br /><br />
 					According to the <i>North American Menopause Society</i>,
 					<b>
@@ -33,7 +34,7 @@
 					<b>recommends moderate alcohol intake or less.</b>
 				</Paragraph>
 			{:else}
-				<Paragraph>
+				<Paragraph customized>
 					<b>You have indicated that you consume 8 or more drinks of alcohol per week.</b>
 					One standard drink includes:
 					<ul class="ml-8 list-disc">
@@ -41,7 +42,8 @@
 						<li>12 fluid oz of regular beer (about 5% alcohol)</li>
 						<li>1.5 fluid oz (one shot) of 80-proof distilled spirits</li>
 					</ul>
-					Your current alcohol consumption is considered<b>HEAVY</b>.
+					Your current alcohol consumption is considered
+					<b>HEAVY</b>.
 					<br /><br />
 					According to the <i>North American Menopause Society</i>,
 					<b> heavy alcohol intake is defined as more than seven standard drinks per week. </b>
@@ -65,7 +67,7 @@
 				<b>Alcohol can also be a trigger for certain menopausal symptoms.</b>
 			</Paragraph>
 			{#if ['hot-flash', 'night-sweat', 'poor-sleep', 'bad-mood'].some( (symptom) => $menopause.symptoms.includes(symptom) )}
-				<Paragraph>
+				<Paragraph customized>
 					<b>You have also indicated that you experience menopausal symptoms</b> such as hot
 					flashes, night sweats, poor sleep, or worsening mood/anxiety. Drinking
 					<b>alcohol can make some menopausal symptoms worse.</b>
@@ -91,7 +93,7 @@
 				</Paragraph>
 			{/if}
 			{#if $habits.alcohol === 'high' && $screening.bones === 'low'}
-				<Paragraph>
+				<Paragraph customized>
 					<b>You have also indicated that you have low bone density.</b> Heavy alcohol intake increases
 					your risk of developing osteoporosis. Your healthcare provider may recommend you limit your
 					alcohol intake for this reason.
