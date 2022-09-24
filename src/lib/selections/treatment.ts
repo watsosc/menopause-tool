@@ -27,8 +27,18 @@ export const treatmentOptions = {
     },
     {
       id: 'hormone',
-      description: 'Menopause hormone therapy',
-      answer: 'Menopause hormone therapy',
+      description: 'Systemic menopause hormone therapy (e.g., estrogen and/or progesterone by tablet, patch or gel)',
+      answer: 'Systemic menopause hormone therapy (e.g., estrogen and/or progesterone by tablet, patch or gel)',
+    },
+    {
+      id: 'contraceptive',
+      description: 'Hormonal contraception (e.g., oral contraceptive pill or patch)',
+      answer: 'Hormonal contraception (e.g., oral contraceptive pill or patch)',
+    },
+    {
+      id: 'vaginal-treatment',
+      description: 'Treatment for vaginal symptoms (e.g., moisturizers, vaginal estrogen, etc.)',
+      answer: 'Treatment for vaginal symptoms (e.g., moisturizers, vaginal estrogen, etc.)',
     },
   ],
   helping: [
@@ -76,8 +86,18 @@ export const treatmentOptions = {
     },
     {
       id: 'hormone',
-      description: 'Menopause hormone therapy',
-      answer: 'Menopause hormone therapy',
+      description: 'Systemic menopause hormone therapy (e.g., estrogen and/or progesterone by tablet, patch or gel)',
+      answer: 'Systemic menopause hormone therapy (e.g., estrogen and/or progesterone by tablet, patch or gel)',
+    },
+    {
+      id: 'contraceptive',
+      description: 'Hormonal contraception (e.g., oral contraceptive pill or patch)',
+      answer: 'Hormonal contraception (e.g., oral contraceptive pill or patch)',
+    },
+    {
+      id: 'vaginal-treatment',
+      description: 'Treatment for vaginal symptoms (e.g., moisturizers, vaginal estrogen, etc.)',
+      answer: 'Treatment for vaginal symptoms (e.g., moisturizers, vaginal estrogen, etc.)',
     },
   ],
   interested: [

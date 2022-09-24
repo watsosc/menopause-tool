@@ -10,7 +10,7 @@
 			<h1 class="small-capper">Personalized Menopause Education Package</h1>
 		</MainTitle>
 		<QuestionBlock>
-			<p class="text-xl font-body">
+			<p class="text-xl font-body text-justify">
 				You should now have completed the <b>Menopause History Form</b> and reviewed your
 				<b>Menopause History Summary</b>.
 				<b>
