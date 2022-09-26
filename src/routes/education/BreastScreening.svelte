@@ -36,12 +36,59 @@
 					every 2 years.
 				</b>
 			</Paragraph>
-			{#if !(cancerFamily || breastCancerPersonal) && $genetics.genes.some( (gene) => ['brca1', 'brca2'].includes(gene) )}
+			{#if breastCancerPersonal}
+				<Paragraph customized>
+					{screeningParagraphBold}
+					<br /><br />
+					<b> You have indicated you have a personal history of breast cancer. </b>
+					Your doctor has likely discussed how to complete breast surveillance moving forward. If you
+					are unsure, speak to your healthcare provider about breast screening recommendations that are
+					right for you.
+				</Paragraph>
+			{:else if !breastCancerPersonal && breastCancerFamily && ovarianCancerFamily}
+				<Paragraph customized>
+					{screeningParagraphBold}
+					<br /><br />
+					<b> You have indicated you have a family history of breast cancer and ovarian cancer. </b>
+					If you have not already discussed breast screening, speak to your doctor about recommendations
+					that are right for you.
+				</Paragraph>
+			{:else if !breastCancerPersonal && breastCancerFamily}
+				<Paragraph customized>
+					{screeningParagraphBold}
+					<br /><br />
+					<b> You have indicated you have a family history of breast cancer. </b>
+					If you have not already discussed breast screening, speak to your doctor about recommendations
+					that are right for you.
+				</Paragraph>
+			{:else if !breastCancerPersonal && ovarianCancerFamily}
+				<Paragraph customized>
+					{screeningParagraphBold}
+					<br /><br />
+					<b> You have indicated you have a family history of ovarian cancer. </b> Ovarian cancer and
+					breast cancer can sometimes be related. Speak to your doctor about breast screening recommendations
+					that are right for you.
+				</Paragraph>
+			{:else if !(cancerFamily || breastCancerPersonal) && $genetics.genes.some( (gene) => ['brca1', 'brca2'].includes(gene) )}
 				<Paragraph customized>
 					<b>
 						You have indicated you carry a gene that may increase your risk of breast cancer
 						compared to someone without this gene.
-					</b> Speak to your doctor about screening recommendations that are right for you.
+					</b>
+					If you have not already discussed breast screening, speak to your doctor about recommendations
+					that are right for you.
+				</Paragraph>
+			{:else if cancerFamily && !breastCancerPersonal && $genetics.genes.some( (gene) => ['brca1', 'brca2'].includes(gene) )}
+				<Paragraph customized>
+					{screeningParagraphBold}
+					<br /><br />
+					<b>
+						You have indicated you carry a gene that may increase your risk of breast cancer
+						compared to someone without this gene. You have also indicated you have a family history
+						of breast or ovarian cancer.
+					</b>
+					If you have not already discussed breast screening, speak to your doctor about recommendations
+					that are right for you.
 				</Paragraph>
 			{:else if !(cancerFamily || breastCancerPersonal) && $genetics.genes.some( (gene) => ['risk'].includes(gene) )}
 				<Paragraph customized>
@@ -51,7 +98,8 @@
 						You have indicated you carry a gene that increases your risk of developing a certain
 						condition.
 					</b>
-					Speak to your doctor about screening recommendations that are right for you.
+					If you have not already discussed breast screening, speak to your doctor about recommendations
+					that are right for you.
 				</Paragraph>
 			{:else if Number($basics.age) < 50 && $screening.mammogram === 'young' && !(cancerFamily || breastCancerPersonal)}
 				<Paragraph customized>
@@ -103,28 +151,6 @@
 					provider about arranging a mammogram for breast cancer screening.
 					<br /><br />
 					{@html screeningParagraph}
-				</Paragraph>
-			{:else if !breastCancerPersonal && breastCancerFamily}
-				<Paragraph customized>
-					{screeningParagraphBold}
-					<br /><br />
-					<b> You have indicated you have a family history of breast cancer. </b>
-					Speak to your doctor about screening recommendations that are right for you.
-				</Paragraph>
-			{:else if !breastCancerPersonal && ovarianCancerFamily}
-				<Paragraph customized>
-					{screeningParagraphBold}
-					<br /><br />
-					<b> You have indicated you have a family history of ovarian cancer. </b> Ovarian cancer and
-					breast cancer can sometimes be related. Speak to your doctor about breast screening recommendations
-					that are right for you.
-				</Paragraph>
-			{:else if breastCancerPersonal}
-				<Paragraph customized>
-					{screeningParagraphBold}
-					<br /><br />
-					<b> You have indicated you have a personal history of breast cancer. </b>
-					Speak to your doctor about breast screening recommendations that are right for you.
 				</Paragraph>
 			{/if}
 		</Content>

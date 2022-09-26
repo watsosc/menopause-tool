@@ -10,8 +10,8 @@
 	import Period from './Period.svelte';
 	import Smoking from './Smoking.svelte';
 	import Title from './Title.svelte';
-	import Vaginal from './Vaginal.svelte';
-	import Vasomotor from './Vasomotor.svelte';
+	import Vaginal from './symptoms/Vaginal.svelte';
+	import Vasomotor from './symptoms/Vasomotor.svelte';
 	import Weight from './Weight.svelte';
 </script>
 
