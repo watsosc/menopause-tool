@@ -1,5 +1,5 @@
 <script>
-	import { habits } from '../../store';
+	import { habits, menopause, treatment } from '../../store';
 	import Alcohol from './Alcohol.svelte';
 	import BoneHealth from './BoneHealth.svelte';
 	import BreastScreening from './BreastScreening.svelte';
@@ -11,15 +11,15 @@
 	import Smoking from './Smoking.svelte';
 	import Title from './Title.svelte';
 	import Vaginal from './symptoms/Vaginal.svelte';
-	import Vasomotor from './symptoms/Vasomotor.svelte';
 	import Weight from './Weight.svelte';
+	import Symptoms from './symptoms/Symptoms.svelte';
 </script>
 
 <Title />
 <Definition />
 <Period />
 <Weight />
-<Vasomotor />
+<Symptoms />
 <Vaginal />
 {#if $habits.cannabis === 'yes'}
 	<Cannabis />
