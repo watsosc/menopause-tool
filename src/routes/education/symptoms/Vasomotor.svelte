@@ -2,9 +2,9 @@
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
-	import { bmi, medication, genetics } from '../../../store';
+	import { bmi, medication, history } from '../../../store';
 
-	const breastCancerFamily = $genetics.family.includes('breast-cancer');
+	const breastCancerHistory = $history.conditions.includes('breast-cancer');
 	const takingTamoxifen = $medication.medicationSelection.includes('tamoxifen');
 	const takingAnxietyMeds = $medication.medicationSelection.includes('anxiety');
 </script>
@@ -85,7 +85,7 @@
 		<Paragraph>
 			Acupuncture may help some people with vasomotor symptoms, although the evidence is not strong.
 		</Paragraph>
-		{#if breastCancerFamily}
+		{#if breastCancerHistory}
 			<Paragraph customized>
 				<i>
 					<b>You have indicated you have a history of breast cancer.</b> Soy products, including Femarelle,
@@ -122,7 +122,7 @@
 				insomnia and nervousness. Selective Serotonin Reuptake Inhibitors (SSRI) medications (such as
 				paroxetine, citalopram and escitalopram) can worsen vasomotor symptoms at high doses.
 			</Paragraph>
-			{#if breastCancerFamily && takingAnxietyMeds}
+			{#if breastCancerHistory && takingAnxietyMeds}
 				<Paragraph customized>
 					<i>
 						<b>
@@ -134,7 +134,7 @@
 						Speak to your doctor about options that might be right for you.
 					</i>
 				</Paragraph>
-			{:else if breastCancerFamily}
+			{:else if breastCancerHistory}
 				<Paragraph customized>
 					<i>
 						<b>You have indicated you have a history of breast cancer.</b> Venlafaxine is typically a
