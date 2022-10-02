@@ -39,7 +39,8 @@
 			{#if breastCancerPersonal}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b> You have indicated you have a personal history of breast cancer. </b>
 					Your doctor has likely discussed how to complete breast surveillance moving forward. If you
 					are unsure, speak to your healthcare provider about breast screening recommendations that are
@@ -48,7 +49,8 @@
 			{:else if !breastCancerPersonal && breastCancerFamily && ovarianCancerFamily}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b> You have indicated you have a family history of breast cancer and ovarian cancer. </b>
 					If you have not already discussed breast screening, speak to your doctor about recommendations
 					that are right for you.
@@ -56,7 +58,8 @@
 			{:else if !breastCancerPersonal && breastCancerFamily}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b> You have indicated you have a family history of breast cancer. </b>
 					If you have not already discussed breast screening, speak to your doctor about recommendations
 					that are right for you.
@@ -64,7 +67,8 @@
 			{:else if !breastCancerPersonal && ovarianCancerFamily}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b> You have indicated you have a family history of ovarian cancer. </b> Ovarian cancer and
 					breast cancer can sometimes be related. Speak to your doctor about breast screening recommendations
 					that are right for you.
@@ -81,7 +85,8 @@
 			{:else if cancerFamily && !breastCancerPersonal && $genetics.genes.some( (gene) => ['brca1', 'brca2'].includes(gene) )}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>
 						You have indicated you carry a gene that may increase your risk of breast cancer
 						compared to someone without this gene. You have also indicated you have a family history
@@ -93,7 +98,8 @@
 			{:else if !(cancerFamily || breastCancerPersonal) && $genetics.genes.some( (gene) => ['risk'].includes(gene) )}
 				<Paragraph customized>
 					{screeningParagraphBold}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>
 						You have indicated you carry a gene that increases your risk of developing a certain
 						condition.
@@ -109,9 +115,11 @@
 					</b>
 					You likely do not need routine breast screening until you turn 50 years old. However, you should
 					speak to your doctor about when to start.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					{@html screeningParagraph}
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Last, if you notice any change in your breasts, regardless of your age, speak to your
 						doctor as you may require early breast screening.
@@ -124,7 +132,8 @@
 					</b>
 					You should speak to your healthcare provider about arranging your first mammogram for routine
 					breast screening.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					{@html screeningParagraph}
 				</Paragraph>
 			{:else if $screening.mammogram === 'last-year' && !(cancerFamily || breastCancerPersonal)}
@@ -132,7 +141,8 @@
 					<b> You have indicated that your last mammogram was within the past 1 year. </b>
 					You are likely up-to-date on your breast cancer screening. However, some people may require
 					more frequent screening.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					{@html screeningParagraph}
 				</Paragraph>
 			{:else if $screening.mammogram === 'two-year' && !(cancerFamily || breastCancerPersonal)}
@@ -141,7 +151,8 @@
 					You are likely up-to-date on your breast cancer screening. However, some people may require
 					more frequent screening. You should speak to your healthcare provider about arranging your
 					next mammogram.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					{@html screeningParagraph}
 				</Paragraph>
 			{:else if $screening.mammogram === 'overdue' && !(cancerFamily || breastCancerPersonal)}
@@ -149,7 +160,8 @@
 					<b> You have indicated that your mammogram is overdue. </b>
 					If you have not had a mammogram within the last 2 years, you should speak to your healthcare
 					provider about arranging a mammogram for breast cancer screening.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					{@html screeningParagraph}
 				</Paragraph>
 			{/if}

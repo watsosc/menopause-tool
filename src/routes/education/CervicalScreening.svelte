@@ -30,10 +30,13 @@
 					<b>You have indicated you have had a hysterectomy.</b> If your cervix was removed at the
 					time of your hysterectomy (i.e., you underwent a <b>total hysterectomy</b>) and your pap
 					tests have always been normal, you probably don’t require further pap tests.
-					<br /><br />
-					However, if you have had an abnormal pap test result in the past, you may require further screening.
-					Talk to your healthcare provider about the screening recommendation that is right for you.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
+					However, if you have had an abnormal pap test result in the past, you may require further
+					screening. Talk to your healthcare provider about the screening recommendation that is
+					right for you.
+				</Paragraph>
+				<Paragraph>
 					If you had a <b>subtotal hysterectomy</b>, you should continue to have pap tests. Talk to
 					your healthcare provider to determine when you should do your next pap test.
 				</Paragraph>
@@ -42,12 +45,14 @@
 					<b>
 						You have indicated that you have never had a pap test for cervical cancer screening.
 					</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Cervical cancer screening recommendations vary between provinces. People with a cervix
 						who are or have ever been sexually active should undergo regular pap tests.
 					</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					In <u>Ontario, Canada</u> it is recommended that all people with a cervix who are younger
 					than 70 years old have a pap test <b>every 3 years</b> to screen for cervical cancer.
 					<b>Pap tests may need to be more frequent if the results are abnormal.</b>
@@ -62,7 +67,8 @@
 					As long as your pap tests have been normal, you are likely <u>up-to-date</u>
 					on your cervical cancer screening.
 					<b>Pap tests may need to be more frequent if the results are abnormal.</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>Cervical cancer screening recommendations vary between provinces.</b> In
 					<u>Ontario, Canada</u>
 					it is recommended that all people with a cervix who are younger than 70 years old have a pap
@@ -76,7 +82,8 @@
 						You have indicated that you are younger than 70 years of age and that your pap test is
 						overdue.
 					</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>Cervical cancer screening recommendations vary between provinces.</b> In
 					<u>Ontario, Canada</u>
 					it is recommended that all people with a cervix who are younger than 70 years old have a pap
@@ -87,7 +94,8 @@
 			{:else if !underSeventy && $screening.pap === 'not-required'}
 				<Paragraph customized>
 					<b> You have indicated that you are older than 70 years of age. </b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b
 						>Cervical cancer screening recommendations vary across provinces. People older than 70
 						years of age usually don’t require regular pap tests to screen for cervical cancer.

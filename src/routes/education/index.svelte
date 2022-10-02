@@ -20,7 +20,6 @@
 <Period />
 <Weight />
 <Symptoms />
-<Vaginal />
 {#if $habits.cannabis === 'yes'}
 	<Cannabis />
 {/if}

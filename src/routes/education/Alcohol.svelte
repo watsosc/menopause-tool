@@ -24,7 +24,8 @@
 					</ul>
 					Your current alcohol consumption is considered
 					<b>MODERATE</b>.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					According to the <i>North American Menopause Society</i>,
 					<b>
 						moderate alcohol intake is defined as no more than seven standard drinks per week and no
@@ -44,7 +45,8 @@
 					</ul>
 					Your current alcohol consumption is considered
 					<b>HEAVY</b>.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					According to the <i>North American Menopause Society</i>,
 					<b> heavy alcohol intake is defined as more than seven standard drinks per week. </b>
 					This level of alcohol consumption increases your risk of certain health conditions. Your healthcare
@@ -71,7 +73,8 @@
 					<b>You have also indicated that you experience menopausal symptoms</b> such as hot
 					flashes, night sweats, poor sleep, or worsening mood/anxiety. Drinking
 					<b>alcohol can make some menopausal symptoms worse.</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>For example:</b>
 					<ul class="ml-8 list-disc">
 						<li>
@@ -87,9 +90,11 @@
 							depression.
 						</li>
 					</ul>
-					<br /><br />
-					Your healthcare provider may recommend that you decrease your alcohol consumption for several
-					reasons. Decreasing your alcohol intake may improve some of your menopausal symtpoms.
+				</Paragraph>
+				<Paragraph>
+					Your healthcare provider may recommend that you decrease your alcohol consumption for
+					several reasons. Decreasing your alcohol intake may improve some of your menopausal
+					symtpoms.
 				</Paragraph>
 			{/if}
 			{#if $habits.alcohol === 'high' && $screening.bones === 'low'}

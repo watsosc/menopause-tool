@@ -33,11 +33,13 @@
 						You have indicated that you are post-menopausal, younger than 65 years old, and have
 						never had a bone density scan.
 					</b>
-					<br /><br />
-					Post-menopausal people younger than 65 years old should discuss their individualized fracture
-					risk with their healthcare provider to determine whether bone mineral density assessment is
-					necessary.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
+					Post-menopausal people younger than 65 years old should discuss their individualized
+					fracture risk with their healthcare provider to determine whether bone mineral density
+					assessment is necessary.
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -51,11 +53,13 @@
 						You have indicated that you are post-menopausal, 65 years of age or older, and have
 						never had a bone density scan.
 					</b>
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					Post-menopausal people aged 65 or older
 					<i>should undergo bone mineral density assessment</i>
 					and discuss their individualized fracture risk with their healthcare provider.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -67,10 +71,12 @@
 			{:else if $screening.bones === 'normal'}
 				<Paragraph customized>
 					<b> You have indicated that you have had a bone density scan and it was normal. </b>
-					<br /><br />
-					Depending on your individualized fracture risk, your healthcare provider will determine when
-					to repeat bone density screening.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
+					Depending on your individualized fracture risk, your healthcare provider will determine
+					when to repeat bone density screening.
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -89,10 +95,12 @@
 					with osteoporosis have weaker bones compared to those with osteopenia. Osteopenia can progress
 					to osteoporosis. Osteoporosis is a condition that weakens the bones and increases the risk
 					of fracture.
-					<br /><br />
-					Treatment of low bone density can typically include vitamin D, calcium, prescription medications,
-					and lifestyle modifications.
-					<br /><br />
+				</Paragraph>
+				<Paragraph>
+					Treatment of low bone density can typically include vitamin D, calcium, prescription
+					medications, and lifestyle modifications.
+				</Paragraph>
+				<Paragraph>
 					<b>
 						Post-menopausal patients have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. There are also several other risk factors
@@ -109,7 +117,7 @@
 						<b>Elemental calcium (1200mg per day) through diet or supplements.</b>
 						If you are getting your calcium through your diet, this is about 3 servings of dairy per
 						day.
-						<br /><br />
+						<br class="my-1" />
 						If you need to take calcium through a supplement, <b>calcium carbonate</b> supplements
 						have the highest amount of <i>elemental calcium</i>. Take this supplement with food for
 						better absorption. Sometimes, calcium carbonate can lead to constipation or bloating. If

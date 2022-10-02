@@ -19,3 +19,9 @@
 		</QuestionBlock>
 	</Card>
 </div>
+
+<style>
+	.small-capper {
+		font-variant: small-caps;
+	}
+</style>
