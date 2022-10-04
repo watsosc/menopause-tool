@@ -7,6 +7,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Sleep Concerns</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img class="max-w-[250px]" src="/images/symptoms_sleep.png" alt="Moon and stars" />
+	</div>
 	<Paragraph>
 		Disrupted sleep and poor sleep quality is a common issue for many women in the menopausal
 		transition, affecting about <b>30% of menopausal people</b>. Vasomotor symptoms, like hot

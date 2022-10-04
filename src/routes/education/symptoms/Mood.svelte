@@ -5,7 +5,14 @@
 </script>
 
 <div class="my-4">
-	<EducationSubTitle>Menopausal Cognitive Changes</EducationSubTitle>
+	<EducationSubTitle>Mood Symptoms</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img
+			class="max-w-[250px]"
+			src="/images/symptoms_mood.png"
+			alt="Woman half happy and half sad"
+		/>
+	</div>
 	<Paragraph>
 		<b>Depression is a common condition that affects women more than men.</b> Mood can be affected
 		by many factors, including changes in hormones associated with menopause, menopausal symptoms,

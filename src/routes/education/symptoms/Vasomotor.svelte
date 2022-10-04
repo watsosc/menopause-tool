@@ -35,6 +35,9 @@
 
 <div>
 	<EducationSubTitle>Vasomotor Symptoms</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img class="max-w-[250px]" src="/images/symptoms_hotflashes.png" alt="Fire" />
+	</div>
 	<Paragraph>
 		<b>Hot flashes and night sweats are called vasomotor symptoms.</b> They are common symptoms of
 		menopause occurring in about <b>80% of women</b>. A hot flash is the sensation of heat, usually

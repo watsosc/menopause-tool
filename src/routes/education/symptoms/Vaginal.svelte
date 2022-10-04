@@ -7,6 +7,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Vaginal Symptoms</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img class="max-w-[250px]" src="/images/symptoms_vaginaldryness.png" alt="Vaginal dryness" />
+	</div>
 	<Paragraph>
 		The vulva, vagina, lower urinary tract and pelvic floor muscles contain estrogen receptors and
 		are sensitive to the hormonal changes of menopause. These changes are termed

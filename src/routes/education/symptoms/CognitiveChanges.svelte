@@ -6,6 +6,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Menopausal Cognitive Changes</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img class="max-w-[250px]" src="/images/symptoms_brainfog.png" alt="Woman in brain fog" />
+	</div>
 	<Paragraph>
 		Many women will report forgetfulness and difficulty with concentration during the menopausal
 		transition, which is sometimes referred to as <b>“brain fog”</b>. This can worsen in the first

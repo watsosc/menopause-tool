@@ -6,6 +6,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Sexual Function and Menopause</EducationSubTitle>
+	<div class="flex flex-row justify-center">
+		<img class="max-w-[250px]" src="/images/symptoms_libido.png" alt="Empty bedroom" />
+	</div>
 	<Paragraph>
 		<b>
 			The most common sexual issues associated with menopause are loss of libido (sex drive) and
