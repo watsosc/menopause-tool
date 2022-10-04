@@ -38,7 +38,7 @@
 			</Paragraph>
 			{#if breastCancerPersonal}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b> You have indicated you have a personal history of breast cancer. </b>
@@ -48,7 +48,7 @@
 				</Paragraph>
 			{:else if !breastCancerPersonal && breastCancerFamily && ovarianCancerFamily}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b> You have indicated you have a family history of breast cancer and ovarian cancer. </b>
@@ -57,7 +57,7 @@
 				</Paragraph>
 			{:else if !breastCancerPersonal && breastCancerFamily}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b> You have indicated you have a family history of breast cancer. </b>
@@ -66,7 +66,7 @@
 				</Paragraph>
 			{:else if !breastCancerPersonal && ovarianCancerFamily}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b> You have indicated you have a family history of ovarian cancer. </b> Ovarian cancer and
@@ -84,7 +84,7 @@
 				</Paragraph>
 			{:else if cancerFamily && !breastCancerPersonal && $genetics.genes.some( (gene) => ['brca1', 'brca2'].includes(gene) )}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b>
@@ -97,7 +97,7 @@
 				</Paragraph>
 			{:else if !(cancerFamily || breastCancerPersonal) && $genetics.genes.some( (gene) => ['risk'].includes(gene) )}
 				<Paragraph customized>
-					{screeningParagraphBold}
+					{@html screeningParagraphBold}
 				</Paragraph>
 				<Paragraph>
 					<b>

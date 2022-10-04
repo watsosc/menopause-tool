@@ -19,7 +19,9 @@
 <Definition />
 <Period />
 <Weight />
-<Symptoms />
+{#if $menopause.symptoms.length > 0}
+	<Symptoms />
+{/if}
 {#if $habits.cannabis === 'yes'}
 	<Cannabis />
 {/if}

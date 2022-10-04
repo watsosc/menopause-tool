@@ -2,7 +2,7 @@
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
-	import { menopause } from 'src/store';
+	import { menopause } from '../../../store';
 </script>
 
 <div class="my-4">

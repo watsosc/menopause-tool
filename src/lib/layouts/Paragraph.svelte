@@ -11,7 +11,7 @@
 </script>
 
 {#if customized}
-	<div class="border-2 border-[#000000] mt-2 rounded-lg bg-grey w-fit pr-6">
+	<div class="border-2 border-[#000000] mt-2 rounded-lg bg-grey pr-6">
 		<p class={paraClass()}>
 			<slot />
 		</p>

@@ -2,7 +2,6 @@
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
-	import { menopause } from 'src/store';
 </script>
 
 <div class="my-4">
@@ -17,7 +16,7 @@
 		<b>Up to 50% of women report low sex drive.</b> This can occur before the last menstrual period.
 		There are many factors that can affect sex drive, including menopause. Many other factors affect
 		libido:
-		<ol class="ml-4 list-disc">
+		<ol class="ml-6 list-disc">
 			<li>Stress</li>
 			<li>Body Image</li>
 			<li>Past sexual experiences</li>

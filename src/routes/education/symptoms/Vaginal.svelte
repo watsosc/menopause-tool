@@ -38,33 +38,35 @@
 				</Paragraph>
 			{/if}
 			<p class="font-title text-xl underline mt-4 mb-2">Non-Hormonal Treatments</p>
-			<ol class="ml-4 list-decimal">
-				<li>
-					<b>Avoiding irritants</b> such as soaps, detergents, chlorine, and some spermicides contained
-					in condoms may be helpful. Wearing a pad, especially if you have wetness associated with urine
-					leakage, can also be irritating to vulvar skin. Barrier ointments can help avoid this, as can
-					wearing cotton underwear and avoiding triggers.
-				</li>
-				<li>
-					<b>Lubricants</b> are helpful for those who have pain with sex. Lubricants have no long lasting
-					effects. Water-based lubricants that are free of chemical additives, especially parabens, are
-					the least irritating to vulvar skin.
-				</li>
-				<li>
-					<b>Moisturizers</b> are available over-the-counter and are another first-line therapy for
-					management of GSM. They bind to the vaginal tissue like a biofilm and can be used
-					regularly 2-3 times per week. They help to reduce friction with intercourse and bind water
-					to restore some moisture in the vulva and vagina. Brand names that can be purchased in
-					Canada include <i>Replens, Gynatrof</i>
-					and <i>Zestica</i>. <i>RepaGyn</i> is another option, which comes in a tablet form that is
-					inserted into the vagina.
-				</li>
-				<li>
-					<b>Pelvic floor physiotherapy</b> can be helpful for women with GSM who experience pain with
-					sex, especially if the pain is secondary to spasm of the pelvic floor muscles. This can be
-					assessed on a pelvic exam.
-				</li>
-			</ol>
+			<Paragraph>
+				<ol class="ml-4 list-decimal">
+					<li>
+						<b>Avoiding irritants</b> such as soaps, detergents, chlorine, and some spermicides contained
+						in condoms may be helpful. Wearing a pad, especially if you have wetness associated with
+						urine leakage, can also be irritating to vulvar skin. Barrier ointments can help avoid this,
+						as can wearing cotton underwear and avoiding triggers.
+					</li>
+					<li class="mt-2">
+						<b>Lubricants</b> are helpful for those who have pain with sex. Lubricants have no long lasting
+						effects. Water-based lubricants that are free of chemical additives, especially parabens,
+						are the least irritating to vulvar skin.
+					</li>
+					<li class="mt-2">
+						<b>Moisturizers</b> are available over-the-counter and are another first-line therapy
+						for management of GSM. They bind to the vaginal tissue like a biofilm and can be used
+						regularly 2-3 times per week. They help to reduce friction with intercourse and bind
+						water to restore some moisture in the vulva and vagina. Brand names that can be
+						purchased in Canada include <i>Replens, Gynatrof</i>
+						and <i>Zestica</i>. <i>RepaGyn</i> is another option, which comes in a tablet form that is
+						inserted into the vagina.
+					</li>
+					<li class="mt-2">
+						<b>Pelvic floor physiotherapy</b> can be helpful for women with GSM who experience pain with
+						sex, especially if the pain is secondary to spasm of the pelvic floor muscles. This can be
+						assessed on a pelvic exam.
+					</li>
+				</ol>
+			</Paragraph>
 			<p class="font-title text-xl underline mt-4 mb-2">Hormonal Treatments</p>
 			<Paragraph>
 				<b>Vaginal estrogen is the most effective therapy for management of GSM.</b> It helps to

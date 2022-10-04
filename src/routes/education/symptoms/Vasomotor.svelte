@@ -2,9 +2,33 @@
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
-	import { bmi, medication, history } from '../../../store';
+	import {
+		bmi,
+		medication,
+		history,
+		genetics,
+		surgeries,
+		basics,
+		treatment,
+		habits
+	} from '../../../store';
 
 	const breastCancerHistory = $history.conditions.includes('breast-cancer');
+	const hideMht =
+		[
+			'breast-cancer',
+			'endo-cancer',
+			'ovarian-cancer',
+			'heart-attack',
+			'heart-disease',
+			'stroke',
+			'blood-clot',
+			'thrombo',
+			'liver-disease'
+		].some((condition) => $history.conditions.includes(condition)) ||
+		$genetics.genes.includes('clot') ||
+		Number($basics.age) > 60 ||
+		$basics.period === 'ten-year';
 	const takingTamoxifen = $medication.medicationSelection.includes('tamoxifen');
 	const takingAnxietyMeds = $medication.medicationSelection.includes('anxiety');
 </script>
@@ -111,7 +135,9 @@
 			</b>
 		</Paragraph>
 		<div class="pl-4">
-			<p class="font-title text-xl underline mt-4 mb-2">Antidepressant Classes of Medications</p>
+			<p class="font-title text-xl font-semibold underline mt-4 mb-2">
+				Antidepressant Classes of Medications
+			</p>
 			<Paragraph>
 				<b>
 					Some antidepressant medications can help reduce the frequency and severity of hot flashes
@@ -154,12 +180,14 @@
 				</Paragraph>
 			{/if}
 			{#if takingTamoxifen}
-				<i>
-					<b>You have indicated that you are currently taking Tamoxifen.</b> Paroxetine is
-					<b>not</b> a good choice of medication for you.
-				</i>
+				<Paragraph customized>
+					<i>
+						<b>You have indicated that you are currently taking Tamoxifen.</b> Paroxetine is
+						<b>not</b> a good choice of medication for you.
+					</i>
+				</Paragraph>
 			{/if}
-			<p class="font-title text-xl underline mt-4 mb-2">Other Options</p>
+			<p class="font-title text-xl font-semibold underline mt-4 mb-2">Other Options</p>
 			<Paragraph>
 				<ol class="list-decimal ml-6">
 					<li>
@@ -191,8 +219,8 @@
 					</li>
 				</ol>
 				<br />
-				<b
-					>If you are interested in non-hormonal prescription medications to manage your vasomotor
+				<b>
+					If you are interested in non-hormonal prescription medications to manage your vasomotor
 					symptoms, your doctor may be able to start you on one of the medications listed in the
 					following Table:
 				</b>
@@ -210,30 +238,332 @@
 			MHT can reduce the symptom severity by up to 75%. MHT can safely be prescribed to women who are
 			under the age of 60, less than 10 years from the last menstrual period, and have no contraindications.
 		</Paragraph>
-		CUSTOM STUFF HERE
-		<Paragraph>
-			Risks of hormone therapy include heart attack, stroke, and blood clot in the leg or the lung.
-			The risk of these occurrences is less than 1% in women without other identified risk factors.
-			Your age, other health concerns, previous history, time since the menopausal transition and
-			smoking status can all affect your personal risk.
-			<b> It is important to talk to your healthcare provider about your personal risk profile. </b>
-		</Paragraph>
-		<Paragraph>
-			1/8 women will develop breast cancer in their lifetime. There is a slightly increased risk for
-			women who take MHT, especially for women on both estrogen and progesterone. The increased risk
-			of breast cancer for women on MHT is similar to other risk factors for breast cancer, such as
-			drinking more than 2 alcoholic beverages per day, obesity, starting your periods before the
-			age of 12, or entering menopause after the age of 55.
-		</Paragraph>
-		<Paragraph>
-			<b> MHT is usually given as a combination of the hormones estrogen and progesterone </b> for people
-			with a uterus. As a general rule, higher doses of estrogen require higher doses of progesterone.
-		</Paragraph>
-		<Paragraph>
-			When prescribing MHT, your healthcare provider will start at a low dose of medication and
-			increase it in order to manage your symptoms. Higher starter doses may be needed for younger
-			women. Most women will begin to see an effect of the medications within 2-6 weeks.
-		</Paragraph>
-		CUSTOM STUFF HERE
+		{#if $treatment.current.includes('contraceptive')}
+			<Paragraph customized>
+				<b>
+					You have indicated that you are are taking hormonal contraception to help your menopausal
+					symptoms.
+				</b>
+				At some point, your doctor will speak to you about switching to MHT. Hormonal contraceptives
+				contain higher amounts of hormones and, as you age, it will be safer to consider a switch to
+				MHT or a non-hormonal option. Speak to your doctor about the best option for you.
+			</Paragraph>
+		{/if}
+		{#if $basics.bleeding === 'yes'}
+			<Paragraph customized>
+				<b>You have indicated that you may have had postmenopausal bleeding.</b> Postmenopausal bleeding
+				occurs when someone has vaginal bleeding after 12 or more months without a period. Postmenopausal
+				bleeding can have many causes, but some of the worrisome causes include endometrial pre-cancer
+				or cancer. It is important that you speak to your doctor about this, as they will likely suggest
+				investigations to rule out these worrisome causes. If you have already had these investigations
+				and your doctor is not worried about any abnormalities, you may be able to consider MHT.
+			</Paragraph>
+		{/if}
+		{#if Number($basics.age) > 60}
+			<Paragraph customized>
+				<b>You have indicated that you are over the age of 60.</b> Using menopausal hormone therapy after
+				the age of 60 carries greater risk, and may not be a suitable treatment option for you.
+			</Paragraph>
+			{#if $treatment.current.includes('hormone')}
+				<Paragraph customized>
+					<b>You have indicated that you are over the age of 60 and currently taking MHT.</b> It is important
+					to review your medications and risk profile with your healthcare provider, as the risks of
+					MHT can increase as women age.
+				</Paragraph>
+			{/if}
+		{/if}
+		{#if $basics.period === 'ten-year'}
+			<Paragraph customized>
+				<b>You have indicated that you are more than 10 years from your last menstrual period.</b> Taking
+				menopausal hormone therapy is likely not the best option. Speak to your doctor about treatments
+				that might be better for you.
+			</Paragraph>
+			{#if $treatment.current.includes('hormone')}
+				<Paragraph customized>
+					<b>
+						You have indicated that you are more than 10 years from your last menstrual period and
+						currently taking MHT.
+					</b>
+					It is important to review your medications and personal risk profile with your healthcare provider,
+					as the risks of MHT increase when someone is more than 10 years from their final menstrual
+					period.
+				</Paragraph>
+			{/if}
+		{/if}
+		{#if breastCancerHistory}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of breast cancer.</b> A history of breast cancer
+				is a contraindication to using MHT. Studies have shown MHT can increase the risk of recurrence
+				of breast cancer.
+			</Paragraph>
+		{:else if $history.conditions.includes('endo-cancer')}
+			<Paragraph customized>
+				<b>
+					You have indicated that you have a history of endometrial cancer. MHT is not well-studied
+					among patients with a history of endometrial cancer.
+				</b>
+				However, if you have been treated already and your cancer was a low grade, early stage endometrial
+				cancer, you may be able to take MHT. However, it is very important that you speak to your doctor
+				about the benefits and risks of using MHT in your particular case.
+			</Paragraph>
+		{:else if $history.conditions.includes('ovarian-cancer')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of ovarian cancer.</b>
+				MHT is not well-studied among patients with a history of ovarian cancer. However, depending on
+				your age and type of ovarian cancer, your doctor can speak to you about the benefits and risks
+				of using MHT in your particular case.
+			</Paragraph>
+		{:else if $history.conditions.includes('heart-disease')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of coronary artery disease.</b>
+				MHT can increase the risk of cardiac events, such as a heart attack. For this reason, MHT is
+				not recommended for you.
+			</Paragraph>
+		{:else if $history.conditions.includes('heart-attack')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of a heart attack.</b>
+				MHT can increase the risk of cardiac events, such as a heart attack. For this reason, MHT is
+				not recommended for you.
+			</Paragraph>
+		{:else if $history.conditions.includes('stroke')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of blood clot.</b>
+				MHT puts you at higher risk of developing another clot. For this reason, MHT is not recommended
+				for you.
+			</Paragraph>
+		{:else if $history.conditions.includes('blood-clot')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of a blood clot.</b>
+				MHT puts you at higher risk of developing another clot. For this reason, MHT is not recommended
+				for you.
+			</Paragraph>
+		{:else if $history.conditions.includes('thrombo')}
+			<Paragraph customized>
+				<b>You have indicated that you have a thrombophilia.</b>
+				This puts you at higher risk of developing a blood clot. Because MHT also increases the risk
+				of blood clots, it is not a recommended treatment for you.
+			</Paragraph>
+		{:else if $history.conditions.includes('liver-disease')}
+			<Paragraph customized>
+				<b>You have indicated that you have a history of liver disease.</b>
+				MHT can affect the liver and potentially lead to worsening liver function. For this reason, MHT
+				is not recommended for people with a history of significant liver disease.
+			</Paragraph>
+		{/if}
+		{#if !hideMht}
+			{#if $history.conditions.includes('blood-pressure') || $medication.medicationSelection.includes('blood-pressure')}
+				<Paragraph customized>
+					<b>You have indicated that you have high blood pressure.</b>
+					Women who have high blood pressure are at higher risk of cardiovascular disease. If you are
+					considering MHT, speak to your doctor about which route of administration might be best for
+					you.
+				</Paragraph>
+			{/if}
+			{#if $history.conditions.includes('migraine') || $medication.medicationSelection.includes('migraine')}
+				<Paragraph customized>
+					<b>You have indicated that you have a history of migraine headaches.</b>
+					Women who have migraine headaches with auras are at higher risk of stroke than women without
+					them. Being on MHT may increase the risk of this even more. It is important to discuss the
+					pros and cons of using MHT with your healthcare provider. If you choose to use MHT, it is best
+					to start with a very low dose to ensure there is no increase in the frequency or severity of
+					your migraines.
+				</Paragraph>
+			{/if}
+			{#if $history.conditions.includes('other-cancer')}
+				<Paragraph customized>
+					<b>
+						You have indicated that you have a history of a cancer other than breast, endometrial or
+						ovarian cancer.
+					</b>
+					Generally speaking, MHT can be used by people who have a history of cancers other than the
+					types just mentioned. It is still important to discuss the risks and benefits of MHT with your
+					healthcare provider.
+				</Paragraph>
+			{/if}
+			{#if $history.conditions.includes('miscarriage')}
+				<Paragraph customized>
+					<b>
+						You have indicated that you have had 3 or more miscarriages or early pregnancy losses.
+					</b>
+					You may benefit from investigations for thrombophilia, also known as a blood clotting disorder.
+					Speak to your doctor about this, especially if you are considering MHT.
+				</Paragraph>
+			{/if}
+			{#if $habits.smoking === 'yes'}
+				<Paragraph customized>
+					<b> You have indicated that you currently smoke. </b>
+					Smoking increases your risk of an adverse event, such as blood clot, stroke or heart attack,
+					while taking menopausal hormone therapy. Speak to your doctor about whether MHT is right for
+					you and which route of administration might be best.
+				</Paragraph>
+			{/if}
+			{#if $genetics.family.includes('breast-cancer') && $genetics.family.includes('ovarian-cancer')}
+				<Paragraph customized>
+					<b>You have indicated you have a family history of breast cancer and ovarian cancer.</b>
+					Your personal risk of breast cancer is higher than someone without this family history. Speak
+					to your doctor about whether MHT is right for you.
+				</Paragraph>
+			{:else if $genetics.family.includes('breast-cancer')}
+				<Paragraph customized>
+					<b>You have indicated you have a family history of breast cancer.</b>
+					Your personal risk of breast cancer is higher than someone without this family history. Speak
+					to your doctor about whether MHT is right for you.
+				</Paragraph>
+			{:else if $genetics.family.includes('ovarian-cancer')}
+				<Paragraph customized>
+					<b>You have indicated you have a family history of ovarian cancer.</b>
+					Ovarian and breast cancers can sometimes be related. Your baseline risk of breast cancer may
+					be higher than someone without a family history of ovarian cancer. Speak to your doctor about
+					whether MHT is right for you.
+				</Paragraph>
+			{/if}
+			{#if ($genetics.genes.includes('brca1') || $genetics.genes.includes('brca2')) && $surgeries.received.includes('hysterectomy')}
+				<Paragraph customized>
+					<b>
+						You have indicated you carry a BRCA gene and have had surgery to remove your ovaries and
+						fallopian tubes.
+					</b>
+					MHT does not significantly increase breast cancer risk if you are younger than the average
+					age of menopause (51) and have had a risk-reducing salpingo-oophorectomy (removal of your ovaries
+					and fallopian tubes).
+				</Paragraph>
+			{/if}
+			{#if $genetics.family.includes('stroke')}
+				<Paragraph customized>
+					<b>You have indicated that you have a family history of stroke.</b>
+					This could indicate that you are at higher risk of stroke than the average person. MHT is still
+					a treatment option for you, however using a transdermal estrogen may help to lower your risk
+					with MHT. Speak to your doctor about the MHT option that is best for you.
+				</Paragraph>
+			{/if}
+			{#if $genetics.family.includes('heart')}
+				<Paragraph customized>
+					<b>You have indicated that you have a family history of heart attack.</b>
+					This could indicate that you are at higher risk of heart attack than the average person. MHT
+					is still a treatment option for you, however using a transdermal estrogen may help to lower
+					your risk with MHT. Speak to your doctor about what is best for you.
+				</Paragraph>
+			{/if}
+			{#if $genetics.family.includes('blood-clot')}
+				<Paragraph customized>
+					<b>You have indicated that you have a family history of blood clots.</b>
+					This could indicate that you are at higher risk of blood clots than the average person. MHT
+					may still be a treatment option for you, however, using a transdermal estrogen may help to
+					lower your risk of blood clot. Speak to your doctor about what is best for you.
+				</Paragraph>
+			{/if}
+
+			<Paragraph>
+				Risks of hormone therapy include heart attack, stroke, and blood clot in the leg or the
+				lung. The risk of these occurrences is less than 1% in women without other identified risk
+				factors. Your age, other health concerns, previous history, time since the menopausal
+				transition and smoking status can all affect your personal risk.
+				<b>
+					It is important to talk to your healthcare provider about your personal risk profile.
+				</b>
+			</Paragraph>
+			<Paragraph>
+				1/8 women will develop breast cancer in their lifetime. There is a slightly increased risk
+				for women who take MHT, especially for women on both estrogen and progesterone. The
+				increased risk of breast cancer for women on MHT is similar to other risk factors for breast
+				cancer, such as drinking more than 2 alcoholic beverages per day, obesity, starting your
+				periods before the age of 12, or entering menopause after the age of 55.
+			</Paragraph>
+			<Paragraph>
+				<b> MHT is usually given as a combination of the hormones estrogen and progesterone </b> for
+				people with a uterus. As a general rule, higher doses of estrogen require higher doses of progesterone.
+			</Paragraph>
+			<Paragraph>
+				When prescribing MHT, your healthcare provider will start at a low dose of medication and
+				increase it in order to manage your symptoms. Higher starter doses may be needed for younger
+				women. Most women will begin to see an effect of the medications within 2-6 weeks.
+			</Paragraph>
+			{#if $surgeries.received.includes('hysterectory')}
+				<Paragraph customized>
+					<b>You have indicated that you have had a hysterectomy (removal of the uterus).</b>
+					For women who have previously had a total hysterectomy, only estrogen is required. If you are
+					unsure about whether you had a total (your cervix was removed as part of the operation) or
+					subtotal (your cervix was not removed) it is important you clarify this with your doctor. In
+					some circumstances, women with a previous hysterectomy may still benefit from being on progesterone
+					at the same time. Speak to your doctor about what is best for you.
+				</Paragraph>
+				{#if $history.conditions.includes('endo')}
+					<Paragraph customized>
+						<b>
+							You have indicated that you have a history of endometriosis and have had a
+							hysterectomy.
+						</b>
+						Women with a history of significant endometriosis who have had a hysterectomy may benefit
+						from estrogen and progesterone therapy to help decrease the rate of recurrence of endometriosis
+						symptoms. Speak to your doctor about what is best for you.
+					</Paragraph>
+				{/if}
+			{/if}
+			<div class="pl-4">
+				<p class="font-title text-xl font-semibold underline mt-4 mb-2">
+					How to Take Menopausal Hormone Therapy
+				</p>
+				<Paragraph>
+					<b>Estrogen</b> is available in the form of oral pills or transdermal (through the skin)
+					preparations in the form of a patch or gel.
+					<b>
+						Transdermal estrogen is often the preferred route for women who smoke, who have high
+						blood lipids, high blood pressure, migraines, gallbladder disease or malabsorption
+						syndromes. Transdermal estrogen may have lower risk of blood clots.
+					</b>
+				</Paragraph>
+				<Paragraph>
+					<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in combination
+					with estrogen), and intrauterine delivery (progesterone containing intrauterine device, or
+					IUD). Progesterone oral pills can be given in two ways: continuous (meaning that you take a
+					pill every day) or cyclically (meaning you take a pill on certain days per month). Cyclic regimens
+					are usually selected for younger women and women at higher risk of breast cancer. Women on
+					a cyclic regimen can expect to have scheduled bleeding each month. Speak to your health care
+					provider about which option is best for you.
+				</Paragraph>
+				{#if ($basics.period === 'regular' || $basics.period === 'irregular') && !$medication.medicationSelection.includes('menopause')}
+					<Paragraph customized>
+						<b>
+							You have indicated you still get your period, which means your ovaries are still
+							making enough estrogen to build your endometrial lining.
+						</b>
+						If you are considering MHT, your doctor may suggest <b>cyclic progesterone</b>. This
+						means you will take progesterone approximately 12 days per month. This typically allows
+						you to have a “progesterone withdrawal bleed” each month. This is a simulated period
+						allowing you to shed any lining that has built up inside the uterus. Cyclic progesterone
+						will likely reduce your rate of unscheduled bleeding. At some point, your doctor may
+						discuss switching you over to a continuous progesterone regimen so you won’t have the
+						monthly withdrawal bleed.
+					</Paragraph>
+				{:else if $basics.period === 'one-year'}
+					<Paragraph customized>
+						<b>
+							You have indicated it has been more than one year since your last menstrual period.
+						</b>
+						Your doctor may suggest you take your progesterone <b>continuously</b>. While it can be
+						common to have breakthrough bleeding in the first 6 months of a Combined
+						Estrogen/Progesterone regimen where the progesterone is taken continuously, it is
+						important for you to tell your doctor if you do.
+					</Paragraph>
+				{/if}
+				<Paragraph>
+					<b>Estrogen and Progesterone Combination Products</b> are available transdermally (e.g., Estalis
+					patch) or orally (e.g., Activelle and Activelle Lo).
+				</Paragraph>
+				<Paragraph>
+					<b>Tibolone (Brand Name: Tibella)</b>, is a synthetic steroid that has estrogen,
+					progesterone and androgen properties. It has been available in Europe for many years but
+					is newer in Canada. It has favourable effects on bone density and research has shown it
+					may have less unscheduled bleeding compared to other menopausal hormone therapy regimens.
+				</Paragraph>
+				<Paragraph>
+					<b>
+						Typical starting doses and combinations for various MHT formulations available in Canada
+						are shown in the Table below. Talk to your doctor about which one may be right for you.
+					</b>
+				</Paragraph>
+				<img src="/images/MHT_Table_Sept23.png" alt="MHT doses and combinations table" />
+			</div>
+		{/if}
 	</SubSection>
 </div>
