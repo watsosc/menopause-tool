@@ -13,6 +13,7 @@
 	import Vaginal from './symptoms/Vaginal.svelte';
 	import Weight from './Weight.svelte';
 	import Symptoms from './symptoms/Symptoms.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 </script>
 
 <Title />
@@ -35,3 +36,19 @@
 <BreastScreening />
 <CervicalScreening />
 <BoneHealth />
+<Container>
+	<div class="flex flex-row justify-center mb-6 print:hidden">
+		<button
+			class="text-xl font-body rounded-full bg-orange py-2 px-6 shadow-lg"
+			on:click={() => window.print()}
+		>
+			<div class="small-capper">Print</div>
+		</button>
+	</div>
+</Container>
+
+<style>
+	.small-capper {
+		font-variant: small-caps;
+	}
+</style>
