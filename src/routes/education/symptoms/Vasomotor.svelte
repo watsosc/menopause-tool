@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -35,9 +36,9 @@
 
 <div>
 	<EducationSubTitle>Vasomotor Symptoms</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img class="max-w-[250px]" src="/images/symptoms_hotflashes.png" alt="Fire" />
-	</div>
+	</Image>
 	<Paragraph>
 		<b>Hot flashes and night sweats are called vasomotor symptoms.</b> They are common symptoms of
 		menopause occurring in about <b>80% of women</b>. A hot flash is the sensation of heat, usually

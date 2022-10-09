@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -6,13 +7,13 @@
 
 <div class="my-4">
 	<EducationSubTitle>Mood Symptoms</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img
 			class="max-w-[250px]"
 			src="/images/symptoms_mood.png"
 			alt="Woman half happy and half sad"
 		/>
-	</div>
+	</Image>
 	<Paragraph>
 		<b>Depression is a common condition that affects women more than men.</b> Mood can be affected
 		by many factors, including changes in hormones associated with menopause, menopausal symptoms,

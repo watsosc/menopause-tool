@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -6,9 +7,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Sexual Function and Menopause</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img class="max-w-[250px]" src="/images/symptoms_libido.png" alt="Empty bedroom" />
-	</div>
+	</Image>
 	<Paragraph>
 		<b>
 			The most common sexual issues associated with menopause are loss of libido (sex drive) and

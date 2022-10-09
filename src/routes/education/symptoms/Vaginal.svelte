@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -7,9 +8,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Vaginal Symptoms</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img class="max-w-[250px]" src="/images/symptoms_vaginaldryness.png" alt="Vaginal dryness" />
-	</div>
+	</Image>
 	<Paragraph>
 		The vulva, vagina, lower urinary tract and pelvic floor muscles contain estrogen receptors and
 		are sensitive to the hormonal changes of menopause. These changes are termed

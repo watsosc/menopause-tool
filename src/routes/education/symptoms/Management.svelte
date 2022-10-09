@@ -1,7 +1,6 @@
 <script>
 	import Content from '$lib/layouts/Content.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
-	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
 	import { treatment } from '../../../store';
 </script>
 

@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -6,9 +7,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Menopausal Cognitive Changes</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img class="max-w-[250px]" src="/images/symptoms_brainfog.png" alt="Woman in brain fog" />
-	</div>
+	</Image>
 	<Paragraph>
 		Many women will report forgetfulness and difficulty with concentration during the menopausal
 		transition, which is sometimes referred to as <b>“brain fog”</b>. This can worsen in the first

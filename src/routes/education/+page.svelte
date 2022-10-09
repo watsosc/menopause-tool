@@ -10,7 +10,6 @@
 	import Period from './Period.svelte';
 	import Smoking from './Smoking.svelte';
 	import Title from './Title.svelte';
-	import Vaginal from './symptoms/Vaginal.svelte';
 	import Weight from './Weight.svelte';
 	import Symptoms from './symptoms/Symptoms.svelte';
 	import Container from '$lib/layouts/Container.svelte';

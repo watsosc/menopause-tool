@@ -1,4 +1,5 @@
 <script>
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import SubSection from '$lib/layouts/SubSection.svelte';
 	import EducationSubTitle from '$lib/titles/EducationSubTitle.svelte';
@@ -7,9 +8,9 @@
 
 <div class="my-4">
 	<EducationSubTitle>Sleep Concerns</EducationSubTitle>
-	<div class="flex flex-row justify-center">
+	<Image>
 		<img class="max-w-[250px]" src="/images/symptoms_sleep.png" alt="Moon and stars" />
-	</div>
+	</Image>
 	<Paragraph>
 		Disrupted sleep and poor sleep quality is a common issue for many women in the menopausal
 		transition, affecting about <b>30% of menopausal people</b>. Vasomotor symptoms, like hot

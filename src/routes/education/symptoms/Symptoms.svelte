@@ -10,9 +10,10 @@
 	import SexualFunction from './SexualFunction.svelte';
 	import CognitiveChanges from './CognitiveChanges.svelte';
 	import Mood from './Mood.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<EducationTitleBar>Managing Menopausal Symptoms</EducationTitleBar>
 		<Content>
@@ -39,4 +40,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>
