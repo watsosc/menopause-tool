@@ -5,6 +5,7 @@
 	import { getAnswer, getMultiSelectList, treatmentOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	$: previous = getMultiSelectList(treatmentOptions.all, $treatment.all);
 	$: current = getMultiSelectList(treatmentOptions.current, $treatment.current);
@@ -12,7 +13,7 @@
 	$: helping = getAnswer(treatmentOptions.helping, $treatment.helping);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Menopause Treatments</SummaryTitleBar>
 		<Content>
@@ -54,4 +55,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

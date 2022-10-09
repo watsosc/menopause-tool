@@ -1,6 +1,7 @@
 <script>
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 </script>
@@ -9,9 +10,9 @@
 	<Card>
 		<EducationTitleBar>Smoking and Menopause</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/cigarette.png" alt="Cigarette" />
-			</div>
+			</Image>
 			<Paragraph customized>
 				<b>You have indicated that you currently smoke.</b> Smoking has several negative health impacts.
 			</Paragraph>

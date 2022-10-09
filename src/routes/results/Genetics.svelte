@@ -5,6 +5,7 @@
 	import { geneticsOptions, getMultiSelectAnswer, getMultiSelectList } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	const selectedFamilyHistory = getMultiSelectAnswer(
 		geneticsOptions.family,
@@ -15,7 +16,7 @@
 	const genes = getMultiSelectList(geneticsOptions.genes, $genetics.genes);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Family and Genetic History</SummaryTitleBar>
 		<Content>
@@ -42,4 +43,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

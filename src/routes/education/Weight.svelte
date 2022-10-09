@@ -2,6 +2,7 @@
 	import ResponseDisplay from '$lib/answers/ResponseDisplay.svelte';
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { bmi } from '../../store';
@@ -11,9 +12,9 @@
 	<Card>
 		<EducationTitleBar>Menopausal Weight Changes</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/weight_scale.png" alt="Weight scale" />
-			</div>
+			</Image>
 			<Paragraph>
 				Weight gain and control is a common concern around perimenopause and menopause.
 				<b>The average patient gains 2 kg throughout the menopausal transition.</b> Energy requirements

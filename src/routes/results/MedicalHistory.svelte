@@ -5,6 +5,7 @@
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 	import CrossList from '$lib/answers/CrossList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	const conditions = () => {
 		if ($history.conditions.length > 0) {
@@ -18,7 +19,7 @@
 		.map((condition) => condition.description);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Past Medical History</SummaryTitleBar>
 		<Content>
@@ -27,7 +28,7 @@
 				or in the past:
 			</p>
 			<CheckmarkList list={conditions()} />
-			<div class="border-2 border-[#000000] mt-2 rounded-lg bg-grey w-fit pr-6">
+			<div class="border-2 border-[#000000] mt-2 rounded-lg bg-grey w-fit pr-6 print:border-4">
 				<p class="font-body text-xl mt-2 p-2">
 					You indicated that you have <b>no</b> history of:
 				</p>
@@ -44,4 +45,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

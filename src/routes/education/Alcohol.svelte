@@ -1,6 +1,7 @@
 <script>
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { habits, menopause, screening } from '../../store';
@@ -10,9 +11,9 @@
 	<Card>
 		<EducationTitleBar>Alcohol and Menopause</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/wine.png" alt="Filled wine glass" />
-			</div>
+			</Image>
 			{#if $habits.alcohol === 'low'}
 				<Paragraph customized>
 					<b>You have indicated that you drink alcohol but consume 7 or fewer drinks per week.</b>

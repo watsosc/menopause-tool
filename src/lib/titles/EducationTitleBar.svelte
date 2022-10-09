@@ -1,6 +1,6 @@
 <div class="flex flex-row">
-	<div class="w-6 bg-secondary" />
+	<div class="w-6 bg-secondary print:w-0" />
 	<div class="bg-orange flex-grow">
-		<p class="text-2xl font-title font-semibold ml-4 my-2"><slot /></p>
+		<p class="text-2xl font-title font-semibold ml-4 my-2 print:ml-0 print:mt-8"><slot /></p>
 	</div>
 </div>

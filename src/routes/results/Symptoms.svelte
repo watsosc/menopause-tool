@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Symptoms from '$lib/titles/icons/symptoms.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { menopause } from '../../store';
 	import { getAnswer, getMultiSelectList, menopauseOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	const symptoms = $menopause.symptoms
 		.map((symptom) => getAnswer(menopauseOptions.symptoms, symptom))
@@ -13,7 +13,7 @@
 	const mood = getMultiSelectList(menopauseOptions.depression, $menopause.mood);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Current Menopause Symptoms</SummaryTitleBar>
 		<Content>
@@ -45,4 +45,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

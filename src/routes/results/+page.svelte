@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Container from '$lib/layouts/Container.svelte';
 
 	import Basics from './Basics.svelte';
 	import Genetics from './Genetics.svelte';
@@ -25,8 +26,8 @@
 <Habits />
 <Screening />
 <Genetics />
-<div class="container mx-auto px-4">
-	<div class="flex flex-row justify-around my-8">
+<Container>
+	<div class="flex flex-row justify-around my-8 print:hidden">
 		<div>
 			<button
 				class="text-xl font-body rounded-full bg-green py-2 px-6 shadow-lg"
@@ -34,7 +35,10 @@
 			>
 				<div class="small-capper">Go Back</div>
 			</button>
-			<button class="text-xl font-body rounded-full bg-green py-2 px-6 shadow-lg ml-8">
+			<button
+				class="text-xl font-body rounded-full bg-green py-2 px-6 shadow-lg ml-8"
+				on:click={() => window.print()}
+			>
 				<div class="small-capper">Print</div>
 			</button>
 		</div>
@@ -45,7 +49,7 @@
 			<div class="small-capper">Generate Education Package</div>
 		</button>
 	</div>
-</div>
+</Container>
 
 <style>
 	.small-capper {

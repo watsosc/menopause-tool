@@ -3,9 +3,10 @@
 	import ResponseDisplay from '$lib/answers/ResponseDisplay.svelte';
 	import { basics, bmi } from '../../store';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Age and Body Mass Index (BMI)</SummaryTitleBar>
 		<Content>
@@ -31,4 +32,4 @@
 			</p>
 		</Content>
 	</Card>
-</div>
+</Container>

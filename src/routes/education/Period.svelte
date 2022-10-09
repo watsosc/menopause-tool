@@ -46,7 +46,7 @@
 				your doctor has told you to take them. If you are getting any unexpected bleeding, you
 				should speak to your doctor.
 			</Paragraph>
-			<div class="flex flex-row justify-center">
+			<div class="flex flex-row justify-center print:hidden">
 				<img
 					class="max-w-[350px] mx-4"
 					src="/images/birth_control_pill.png"

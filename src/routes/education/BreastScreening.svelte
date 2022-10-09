@@ -1,6 +1,7 @@
 <script>
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { basics, screening, genetics, history } from '../../store';
@@ -25,9 +26,9 @@
 	<Card>
 		<EducationTitleBar>Breast Screening</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/mammogram.png" alt="Mammogram" />
-			</div>
+			</Image>
 			<Paragraph>
 				<b>
 					Mammograms are performed to screen for cancers of the breast. Breast screening

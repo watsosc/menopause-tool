@@ -4,6 +4,7 @@
 	import { basicsOptions, getAnswer } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	const bleeding = () => {
 		if ($basics.bleeding === 'yes') {
@@ -19,7 +20,7 @@
 	const answer = getAnswer(basicsOptions.period, $basics.period);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Menstrual History</SummaryTitleBar>
 		<Content>
@@ -36,4 +37,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

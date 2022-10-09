@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { basics, screening, habits } from '../../store';
@@ -24,9 +25,9 @@
 	<Card>
 		<EducationTitleBar>Bone Health and Menopause</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/bone.png" alt="Two bones" />
-			</div>
+			</Image>
 			{#if $screening.bones === 'never' && underSixtyFive && postMenopausal}
 				<Paragraph customized>
 					<b>

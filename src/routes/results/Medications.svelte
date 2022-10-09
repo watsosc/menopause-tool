@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Medications from '$lib/titles/icons/meds-allergies.svg';
 	import { Card, Content } from '$lib/layouts';
 	import { medication } from '../../store';
 	import { getMultiSelectAnswer, medicationOptions } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 
 	const selectedMedications = getMultiSelectAnswer(
 		medicationOptions.medications,
@@ -13,7 +13,7 @@
 	);
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<SummaryTitleBar>Medications & Allergies</SummaryTitleBar>
 		<Content>
@@ -50,4 +50,4 @@
 			{/if}
 		</Content>
 	</Card>
-</div>
+</Container>

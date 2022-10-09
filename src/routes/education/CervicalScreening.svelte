@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { basics, screening, surgeries } from '../../store';
@@ -15,9 +16,9 @@
 	<Card>
 		<EducationTitleBar>Cervical Cancer Screening</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/speculum.png" alt="Pap test" />
-			</div>
+			</Image>
 			<Paragraph>
 				<b>
 					Pap tests (also called “pap smears”) are performed to screen for pre-cancer and cancer

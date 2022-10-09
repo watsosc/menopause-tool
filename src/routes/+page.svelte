@@ -44,6 +44,7 @@
 	} from '$lib/selections';
 	import { schema } from '$lib/validation/schema';
 	import { goto } from '$app/navigation';
+	import Container from '$lib/layouts/Container.svelte';
 
 	type Inner = {
 		path: string;
@@ -82,13 +83,13 @@
 	};
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<MainTitle>
 			<h1 class="small-capper">Menopause History Form</h1>
 		</MainTitle>
 		<QuestionBlock>
-			<p class="text-xl font-body">
+			<p class="text-xl font-body text-justify">
 				You are invited to answer questions about your medical history in the form below. Completing
 				this form will allow you to generate a Menopause History Summary followed by a personalized
 				Menopause Education Package. Data entered into this form is not being retained.
@@ -449,7 +450,7 @@
 			</button>
 		</div>
 	</form>
-</div>
+</Container>
 
 <style>
 	.small-capper {

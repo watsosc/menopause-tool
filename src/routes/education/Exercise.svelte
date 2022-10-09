@@ -1,6 +1,7 @@
 <script>
 	import Card from '$lib/layouts/Card.svelte';
 	import Content from '$lib/layouts/Content.svelte';
+	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { habits } from '../../store';
@@ -10,9 +11,9 @@
 	<Card>
 		<EducationTitleBar>Exercise and Menopause</EducationTitleBar>
 		<Content>
-			<div class="flex flex-row justify-center">
+			<Image>
 				<img class="max-w-[250px]" src="/images/exercise.png" alt="Person on treadmill" />
-			</div>
+			</Image>
 			{#if $habits.exercise === 'none'}
 				<Paragraph customized>
 					<b>You have indicated that you do not exercise.</b> If you are able, consider integrating regular
