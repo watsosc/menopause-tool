@@ -1,14 +1,19 @@
 <script>
 	import ResponseDisplay from '$lib/answers/ResponseDisplay.svelte';
 	import Card from '$lib/layouts/Card.svelte';
+	import Container from '$lib/layouts/Container.svelte';
 	import Content from '$lib/layouts/Content.svelte';
 	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 	import { bmi } from '../../store';
+
+	const dietParagraph = `A healthy diet rich in vegetables, protein, and complex carbohydrates and regular exercise
+				are important for achieving and maintaining a healthy weight. More information about
+				exercise recommendations can be found in the <b>Exercise Section</b> below.`;
 </script>
 
-<div class="container mx-auto px-4">
+<Container>
 	<Card>
 		<EducationTitleBar>Menopausal Weight Changes</EducationTitleBar>
 		<Content>
@@ -31,6 +36,8 @@
 					Your doctor may recommend weight loss for many different reasons. In general, achieving and
 					maintaining a healthy weight can help improve health in the short-term and reduce the risk
 					of developing new health issues in the long-term.
+					<br /><br />
+					{@html dietParagraph}
 				</Paragraph>
 			{:else if $bmi && Number($bmi) > 20}
 				<Paragraph customized>
@@ -39,6 +46,8 @@
 					<b>, which is considered a normal BMI.</b>
 					<br /><br />
 					Maintaining a healthy weight can reduce the risk of developing new health issues in the long-term.
+					<br /><br />
+					{@html dietParagraph}
 				</Paragraph>
 			{:else}
 				<Paragraph customized>
@@ -47,13 +56,10 @@
 					<b>, which is a lower BMI than typically recommended.</b>
 					<br /><br />
 					Maintaining a healthy weight can reduce the risk of developing new health issues in the long-term.
+					<br /><br />
+					{@html dietParagraph}
 				</Paragraph>
 			{/if}
-			<Paragraph customized>
-				A healthy diet rich in vegetables, protein, and complex carbohydrates and regular exercise
-				are important for achieving and maintaining a healthy weight. More information about
-				exercise recommendations can be found in the <b>Exercise Section</b> below.
-			</Paragraph>
 		</Content>
 	</Card>
-</div>
+</Container>
