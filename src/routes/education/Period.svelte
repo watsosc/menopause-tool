@@ -39,31 +39,33 @@
 					However, if your periods are regular and you are getting menopausal symptoms, your doctor may
 					look for other reasons why this is happening.
 				</Paragraph>
-			{/if}
-			<Paragraph>
-				Examples of medications that can give you a regular period include birth control pills and
-				menopausal hormone therapy. Whether you get a period on these medications, depends on how
-				your doctor has told you to take them. If you are getting any unexpected bleeding, you
-				should speak to your doctor.
-			</Paragraph>
-			<div class="flex flex-row justify-center print:hidden">
-				<img
-					class="max-w-[350px] mx-4"
-					src="/images/birth_control_pill.png"
-					alt="Birth control pill"
-				/>
-				<img
-					class="max-w-[350px] mx-4"
-					src="/images/cyclic_progesterone.png"
-					alt="Cyclic progesterone"
-				/>
-			</div>
-			{#if $basics.period === 'irregular'}
-				<Paragraph>
-					<b>Perimenopause</b> occurs during a time of fluctuating hormones. You may experience menstrual
-					cycle irregularity and menopausal symptoms.
+			{:else if $basics.period === 'medication'}
+				<Paragraph customized>
+					Examples of medications that can give you a regular period include birth control pills and
+					menopausal hormone therapy. Whether you get a period on these medications, depends on how
+					your doctor has told you to take them. If you are getting any unexpected bleeding, you
+					should speak to your doctor.
 				</Paragraph>
-				<Paragraph>
+
+				<div class="flex flex-row justify-center print:hidden">
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/birth_control_pill.png"
+						alt="Birth control pill"
+					/>
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/cyclic_progesterone.png"
+						alt="Cyclic progesterone"
+					/>
+				</div>
+			{/if}
+
+			{#if $basics.period === 'irregular'}
+				<Paragraph customized>
+					<b>Perimenopause</b> occurs during a time of fluctuating hormones. You may experience
+					menstrual cycle irregularity and menopausal symptoms.
+					<br /> <br />
 					<b>You have indicated you still get your periods but they are irregular.</b> You may be in
 					perimenopause. However, your doctor may look for other reasons why you have irregular cycles.
 					If your bleeding is very heavy, lasts longer than a normal period or you have bleeding between
@@ -78,26 +80,24 @@
 					</b>
 				</Paragraph>
 			{:else if $basics.period === 'surgery'}
-				<Paragraph>
-					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release eggs.
-					This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause is diagnosed
-					after you have gone 12 months without a menstrual period.
-				</Paragraph>
 				<Paragraph customized>
+					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release
+					eggs. This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause
+					is diagnosed after you have gone 12 months without a menstrual period.
+					<br /> <br />
 					<b>
 						You have indicated you have had a uterine surgery that stopped your periods but you
 						still have your ovaries.
 					</b>
 					You may experience symptoms of menopause when your ovaries begin to decrease their functioning.
-					You may not know when you go into menopause because you were not getting periods.
+					You may not know when you go into menopause because you are not getting periods.
 				</Paragraph>
 			{:else if $basics.period === 'medication'}
-				<Paragraph>
-					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release eggs.
-					This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause is diagnosed
-					after you have gone 12 months without a menstrual period.
-				</Paragraph>
 				<Paragraph customized>
+					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release
+					eggs. This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause
+					is diagnosed after you have gone 12 months without a menstrual period.
+					<br /> <br />
 					<b>You have indicated you are taking medication that has stopped your periods.</b> Certain
 					hormonal medications, depending on the way they are taken, can stop your periods. If you were
 					not in menopause before you started the medication, it may be difficult to know if you are
@@ -105,11 +105,10 @@
 				</Paragraph>
 			{/if}
 			{#if $basics.bleeding === 'yes'}
-				<Paragraph>
+				<Paragraph customized>
 					<b>Postmenopausal bleeding</b> occurs when someone has vaginal bleeding after having 12 or
 					more months without a period. There are many different causes of postmenopausal bleeding.
-				</Paragraph>
-				<Paragraph customized>
+					<br /> <br />
 					<b>
 						By indicating you had bleeding after going more than 12 months without a period, you may
 						have had postmenopausal bleeding.

@@ -20,7 +20,7 @@
 			{#if ($treatment.all.length > 0 && $treatment.current.length === 0) || ($treatment.current.length > 0 && $treatment.helping !== 'much')}
 				<Management />
 			{/if}
-			{#if $menopause.symptoms.includes('hot-flash') || $menopause.symptoms.includes('night-sweat')}
+			{#if $menopause.symptoms.includes('hot-flash') || $menopause.symptoms.includes('night-sweat') || ($menopause.symptoms.includes('poor-sleep') && $menopause.sleep.includes('sweat'))}
 				<Vasomotor />
 			{/if}
 			{#if $menopause.symptoms.includes('vaginal-dryness')}

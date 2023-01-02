@@ -20,14 +20,14 @@
 				are described below.
 			</Paragraph>
 			<Paragraph>
-				<b>Perimenopause occurs during a time of fluctuating hormones.</b> People may experience irregular
-				periods and menopausal symptoms. It can last 4 to 8 years and typically starts with changes in
-				the length of time between periods and ends 1 year after the final menstrual period.
+				<b><u>Perimenopause</u> occurs during a time of fluctuating hormones.</b> People may experience
+				irregular periods and menopausal symptoms. It can last 4 to 8 years and typically starts with
+				changes in the length of time between periods and ends 1 year after the final menstrual period.
 			</Paragraph>
 			<img src="/images/menopause_timeline.png" alt="Menopause timeline" />
 			<Paragraph>
 				<b>
-					Menopause occurs when the ovaries decrease their functioning and no longer release eggs.
+					<u>Menopause</u> occurs when the ovaries decrease their functioning and no longer release eggs.
 				</b>
 				This leads to low estrogen, which can cause symptoms of menopause. Usually, menopause is diagnosed
 				after you have gone 12 months without a menstrual period.
@@ -40,8 +40,8 @@
 			</Paragraph>
 			<Paragraph>
 				<b>
-					Premature ovarian insufficiency (POI) is when menopause occurs before the age of 40 years
-					old.
+					<u>Premature ovarian insufficiency (POI)</u> is when menopause occurs before the age of 40
+					years old.
 				</b>
 				POI happens in 1% of women. In most cases (85%), we don’t know what causes premature ovarian
 				insufficiency. Sometimes, there is a genetic reason, an autoimmune cause or an exposure that
@@ -50,11 +50,12 @@
 				specific investigations.
 			</Paragraph>
 			<Paragraph>
-				<b>Induced menopause</b> can happen after treatments such as radiation therapy and some chemotherapies.
+				<b><u>Induced menopause</u></b> can happen after treatments such as radiation therapy and some
+				chemotherapies.
 			</Paragraph>
 			<Paragraph>
-				<b>Surgical menopause</b> happens after surgery to remove a person’s ovaries. Symptoms with this
-				type of menopause can have a more abrupt onset and be more severe and frequent.
+				<b><u>Surgical menopause</u></b> happens after surgery to remove a person’s ovaries. Symptoms
+				with this type of menopause can have a more abrupt onset and be more severe and frequent.
 			</Paragraph>
 			<Image>
 				<img class="max-w-[250px]" src="/images/surgery.png" alt="Surgery" />

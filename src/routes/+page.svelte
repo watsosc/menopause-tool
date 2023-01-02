@@ -136,7 +136,7 @@
 					{#if !$bleedingEntryDisabled}
 						<SingleSelectQuestion
 							name="bleeding"
-							title="If it has been <b>one year or more</b> since your last period, have you had any vaginal bleeding?"
+							title="<b>If you have had more than one year since your last spontaneous period, have you had any vaginal bleeding that has not been investigated?</b>"
 							bind:selection={$basics.bleeding}
 							error={errors['bleeding']}
 							options={basicsOptions.menopause}
@@ -204,7 +204,7 @@
 				<QuestionColumn>
 					<MultiSelectQuestion
 						name="therapy-all"
-						title="What menopause therapies have you tried to help with your menopause symptoms?"
+						title="What menopause therapies have you <u>tried</u> to help with your menopause symptoms?"
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.all}
 						options={treatmentOptions.all}
@@ -225,7 +225,7 @@
 					{#if !$treatmentEntryDisabled}
 						<SingleSelectQuestion
 							name="therapy-medication"
-							title="If you are currently using a menopause therapy for your symptoms, is it/are they helping you?"
+							title="If you are currently using a menopause therapy for your symptoms, is it/are they <u>helping you</u>?"
 							subtitle="Choose the option that best describes you."
 							bind:selection={$treatment.helping}
 							options={treatmentOptions.helping}
@@ -235,7 +235,7 @@
 					{/if}
 					<MultiSelectQuestion
 						name="therapy-interested"
-						title="What menopause therapies are you most interested in?"
+						title="What menopause therapies are you <u>most interested in</u>?"
 						subtitle="Choose all that apply."
 						bind:selection={$treatment.interested}
 						options={treatmentOptions.interested}

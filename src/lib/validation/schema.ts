@@ -29,7 +29,7 @@ export const menopauseSchema = yup.object().shape({
   }),
   otherEntry: yup.string().when("other", {
     is: "yes",
-    then: yup.string().required(REQUIRED_WHEN("I am suffering from"))
+    then: yup.string().required(REQUIRED_WHEN("I am also suffering from"))
   }),
 });
 

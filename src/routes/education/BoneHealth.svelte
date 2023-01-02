@@ -7,7 +7,10 @@
 	import { basics, screening, habits } from '../../store';
 
 	const underSixtyFive = Number($basics.age) < 65;
+	const preMenopausal = ['regular', 'irregular'].includes($basics.period);
 	const postMenopausal = ['one-year', 'ten-year'].includes($basics.period);
+	const hysterectomyWithOvaries = $basics.period === 'surgery';
+	const periodMedication = $basics.period === 'medication';
 
 	const smokingParagraph = () => {
 		if ($habits.smoking === 'yes') {
@@ -28,19 +31,87 @@
 			<Image>
 				<img class="max-w-[250px]" src="/images/bone.png" alt="Two bones" />
 			</Image>
-			{#if $screening.bones === 'never' && underSixtyFive && postMenopausal}
+			{#if $screening.bones === 'never' && hysterectomyWithOvaries}
+				<Paragraph customized>
+					<b>
+						You have indicated you have had a hysterectomy, and have never had a bone density scan.
+					</b>
+					<br /><br />
+					<b>
+						After hysterectomy, it may be difficult to identify if you are in menopause. The average
+						age of menopause in Canada is 51.
+					</b>
+					<br /><br />
+					Post-menopausal people aged 65 or older
+					<u>should undergo bone mineral density assessment</u>
+					and discuss their individualized fracture risk with their healthcare provider.
+					<br /><br />
+					<b>
+						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
+						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
+						the bones and increases the risk of fracture. There are also several other risk factors
+						for low bone density. Speak to your doctor about whether you have these risks.
+					</b>
+					{@html smokingParagraph()}
+				</Paragraph>
+			{:else if $screening.bones === 'never' && underSixtyFive && periodMedication}
+				<Paragraph customized>
+					<b>
+						You have indicated that you are younger than 65 years old, you are taking medication
+						that has stopped your period, and have never had a bone density scan.
+					</b>
+					<br /><br />
+					Most medications that may stop your period, such as birth control pills or the Mirena IUD,
+					do not increase your risk of having low bone density. However, prolonged use of certain medications,
+					such as Lupron, may require early initiation bone mineral density assessment.
+					<br /><br />
+					<b>Before the age of 65</b>, most patients do not require routine bone mineral density
+					assessment. If you are on hormonal therapies, speak to your doctor about whether you
+					require a bone mineral density assessment.
+					<br /><br />
+					<b>
+						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
+						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
+						the bones and increases the risk of fracture. There are also several other risk factors
+						for low bone density. Speak to your doctor about whether you have these risks.
+					</b>
+					{@html smokingParagraph()}
+				</Paragraph>
+			{:else if $screening.bones === 'never' && underSixtyFive && postMenopausal}
 				<Paragraph customized>
 					<b>
 						You have indicated that you are post-menopausal, younger than 65 years old, and have
 						never had a bone density scan.
 					</b>
+					<br /><br />
+					Post-menopausal people younger than 65 years old should discuss their individualized fracture
+					risk with their healthcare provider to determine whether bone mineral density assessment is
+					necessary.
+					<br /><br />
+					<b>
+						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
+						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
+						the bones and increases the risk of fracture.
+					</b>
+					{@html smokingParagraph()}
 				</Paragraph>
-				<Paragraph>
-					Post-menopausal people younger than 65 years old should discuss their individualized
-					fracture risk with their healthcare provider to determine whether bone mineral density
-					assessment is necessary.
-				</Paragraph>
-				<Paragraph>
+			{:else if $screening.bones === 'never' && !underSixtyFive && preMenopausal}
+				<Paragraph customized>
+					<b>
+						You have indicated that you are 65 years of age or older, and have never had a bone
+						density scan.
+					</b>
+					<br /><br />
+					<b>You have indicated that you still have regular or irregular vaginal bleeding.</b>
+					<br /><br />
+					The average age of menopause in Canada is 51. For patients not taking hormonal therapy, vaginal
+					bleeding after menopause should be evaluated by a physician. You should speak to your healthcare
+					provider about your post-menopausal bleeding.
+					<br /><br />
+					Post-menopausal people aged 65 or older
+					<u>should undergo bone mineral density assessment</u>
+					and discuss their individualized fracture risk with their healthcare provider.
+					<br /><br />
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -54,13 +125,11 @@
 						You have indicated that you are post-menopausal, 65 years of age or older, and have
 						never had a bone density scan.
 					</b>
-				</Paragraph>
-				<Paragraph>
+					<br /><br />
 					Post-menopausal people aged 65 or older
 					<i>should undergo bone mineral density assessment</i>
 					and discuss their individualized fracture risk with their healthcare provider.
-				</Paragraph>
-				<Paragraph>
+					<br /><br />
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -72,12 +141,10 @@
 			{:else if $screening.bones === 'normal'}
 				<Paragraph customized>
 					<b> You have indicated that you have had a bone density scan and it was normal. </b>
-				</Paragraph>
-				<Paragraph>
-					Depending on your individualized fracture risk, your healthcare provider will determine
-					when to repeat bone density screening.
-				</Paragraph>
-				<Paragraph>
+					<br /><br />
+					Depending on your individualized fracture risk, your healthcare provider will determine when
+					to repeat bone density screening.
+					<br /><br />
 					<b>
 						Post-menopausal people have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
@@ -96,12 +163,10 @@
 					with osteoporosis have weaker bones compared to those with osteopenia. Osteopenia can progress
 					to osteoporosis. Osteoporosis is a condition that weakens the bones and increases the risk
 					of fracture.
-				</Paragraph>
-				<Paragraph>
-					Treatment of low bone density can typically include vitamin D, calcium, prescription
-					medications, and lifestyle modifications.
-				</Paragraph>
-				<Paragraph>
+					<br /><br />
+					Treatment of low bone density can typically include vitamin D, calcium, prescription medications,
+					and lifestyle modifications.
+					<br /><br />
 					<b>
 						Post-menopausal patients have a higher risk of developing osteoporosis due to hormonal
 						changes that naturally occur after menopause. There are also several other risk factors

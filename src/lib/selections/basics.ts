@@ -27,7 +27,7 @@ export const basicsOptions = {
     },
     {
       id: 'medication',
-      description: 'I use a medication that has stopped my periods (e.g., Lupron, Mirena IUD, birth control pill).',
+      description: '<b>It is difficult for me to know when my last spontaneous period was.</b> I use a medication that has stopped my periods or gives me an expected period (e.g., Lupron, Mirena IUD, birth control pill).',
       answer: 'You are using a medication that has stopped my periods (e.g., Lupron, Mirena IUD, birth control pill)'
     }
   ],

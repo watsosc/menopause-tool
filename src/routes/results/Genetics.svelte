@@ -12,6 +12,7 @@
 		$genetics.family,
 		(primary, suboptions) => `${primary} and ${suboptions}`
 	);
+	const hasGene = $genetics.genes.length > 0 && !$genetics.genes.includes('none');
 
 	const genes = getMultiSelectList(geneticsOptions.genes, $genetics.genes);
 </script>
@@ -20,7 +21,7 @@
 	<Card>
 		<SummaryTitleBar>Family and Genetic History</SummaryTitleBar>
 		<Content>
-			{#if $genetics.genes.length > 0}
+			{#if hasGene}
 				<p class="font-body text-xl">You have been told that you carry:</p>
 				<CheckmarkList list={genes} />
 			{:else}
@@ -30,7 +31,7 @@
 				</p>
 			{/if}
 
-			{#if $genetics.family.length > 0}
+			{#if hasGene}
 				<p class="font-body text-xl mt-4">
 					You indicated that you have a <b>family history</b> of the following health condition(s):
 				</p>

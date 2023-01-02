@@ -15,9 +15,14 @@ export const geneticsOptions = {
     },
     {
       id: 'risk',
-      description: 'I have been told I carry another gene that increases my risk of developing a certain condition.',
+      description: 'I have been told I carry <u>another gene</u> that increases my risk of developing a certain condition.',
       answer: 'a gene that increases your risk of developing certain health conditions but it is <b>not</b> a BRCA gene or a gene that increases your risk of blood clot'
     },
+    {
+      id: 'none',
+      description: 'To the best of my knowledge, I <u>do not carry</u> any genes that increase my chance of developing a certain condition(s).',
+      answer: ''
+    }
   ],
   family: [
     {

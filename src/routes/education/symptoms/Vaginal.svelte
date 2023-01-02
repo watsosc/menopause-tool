@@ -41,7 +41,7 @@
 					as your regimen can likely be adjusted or a new option introduced.
 				</Paragraph>
 			{/if}
-			<p class="font-title text-xl underline mt-4 mb-2">Non-Hormonal Treatments</p>
+			<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">Non-Hormonal Treatments</p>
 			<Paragraph>
 				<ol class="ml-4 list-decimal">
 					<li>
@@ -71,35 +71,45 @@
 					</li>
 				</ol>
 			</Paragraph>
-			<p class="font-title text-xl underline mt-4 mb-2">Hormonal Treatments</p>
+			<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">Hormonal Treatments</p>
 			<Paragraph>
 				<b>Vaginal estrogen is the most effective therapy for management of GSM.</b> It helps to
 				increase blood supply to vulvar and vaginal tissue, improve tissue quality and restore
 				vaginal pH. Vaginal estrogen therapy can be delivered as a cream (Brand Names:
-				<i>Estragyn</i>
-				or <i>Premarin</i>), a vaginal suppository (Brand Name: <i>Vagifem</i>), or a ring (Brand
-				Name: <i>Estring</i>).
+				<b><i>Estragyn</i></b>
+				or <b><i>Premarin</i></b>), a vaginal suppository (Brand Name: <b><i>Vagifem</i></b>), or a
+				ring (Brand Name: <b><i>Estring</i></b>).
 			</Paragraph>
 			<Paragraph>
 				Vaginal estrogen has an excellent safety profile and has been extensively studied. It is not
 				associated with increased cardiovascular risk or risk of cancer. Vaginal estrogen is an
 				option for some breast cancer survivors.
 			</Paragraph>
+			<Paragraph>
+				<b>Ospemiphene</b> (Brand Name: <b><i>Osphena</i></b>) is a selective estrogen receptor
+				modulator (SERM) that is used to treat GSM and sexual dysfunction. It is taken as an oral
+				tablet daily. It can be good for people who find it challenging to insert anything into the
+				vagina. While uncommon, side effects can include hot flashes, as well as risk of blood
+				clots, stroke, heart attack. It has also been associated with vaginal bleeding in some
+				women. If you take this medication and have bleeding, it is very important you speak to your
+				family doctor. This medication is relatively new in Canada. There are many people who should
+				not take this medication. Speak to your doctor about whether this medication is an option
+				for you.
+			</Paragraph>
+			<Paragraph>
+				<b>Dehydroepiandrosterone (DHEA or prasterone)</b> is a vaginal suppository that is inserted
+				daily. It contains inactive precursors to androgens and estrogens that get converted into
+				their active forms in vaginal tissues. It has been recently approved in Canada. Its brand
+				name is
+				<b><i>Intrarosa</i></b>.
+			</Paragraph>
 			{#if $history.conditions.includes('breast-cancer')}
-				<b>You have indicated you have a history of breast cancer.</b> Vaginal estrogen should not be
-				used as a first-line option to treat GSM for you. Decision-making should be shared between you
-				and your doctor and incorporate opinions from all members of your healthcare team.
+				<Paragraph customized>
+					<b>You have indicated you have a history of breast cancer.</b> Vaginal estrogen should not
+					be used as a first-line option to treat GSM for you. Decision-making should be shared between
+					you and your doctor and incorporate opinions from all members of your healthcare team.
+				</Paragraph>
 			{/if}
 		</div>
-		<Paragraph>
-			<b>Ospemiphene (Brand Name: <i>Osphena</i>)</b> is a selective estrogen receptor modulator (SERM)
-			that is used to treat GSM and sexual dysfunction. It is taken as an oral tablet daily. It can be
-			good for people who find it challenging to insert anything into the vagina. While uncommon, side
-			effects can include hot flashes, as well as risk of blood clots, stroke, heart attack. It has also
-			been associated with vaginal bleeding in some women. If you take this medication and have bleeding,
-			it is very important you speak to your family doctor. This medication is relatively new in Canada.
-			There are many people who should not take this medication. Speak to your doctor about whether this
-			medication is an option for you.
-		</Paragraph>
 	</SubSection>
 </div>

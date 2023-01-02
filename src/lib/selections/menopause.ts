@@ -10,7 +10,7 @@ export const menopauseOptions = {
   ],
   other: [
     { id: 'no', description: 'I am most bothered by a symptom(s) on the list above.' },
-    { id: 'yes', description: 'I am suffering from:' }
+    { id: 'yes', description: 'I am also suffering from:' }
   ],
   sleep: [
     {

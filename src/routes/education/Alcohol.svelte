@@ -37,7 +37,7 @@
 				</Paragraph>
 			{:else}
 				<Paragraph customized>
-					<b>You have indicated that you consume 8 or more drinks of alcohol per week.</b>
+					<b>You have indicated that you consume 7 or more drinks of alcohol per week.</b>
 					One standard drink includes:
 					<ul class="ml-8 list-disc">
 						<li>5 fluid oz (one glass) of wine (about 12% alcohol)</li>
@@ -46,8 +46,7 @@
 					</ul>
 					Your current alcohol consumption is considered
 					<b>HEAVY</b>.
-				</Paragraph>
-				<Paragraph>
+					<br /> <br />
 					According to the <i>North American Menopause Society</i>,
 					<b> heavy alcohol intake is defined as more than seven standard drinks per week. </b>
 					This level of alcohol consumption increases your risk of certain health conditions. Your healthcare

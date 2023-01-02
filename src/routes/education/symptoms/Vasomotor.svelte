@@ -83,8 +83,8 @@
 		{#if Number($bmi) > 25}
 			<Paragraph customized>
 				<b>
-					Your Body Mass Index is currently above 25 kg/m\u00B2. If you are able to lose weight, it
-					may help with your vasomotor symptoms.
+					Your Body Mass Index is currently above 25 kg/m². If you are able to lose weight, it may
+					help with your vasomotor symptoms.
 				</b>
 				A healthy diet in menopause can promote appropriate weight, help energy levels and can decrease
 				other chronic medical conditions. Women should strive to eat a diet high in protein, fibre and
@@ -189,6 +189,10 @@
 						<b>You have indicated that you are currently taking Tamoxifen.</b> Paroxetine is
 						<b>not</b> a good choice of medication for you.
 					</i>
+					<br /><br />
+					<b>You have indicated you have a history of breast cancer.</b> Soy products, including
+					<b><i>Femarelle</i></b>, should be avoided. Speak to your healthcare provider about this
+					and consult your oncologist.
 				</Paragraph>
 			{/if}
 			<p class="font-title text-xl font-semibold underline mt-4 mb-2">Other Options</p>
@@ -231,49 +235,51 @@
 				<img src="/images/VMS_management_table.png" alt="Vasomotor management table" />
 			</Paragraph>
 		</div>
-		<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">
-			Menopausal Hormone Therapy
-		</p>
-		<Paragraph>
-			<b>
-				Menopausal hormone therapy (MHT) can be used to treat many symptoms of menopause but is most
-				effective at managing vasomotor symptoms.
-			</b>
-			MHT can reduce the symptom severity by up to 75%. MHT can safely be prescribed to women who are
-			under the age of 60, less than 10 years from the last menstrual period, and have no contraindications.
-		</Paragraph>
-		{#if $treatment.current.includes('contraceptive')}
-			<Paragraph customized>
+		{#if !takingTamoxifen}
+			<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">
+				Menopausal Hormone Therapy
+			</p>
+			<Paragraph>
 				<b>
-					You have indicated that you are are taking hormonal contraception to help your menopausal
-					symptoms.
+					Menopausal hormone therapy (MHT) can be used to treat many symptoms of menopause but is
+					most effective at managing vasomotor symptoms.
 				</b>
-				At some point, your doctor will speak to you about switching to MHT. Hormonal contraceptives
-				contain higher amounts of hormones and, as you age, it will be safer to consider a switch to
-				MHT or a non-hormonal option. Speak to your doctor about the best option for you.
+				MHT can reduce the symptom severity by up to 75%. MHT can safely be prescribed to women who are
+				under the age of 60, less than 10 years from the last menstrual period, and have no contraindications.
 			</Paragraph>
-		{/if}
-		{#if $basics.bleeding === 'yes'}
-			<Paragraph customized>
-				<b>You have indicated that you may have had postmenopausal bleeding.</b> Postmenopausal bleeding
-				occurs when someone has vaginal bleeding after 12 or more months without a period. Postmenopausal
-				bleeding can have many causes, but some of the worrisome causes include endometrial pre-cancer
-				or cancer. It is important that you speak to your doctor about this, as they will likely suggest
-				investigations to rule out these worrisome causes. If you have already had these investigations
-				and your doctor is not worried about any abnormalities, you may be able to consider MHT.
-			</Paragraph>
-		{/if}
-		{#if Number($basics.age) > 60}
-			<Paragraph customized>
-				<b>You have indicated that you are over the age of 60.</b> Using menopausal hormone therapy after
-				the age of 60 carries greater risk, and may not be a suitable treatment option for you.
-			</Paragraph>
-			{#if $treatment.current.includes('hormone')}
+			{#if $treatment.current.includes('contraceptive')}
 				<Paragraph customized>
-					<b>You have indicated that you are over the age of 60 and currently taking MHT.</b> It is important
-					to review your medications and risk profile with your healthcare provider, as the risks of
-					MHT can increase as women age.
+					<b>
+						You have indicated that you are are taking hormonal contraception to help your
+						menopausal symptoms.
+					</b>
+					At some point, your doctor will speak to you about switching to MHT. Hormonal contraceptives
+					contain higher amounts of hormones and, as you age, it will be safer to consider a switch to
+					MHT or a non-hormonal option. Speak to your doctor about the best option for you.
 				</Paragraph>
+			{/if}
+			{#if $basics.bleeding === 'yes'}
+				<Paragraph customized>
+					<b>You have indicated that you may have had postmenopausal bleeding.</b> Postmenopausal bleeding
+					occurs when someone has vaginal bleeding after 12 or more months without a period. Postmenopausal
+					bleeding can have many causes, but some of the worrisome causes include endometrial pre-cancer
+					or cancer. It is important that you speak to your doctor about this, as they will likely suggest
+					investigations to rule out these worrisome causes. If you have already had these investigations
+					and your doctor is not worried about any abnormalities, you may be able to consider MHT.
+				</Paragraph>
+			{/if}
+			{#if Number($basics.age) > 60}
+				<Paragraph customized>
+					<b>You have indicated that you are over the age of 60.</b> Using menopausal hormone therapy
+					after the age of 60 carries greater risk, and may not be a suitable treatment option for you.
+				</Paragraph>
+				{#if $treatment.current.includes('hormone')}
+					<Paragraph customized>
+						<b>You have indicated that you are over the age of 60 and currently taking MHT.</b> It is
+						important to review your medications and risk profile with your healthcare provider, as the
+						risks of MHT can increase as women age.
+					</Paragraph>
+				{/if}
 			{/if}
 		{/if}
 		{#if $basics.period === 'ten-year'}
@@ -331,9 +337,9 @@
 			</Paragraph>
 		{:else if $history.conditions.includes('stroke')}
 			<Paragraph customized>
-				<b>You have indicated that you have a history of blood clot.</b>
-				MHT puts you at higher risk of developing another clot. For this reason, MHT is not recommended
-				for you.
+				<b>You have indicated that you have a history of stroke.</b>
+				MHT can increase the risk of stroke, and is not recommended for people with a history such as
+				yours.
 			</Paragraph>
 		{:else if $history.conditions.includes('blood-clot')}
 			<Paragraph customized>
@@ -341,7 +347,7 @@
 				MHT puts you at higher risk of developing another clot. For this reason, MHT is not recommended
 				for you.
 			</Paragraph>
-		{:else if $history.conditions.includes('thrombo')}
+		{:else if $history.conditions.includes('thrombo') || $genetics.genes.includes('clot')}
 			<Paragraph customized>
 				<b>You have indicated that you have a thrombophilia.</b>
 				This puts you at higher risk of developing a blood clot. Because MHT also increases the risk
@@ -482,7 +488,7 @@
 				increase it in order to manage your symptoms. Higher starter doses may be needed for younger
 				women. Most women will begin to see an effect of the medications within 2-6 weeks.
 			</Paragraph>
-			{#if $surgeries.received.includes('hysterectory')}
+			{#if $surgeries.received.includes('hysterectomy')}
 				<Paragraph customized>
 					<b>You have indicated that you have had a hysterectomy (removal of the uterus).</b>
 					For women who have previously had a total hysterectomy, only estrogen is required. If you are
@@ -503,8 +509,8 @@
 					</Paragraph>
 				{/if}
 			{/if}
-			<div class="pl-4">
-				<p class="font-title text-xl font-semibold underline mt-4 mb-2">
+			<div class="px-4">
+				<p class="font-title text-xl font-semibold underline mt-4 mb-2 text-center">
 					How to Take Menopausal Hormone Therapy
 				</p>
 				<Paragraph>
@@ -517,13 +523,28 @@
 					</b>
 				</Paragraph>
 				<Paragraph>
-					<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in combination
-					with estrogen), and intrauterine delivery (progesterone containing intrauterine device, or
-					IUD). Progesterone oral pills can be given in two ways: continuous (meaning that you take a
-					pill every day) or cyclically (meaning you take a pill on certain days per month). Cyclic regimens
-					are usually selected for younger women and women at higher risk of breast cancer. Women on
-					a cyclic regimen can expect to have scheduled bleeding each month. Speak to your health care
-					provider about which option is best for you.
+					<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in
+					combination with estrogen), and intrauterine delivery (progesterone containing
+					intrauterine device, or IUD). Your doctor may also suggest you use one of the oral
+					progesterone pills vaginally (micronized progesterone, <b><u>Prometrium</u></b>)
+				</Paragraph>
+				<Paragraph>
+					Progesterone tablets can be given in two ways: continuously (meaning that you take a pill
+					every day) or cyclically (meaning you take a pill on certain days per month). Cyclic
+					regimens are usually selected for younger women and women at higher risk of breast cancer.
+					Women on a cyclic regimen can expect to have scheduled bleeding each month. Speak to your
+					healthcare provider about which option is best for you.
+				</Paragraph>
+				<Paragraph>
+					<b>Estrogen and Progesterone Combination Products</b> are available transdermally (e.g.,
+					<b><u>Estalis</u></b>
+					patch) or orally (e.g., <b><u>Activelle</u></b> and <b><u>Activelle Lo</u></b>).
+				</Paragraph>
+				<Paragraph>
+					Tibolone (Brand Name: <b><u>Tibella</u></b>), is a synthetic steroid that has estrogen,
+					progesterone and androgen properties. It has been available in Europe for many years but
+					is newer in Canada. It has favourable effects on bone density and research has shown it
+					may have less unscheduled bleeding compared to other menopausal hormone therapy regimens.
 				</Paragraph>
 				{#if ($basics.period === 'regular' || $basics.period === 'irregular') && !$medication.medicationSelection.includes('menopause')}
 					<Paragraph customized>
