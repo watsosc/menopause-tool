@@ -80,7 +80,7 @@ export const surgeriesSchema = yup.object().shape({
   }),
   ovariesAge: yup.string().when("ovariesRemoved", {
     is: "yes",
-    then: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
+    then: yup.string().matches(/^\d+$/, NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
   }),
 });
 

@@ -20,8 +20,6 @@
 	const hideMht =
 		[
 			'breast-cancer',
-			'endo-cancer',
-			'ovarian-cancer',
 			'heart-attack',
 			'heart-disease',
 			'stroke',
@@ -314,54 +312,43 @@
 					is a contraindication to using MHT. Studies have shown MHT can increase the risk of recurrence
 					of breast cancer.
 				</Paragraph>
-			{:else if $history.conditions.includes('endo-cancer')}
-				<Paragraph customized>
-					<b>
-						You have indicated that you have a history of endometrial cancer. MHT is not
-						well-studied among patients with a history of endometrial cancer.
-					</b>
-					However, if you have been treated already and your cancer was a low grade, early stage endometrial
-					cancer, you may be able to take MHT. However, it is very important that you speak to your doctor
-					about the benefits and risks of using MHT in your particular case.
-				</Paragraph>
-			{:else if $history.conditions.includes('ovarian-cancer')}
-				<Paragraph customized>
-					<b>You have indicated that you have a history of ovarian cancer.</b>
-					MHT is not well-studied among patients with a history of ovarian cancer. However, depending
-					on your age and type of ovarian cancer, your doctor can speak to you about the benefits and
-					risks of using MHT in your particular case.
-				</Paragraph>
-			{:else if $history.conditions.includes('heart-disease')}
+			{/if}
+			{#if $history.conditions.includes('heart-disease')}
 				<Paragraph customized>
 					<b>You have indicated that you have a history of coronary artery disease.</b>
 					MHT can increase the risk of cardiac events, such as a heart attack. For this reason, MHT is
 					not recommended for you.
 				</Paragraph>
-			{:else if $history.conditions.includes('heart-attack')}
+			{/if}
+			{#if $history.conditions.includes('heart-attack')}
 				<Paragraph customized>
 					<b>You have indicated that you have a history of a heart attack.</b>
 					MHT can increase the risk of cardiac events, such as a heart attack. For this reason, MHT is
 					not recommended for you.
 				</Paragraph>
-			{:else if $history.conditions.includes('stroke')}
+			{/if}
+			{#if $history.conditions.includes('stroke')}
 				<Paragraph customized>
 					<b>You have indicated that you have a history of stroke.</b>
 					MHT can increase the risk of stroke, and is not recommended for people with a history such
 					as yours.
 				</Paragraph>
-			{:else if $history.conditions.includes('blood-clot')}
+			{/if}
+			{#if $history.conditions.includes('blood-clot')}
 				<Paragraph customized>
 					<b>You have indicated that you have a history of a blood clot.</b>
 					MHT puts you at higher risk of developing another clot. For this reason, MHT is not recommended
 					for you.
 				</Paragraph>
-			{:else if $history.conditions.includes('thrombo') || $genetics.genes.includes('clot')}
+			{/if}
+			{#if $history.conditions.includes('thrombo') || $genetics.genes.includes('clot')}
 				<Paragraph customized>
 					<b>You have indicated that you have a thrombophilia.</b>
 					This puts you at higher risk of developing a blood clot. Because MHT also increases the risk
 					of blood clots, it is not a recommended treatment for you.
 				</Paragraph>
-			{:else if $history.conditions.includes('liver-disease')}
+			{/if}
+			{#if $history.conditions.includes('liver-disease')}
 				<Paragraph customized>
 					<b>You have indicated that you have a history of liver disease.</b>
 					MHT can affect the liver and potentially lead to worsening liver function. For this reason,
@@ -369,6 +356,25 @@
 				</Paragraph>
 			{/if}
 			{#if !hideMht}
+				{#if $history.conditions.includes('endo-cancer')}
+					<Paragraph customized>
+						<b>
+							You have indicated that you have a history of endometrial cancer. MHT is not
+							well-studied among patients with a history of endometrial cancer.
+						</b>
+						However, if you have been treated already and your cancer was a low grade, early stage endometrial
+						cancer, you may be able to take MHT. However, it is very important that you speak to your
+						doctor about the benefits and risks of using MHT in your particular case.
+					</Paragraph>
+				{/if}
+				{#if $history.conditions.includes('ovarian-cancer')}
+					<Paragraph customized>
+						<b>You have indicated that you have a history of ovarian cancer.</b>
+						MHT is not well-studied among patients with a history of ovarian cancer. However, depending
+						on your age and type of ovarian cancer, your doctor can speak to you about the benefits and
+						risks of using MHT in your particular case.
+					</Paragraph>
+				{/if}
 				{#if $history.conditions.includes('blood-pressure') || $medication.medicationSelection.includes('blood-pressure')}
 					<Paragraph customized>
 						<b>You have indicated that you have high blood pressure.</b>
@@ -435,7 +441,7 @@
 						about whether MHT is right for you.
 					</Paragraph>
 				{/if}
-				{#if ($genetics.genes.includes('brca1') || $genetics.genes.includes('brca2')) && $surgeries.received.includes('hysterectomy')}
+				{#if ($genetics.genes.includes('brca1') || $genetics.genes.includes('brca2')) && $surgeries.ovariesRemoved === 'yes'}
 					<Paragraph customized>
 						<b>
 							You have indicated you carry a BRCA gene and have had surgery to remove your ovaries
@@ -534,7 +540,7 @@
 						<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in
 						combination with estrogen), and intrauterine delivery (progesterone containing
 						intrauterine device, or IUD). Your doctor may also suggest you use one of the oral
-						progesterone pills vaginally (micronized progesterone, <b><u>Prometrium</u></b>)
+						progesterone pills vaginally (micronized progesterone, <b><i>Prometrium</i></b>)
 					</Paragraph>
 					<Paragraph>
 						Progesterone tablets can be given in two ways: continuously (meaning that you take a
@@ -545,11 +551,11 @@
 					</Paragraph>
 					<Paragraph>
 						<b>Estrogen and Progesterone Combination Products</b> are available transdermally (e.g.,
-						<b><u>Estalis</u></b>
-						patch) or orally (e.g., <b><u>Activelle</u></b> and <b><u>Activelle Lo</u></b>).
+						<b><i>Estalis</i></b>
+						patch) or orally (e.g., <b><i>Activelle</i></b> and <b><i>Activelle Lo</i></b>).
 					</Paragraph>
 					<Paragraph>
-						Tibolone (Brand Name: <b><u>Tibella</u></b>), is a synthetic steroid that has estrogen,
+						Tibolone (Brand Name: <b><i>Tibella</i></b>), is a synthetic steroid that has estrogen,
 						progesterone and androgen properties. It has been available in Europe for many years but
 						is newer in Canada. It has favourable effects on bone density and research has shown it
 						may have less unscheduled bleeding compared to other menopausal hormone therapy
@@ -580,17 +586,6 @@
 							important for you to tell your doctor if you do.
 						</Paragraph>
 					{/if}
-					<Paragraph>
-						<b>Estrogen and Progesterone Combination Products</b> are available transdermally (e.g.,
-						Estalis patch) or orally (e.g., Activelle and Activelle Lo).
-					</Paragraph>
-					<Paragraph>
-						<b>Tibolone (Brand Name: Tibella)</b>, is a synthetic steroid that has estrogen,
-						progesterone and androgen properties. It has been available in Europe for many years but
-						is newer in Canada. It has favourable effects on bone density and research has shown it
-						may have less unscheduled bleeding compared to other menopausal hormone therapy
-						regimens.
-					</Paragraph>
 					<Paragraph>
 						<b>
 							Typical starting doses and combinations for various MHT formulations available in

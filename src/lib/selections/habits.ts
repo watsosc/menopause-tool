@@ -31,13 +31,13 @@ export const habitsOptions = {
     },
     {
       id: 'low',
-      description: '<u>Less than 7 drinks</u> per week.',
-      answer: 'You consume <u>less than 7 drinks</u> per week.',
+      description: '<u>7 or fewer drinks</u> per week.',
+      answer: 'You consume <u>7 or fewer drinks</u> per week.',
     },
     {
       id: 'high',
-      description: '<u>7 or more drinks</u> per week.',
-      answer: 'You consume <u>7 or more drinks</u> per week.',
+      description: '<u>8 or more drinks</u> per week.',
+      answer: 'You consume <u>8 or more drinks</u> per week.',
     }
   ],
   exercise: [

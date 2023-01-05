@@ -295,7 +295,7 @@
 							options={historyOptions.conditions}
 							error={errors['conditions']}
 						/>
-						{#if !bloodPressureEntryDisabled}
+						{#if !$bloodPressureEntryDisabled}
 							<SingleSelectQuestion
 								name="conditions-blood"
 								title="If you have a history of <u>high blood pressure</u>, is your blood pressure well controlled now?"
