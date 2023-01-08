@@ -35,14 +35,16 @@
 		</Paragraph>
 		<SubSection title="Addressing Mood Concerns">
 			<Paragraph>
-				Antidepressants and cognitive behavioural therapy are first line treatments for depressive
-				disorders and depressive symptoms for menopausal women. It is important to determine whether
-				mood changes started at the time of menopause, or are pre-existing. For women who are
-				already taking an antidepressant medication, some dose changes may be required around the
-				time of menopause to improve mood. Some women will have mood benefits from menopausal
-				hormone therapy, especially women in perimenopause. For women experiencing both VMS and mood
-				symptoms, MHT can be helpful. There is also evidence for regular exercise and
-				mindfulness-based therapies to improve mood.
+				<b>Antidepressants and cognitive behavioural therapy are first-line treatments</b> for
+				depressive disorders and depressive symptoms for menopausal women.
+				<br /><br />
+				It is important to determine whether mood changes started at the time of menopause, or are pre-existing.
+				For women who are already taking an antidepressant medication, some dose changes may be required
+				around the time of menopause to improve mood.
+				<br /><br />
+				Some women will have mood benefits from menopausal hormone therapy, especially women in perimenopause.
+				For women experiencing both VMS and mood symptoms, MHT can be helpful. There is also evidence
+				for regular exercise and mindfulness-based therapies to improve mood.
 			</Paragraph>
 		</SubSection>
 	</Content>

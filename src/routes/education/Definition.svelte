@@ -35,8 +35,10 @@
 			</Paragraph>
 			<img class="mt-4" src="/images/menopause_age.png" alt="Menopause age" />
 			<Paragraph>
-				<b>Early menopause is when menopause happens between the ages of 40 and 45 years old.</b> This
-				affects 5% of women.
+				<b>
+					<u>Early menopause</u> is when menopause happens between the ages of 40 and 45 years old.
+				</b>
+				This affects 5% of women.
 			</Paragraph>
 			<Paragraph>
 				<b>

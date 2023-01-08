@@ -65,9 +65,9 @@
 							for management of GSM. They bind to the vaginal tissue like a biofilm and can be used
 							regularly 2-3 times per week. They help to reduce friction with intercourse and bind
 							water to restore some moisture in the vulva and vagina. Brand names that can be
-							purchased in Canada include <i>Replens, Gynatrof</i>
-							and <i>Zestica</i>. <i>RepaGyn</i> is another option, which comes in a tablet form that
-							is inserted into the vagina.
+							purchased in Canada include <b><i>Replens, Gynatrof</i></b>
+							and <b><i>Zestica</i></b>. <b><i>RepaGyn</i></b> is another option, which comes in a tablet
+							form that is inserted into the vagina.
 						</li>
 						<li class="mt-2">
 							<b>Pelvic floor physiotherapy</b> can be helpful for women with GSM who experience pain

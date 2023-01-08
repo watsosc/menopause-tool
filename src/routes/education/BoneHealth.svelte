@@ -75,6 +75,8 @@
 						the bones and increases the risk of fracture. There are also several other risk factors
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
+				</Paragraph>
+				<Paragraph customized>
 					{@html smokingParagraph()}
 				</Paragraph>
 			{:else if $screening.bones === 'never' && underSixtyFive && postMenopausal}
@@ -93,6 +95,8 @@
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
 						the bones and increases the risk of fracture.
 					</b>
+				</Paragraph>
+				<Paragraph customized>
 					{@html smokingParagraph()}
 				</Paragraph>
 			{:else if $screening.bones === 'never' && !underSixtyFive && preMenopausal}
@@ -117,6 +121,8 @@
 						changes that naturally occur after menopause. Osteoporosis is a condition that weakens
 						the bones and increases the risk of fracture.
 					</b>
+				</Paragraph>
+				<Paragraph customized>
 					{@html smokingParagraph()}
 				</Paragraph>
 			{:else if $screening.bones === 'never' && !underSixtyFive && postMenopausal}
@@ -127,7 +133,7 @@
 					</b>
 					<br /><br />
 					Post-menopausal people aged 65 or older
-					<i>should undergo bone mineral density assessment</i>
+					<u>should undergo bone mineral density assessment</u>
 					and discuss their individualized fracture risk with their healthcare provider.
 					<br /><br />
 					<b>
@@ -151,6 +157,8 @@
 						the bones and increases the risk of fracture. There are also several other risk factors
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
+				</Paragraph>
+				<Paragraph customized>
 					{@html smokingParagraph()}
 				</Paragraph>
 			{:else if $screening.bones === 'low'}
@@ -172,6 +180,8 @@
 						changes that naturally occur after menopause. There are also several other risk factors
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
+				</Paragraph>
+				<Paragraph customized>
 					{@html smokingParagraph()}
 				</Paragraph>
 			{/if}
@@ -185,7 +195,7 @@
 						day.
 						<br class="my-1" />
 						If you need to take calcium through a supplement, <b>calcium carbonate</b> supplements
-						have the highest amount of <i>elemental calcium</i>. Take this supplement with food for
+						have the highest amount of <b>elemental calcium</b>. Take this supplement with food for
 						better absorption. Sometimes, calcium carbonate can lead to constipation or bloating. If
 						you need to switch supplements, you can try <b>calcium citrate</b> but may need to take
 						more tablets to get your daily requirements.<br />

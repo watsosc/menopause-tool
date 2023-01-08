@@ -44,8 +44,8 @@
 			<b>Hot flashes and night sweats are called vasomotor symptoms.</b> They are common symptoms of
 			menopause occurring in about <b>80% of women</b>. A hot flash is the sensation of heat,
 			usually starting in the chest and rising upwards. It can be accompanied by anxiety or
-			palpitations. These symptoms last an average of 7 years, can start before the last menstrual
-			period, and can continue afterwards.
+			palpitations. <b>These symptoms last an average of 7 years.</b> They can start before the last
+			menstrual period, and can continue afterwards.
 		</Paragraph>
 		<Paragraph>
 			<b>
@@ -112,15 +112,13 @@
 				is a small amount of research that has shown that it was helpful in managing vasomotor symptoms.
 			</Paragraph>
 			<Paragraph>
-				Acupuncture may help some people with vasomotor symptoms, although the evidence is not
+				<b>Acupuncture</b> may help some people with vasomotor symptoms, although the evidence is not
 				strong.
 			</Paragraph>
 			{#if breastCancerHistory}
 				<Paragraph customized>
-					<i>
-						<b>You have indicated you have a history of breast cancer.</b> Soy products, including Femarelle,
-						should be avoided. Speak to your healthcare provider about this and consult your oncologist.
-					</i>
+					<b>You have indicated you have a history of breast cancer.</b> Soy products, including Femarelle,
+					should be avoided. Speak to your healthcare provider about this and consult your oncologist.
 				</Paragraph>
 			{/if}
 			<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">Bioidenticals</p>
@@ -156,47 +154,33 @@
 				</Paragraph>
 				{#if breastCancerHistory && takingAnxietyMeds}
 					<Paragraph customized>
-						<i>
-							<b>
-								You have indicated you already take a medication for anxiety and/or depression and
-								also have a history of breast cancer.
-							</b>
-							While Venlafaxine is a good first-line option for people with a history of breast cancer,
-							it may not be advisable to add an antidepressant as a means to treat your vasomotor symptoms.
-							Speak to your doctor about options that might be right for you.
-						</i>
+						<b>
+							You have indicated you already take a medication for anxiety and/or depression and
+							also have a history of breast cancer.
+						</b>
+						While Venlafaxine is a good first-line option for people with a history of breast cancer,
+						it may not be advisable to add an antidepressant as a means to treat your vasomotor symptoms.
+						Speak to your doctor about options that might be right for you.
 					</Paragraph>
 				{:else if breastCancerHistory}
 					<Paragraph customized>
-						<i>
-							<b>You have indicated you have a history of breast cancer.</b> Venlafaxine is typically
-							a first-choice recommendation. However, this will depend on other medications you take
-							and your own preferences. Speak to your doctor about options that might be right for you.
-						</i>
+						<b>You have indicated you have a history of breast cancer.</b> Venlafaxine is typically a
+						first-choice recommendation. However, this will depend on other medications you take and
+						your own preferences. Speak to your doctor about options that might be right for you.
 					</Paragraph>
 				{:else if takingAnxietyMeds}
 					<Paragraph customized>
-						<i>
-							<b>
-								You have indicated you already take a medication for anxiety and/or depression.
-							</b>
-							Discuss your medication regimen with your doctor as it may not be advisable to add an antidepressant
-							to treat your vasomotor symptoms. If you are currently taking an SSRI, depending on the
-							dose, it could be making your vasomotor symptoms worse. Speak to your healthcare provider
-							about your current medication regimen.
-						</i>
+						<b> You have indicated you already take a medication for anxiety and/or depression. </b>
+						Discuss your medication regimen with your doctor as it may not be advisable to add an antidepressant
+						to treat your vasomotor symptoms. If you are currently taking an SSRI, depending on the dose,
+						it could be making your vasomotor symptoms worse. Speak to your healthcare provider about
+						your current medication regimen.
 					</Paragraph>
 				{/if}
 				{#if takingTamoxifen}
 					<Paragraph customized>
-						<i>
-							<b>You have indicated that you are currently taking Tamoxifen.</b> Paroxetine is
-							<b>not</b> a good choice of medication for you.
-						</i>
-						<br /><br />
-						<b>You have indicated you have a history of breast cancer.</b> Soy products, including
-						<b><i>Femarelle</i></b>, should be avoided. Speak to your healthcare provider about this
-						and consult your oncologist.
+						<b>You have indicated that you are currently taking Tamoxifen.</b> Paroxetine is
+						<b>not</b> a good choice of medication for you.
 					</Paragraph>
 				{/if}
 				<p class="font-title text-xl font-semibold underline mt-4 mb-2">Other Options</p>
@@ -239,18 +223,18 @@
 					<img src="/images/VMS_management_table.png" alt="Vasomotor management table" />
 				</Paragraph>
 			</div>
+			<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">
+				Menopausal Hormone Therapy
+			</p>
+			<Paragraph>
+				<b>
+					Menopausal hormone therapy (MHT) can be used to treat many symptoms of menopause but is
+					most effective at managing vasomotor symptoms.
+				</b>
+				MHT can reduce the symptom severity by up to 75%. MHT can safely be prescribed to women who are
+				under the age of 60, less than 10 years from the last menstrual period, and have no contraindications.
+			</Paragraph>
 			{#if !takingTamoxifen}
-				<p class="font-title text-2xl border-b border-secondary mt-6 mb-4">
-					Menopausal Hormone Therapy
-				</p>
-				<Paragraph>
-					<b>
-						Menopausal hormone therapy (MHT) can be used to treat many symptoms of menopause but is
-						most effective at managing vasomotor symptoms.
-					</b>
-					MHT can reduce the symptom severity by up to 75%. MHT can safely be prescribed to women who
-					are under the age of 60, less than 10 years from the last menstrual period, and have no contraindications.
-				</Paragraph>
 				{#if $treatment.current.includes('contraceptive')}
 					<Paragraph customized>
 						<b>
@@ -575,7 +559,7 @@
 							doctor may discuss switching you over to a continuous progesterone regimen so you
 							won’t have the monthly withdrawal bleed.
 						</Paragraph>
-					{:else if $basics.period === 'one-year'}
+					{:else if $basics.period === 'one-year' && !$surgeries.received.includes('hysterectomy')}
 						<Paragraph customized>
 							<b>
 								You have indicated it has been more than one year since your last menstrual period.

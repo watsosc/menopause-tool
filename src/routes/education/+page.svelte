@@ -18,7 +18,6 @@
 <Title />
 <Definition />
 <Period />
-<Weight />
 {#if $menopause.symptoms.length > 0}
 	<Symptoms />
 {/if}
@@ -31,6 +30,7 @@
 {#if $habits.alcohol !== 'none'}
 	<Alcohol />
 {/if}
+<Weight />
 <Exercise />
 <BreastScreening />
 <CervicalScreening />
