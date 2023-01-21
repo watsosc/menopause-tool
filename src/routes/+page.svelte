@@ -127,7 +127,7 @@
 				<QuestionColumn>
 					<SingleSelectQuestion
 						name="period"
-						title="When was your last period?"
+						title="When was your last natural menstrual period?"
 						subtitle="Choose the option that best describes you."
 						bind:selection={$basics.period}
 						error={errors['period']}

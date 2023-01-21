@@ -2,7 +2,7 @@ export const basicsOptions = {
   period: [
     {
       id: 'regular',
-      description: 'I am still getting my period <b>regularly</b>.',
+      description: 'I am still getting a natural period <b>regularly</b>.',
       answer: 'You are still getting your period regularly',
     },
     {
@@ -12,12 +12,12 @@ export const basicsOptions = {
     },
     {
       id: 'one-year',
-      description: 'It has been <b>at least 1 year</b> since my last period but <b>less than 10 years</b> since my last period.',
+      description: 'It has been <b>at least 1 year</b> since my last natural period but <b>less than 10 years</b> since my last period.',
       answer: 'You have gone <b>at least 1 year</b> since your last period but <b>less than 10 years</b> since your last period'
     },
     {
       id: 'ten-year',
-      description: 'It has been <b>more than 10 years</b> since my last period.',
+      description: 'It has been <b>more than 10 years</b> since my last natural period.',
       answer: 'You have gone <b>more than 10 years</b> since your last period'
     },
     {
@@ -28,7 +28,7 @@ export const basicsOptions = {
     {
       id: 'medication',
       description: '<b>It is difficult for me to know when my last spontaneous period was.</b> I use a medication that has stopped my periods or gives me an expected period (e.g., Lupron, Mirena IUD, birth control pill).',
-      answer: 'You are using a medication that has stopped my periods (e.g., Lupron, Mirena IUD, birth control pill)'
+      answer: 'You are using a medication that has stopped your periods or gives you an expected period (e.g., Lupron, Mirena IUD, birth control pill)'
     }
   ],
   menopause: [

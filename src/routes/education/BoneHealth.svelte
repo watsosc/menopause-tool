@@ -12,16 +12,10 @@
 	const hysterectomyWithOvaries = $basics.period === 'surgery';
 	const periodMedication = $basics.period === 'medication';
 
-	const smokingParagraph = () => {
-		if ($habits.smoking === 'yes') {
-			return `<br/><br/><b>Patients who smoke are at a higher risk of fracture.</b> Smoking cessation is recommended to 
-        reduce the risk of fractures after menopause, and to reduce other health risks associated with smoking. 
-        If you are ready to quit smoking, speak to your healthcare provider about resources available to help 
-        you stop smoking.`;
-		}
-
-		return '';
-	};
+	const smokingParagraph = `<b>Patients who smoke are at a higher risk of fracture.</b> Smoking cessation is
+					recommended to reduce the risk of fractures after menopause, and to reduce other health
+					risks associated with smoking. If you are ready to quit smoking, speak to your healthcare
+					provider about resources available to help you stop smoking.`;
 </script>
 
 <div class="container mx-auto px-4">
@@ -52,8 +46,12 @@
 						the bones and increases the risk of fracture. There are also several other risk factors
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
-					{@html smokingParagraph()}
 				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'never' && underSixtyFive && periodMedication}
 				<Paragraph customized>
 					<b>
@@ -76,9 +74,11 @@
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
 				</Paragraph>
-				<Paragraph customized>
-					{@html smokingParagraph()}
-				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'never' && underSixtyFive && postMenopausal}
 				<Paragraph customized>
 					<b>
@@ -96,9 +96,11 @@
 						the bones and increases the risk of fracture.
 					</b>
 				</Paragraph>
-				<Paragraph customized>
-					{@html smokingParagraph()}
-				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'never' && !underSixtyFive && preMenopausal}
 				<Paragraph customized>
 					<b>
@@ -122,9 +124,11 @@
 						the bones and increases the risk of fracture.
 					</b>
 				</Paragraph>
-				<Paragraph customized>
-					{@html smokingParagraph()}
-				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'never' && !underSixtyFive && postMenopausal}
 				<Paragraph customized>
 					<b>
@@ -142,8 +146,12 @@
 						the bones and increases the risk of fracture. There are also several other risk factors
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
-					{@html smokingParagraph()}
 				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'normal'}
 				<Paragraph customized>
 					<b> You have indicated that you have had a bone density scan and it was normal. </b>
@@ -158,9 +166,11 @@
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
 				</Paragraph>
-				<Paragraph customized>
-					{@html smokingParagraph()}
-				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{:else if $screening.bones === 'low'}
 				<Paragraph customized>
 					<b>
@@ -181,9 +191,11 @@
 						for low bone density. Speak to your doctor about whether you have these risks.
 					</b>
 				</Paragraph>
-				<Paragraph customized>
-					{@html smokingParagraph()}
-				</Paragraph>
+				{#if $habits.smoking === 'yes'}
+					<Paragraph customized>
+						{@html smokingParagraph}
+					</Paragraph>
+				{/if}
 			{/if}
 			<Paragraph>
 				<b>Vitamin D and calcium are important for bone health.</b> Post-menopausal people should

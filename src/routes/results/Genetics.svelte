@@ -31,7 +31,7 @@
 				</p>
 			{/if}
 
-			{#if hasGene}
+			{#if selectedFamilyHistory.length > 0}
 				<p class="font-body text-xl mt-4">
 					You indicated that you have a <b>family history</b> of the following health condition(s):
 				</p>

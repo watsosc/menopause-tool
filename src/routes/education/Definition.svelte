@@ -3,7 +3,6 @@
 	import Content from '$lib/layouts/Content.svelte';
 	import Image from '$lib/layouts/Image.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
-	import QuestionBlock from '$lib/layouts/QuestionBlock.svelte';
 	import EducationTitleBar from '$lib/titles/EducationTitleBar.svelte';
 </script>
 

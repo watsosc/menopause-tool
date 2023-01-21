@@ -20,9 +20,15 @@
 				</Paragraph>
 			{:else if parseInt($basics.age) < 50}
 				<Paragraph customized>
-					<b>You have indicated that you are 40-49 years old.</b> If your last menstrual period was before
-					the age of 40, you may have a condition called Premature Ovarian Insufficiency (POI). Speak
-					to your doctor about this, as you may require special investigations and treatment.
+					<b>You have indicated that you are 40-49 years old.</b> If you ever experienced four (or
+					more) months without a natural menstrual period before the age of 40 that
+					<b>
+						could not be explained by a medical condition (e.g., PCOS, pregnancy, etc.), medication
+						use or surgery,
+					</b>
+					your doctor may want to review your history and consider a condition called Premature Ovarian
+					Insufficiency (POI). Speak to your doctor about this, as you may require special investigations
+					and treatment.
 				</Paragraph>
 			{/if}
 
@@ -39,26 +45,6 @@
 					However, if your periods are regular and you are getting menopausal symptoms, your doctor may
 					look for other reasons why this is happening.
 				</Paragraph>
-			{:else if $basics.period === 'medication'}
-				<Paragraph customized>
-					Examples of medications that can give you a regular period include birth control pills and
-					menopausal hormone therapy. Whether you get a period on these medications, depends on how
-					your doctor has told you to take them. If you are getting any unexpected bleeding, you
-					should speak to your doctor.
-				</Paragraph>
-
-				<div class="flex flex-row justify-center print:hidden">
-					<img
-						class="max-w-[350px] mx-4"
-						src="/images/birth_control_pill.png"
-						alt="Birth control pill"
-					/>
-					<img
-						class="max-w-[350px] mx-4"
-						src="/images/cyclic_progesterone.png"
-						alt="Cyclic progesterone"
-					/>
-				</div>
 			{/if}
 
 			{#if $basics.period === 'irregular'}
@@ -73,17 +59,21 @@
 				</Paragraph>
 			{:else if ['one-year', 'ten-year'].includes($basics.period)}
 				<Paragraph customized>
-					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release
-					eggs. This leads to low estrogen, which can cause menopausal symptoms.
+					<b>
+						Menopause occurs when the ovaries decrease their functioning and no longer release eggs.
+					</b>
+					This leads to low estrogen, which can cause menopausal symptoms.
 					<b>
 						You have indicated your last period was more than 1 year ago and are now postmenopausal.
 					</b>
 				</Paragraph>
 			{:else if $basics.period === 'surgery'}
 				<Paragraph customized>
-					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release
-					eggs. This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause
-					is diagnosed after you have gone 12 months without a menstrual period.
+					<b>
+						Menopause occurs when the ovaries decrease their functioning and no longer release eggs.
+					</b>
+					This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause is diagnosed
+					after you have gone 12 months without a menstrual period.
 					<br /> <br />
 					<b>
 						You have indicated you have had a uterine surgery that stopped your periods but you
@@ -94,15 +84,44 @@
 				</Paragraph>
 			{:else if $basics.period === 'medication'}
 				<Paragraph customized>
-					<b>Menopause</b> occurs when the ovaries decrease their functioning and no longer release
-					eggs. This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause
-					is diagnosed after you have gone 12 months without a menstrual period.
+					<b>
+						Menopause occurs when the ovaries decrease their functioning and no longer release eggs.
+					</b>
+					This leads to low estrogen, which can cause menopausal symptoms. Usually, menopause is diagnosed
+					after you have gone 12 months without a menstrual period.
 					<br /> <br />
-					<b>You have indicated you are taking medication that has stopped your periods.</b> Certain
-					hormonal medications, depending on the way they are taken, can stop your periods. If you were
-					not in menopause before you started the medication, it may be difficult to know if you are
-					truly in menopause at this time.
+					<b>
+						You have indicated you are taking medication that has stopped your periods <u>or</u> gives
+						you an expected period.
+					</b>
+					<br /><br />
+					<b>
+						Certain hormonal medications, depending on the way they are taken, can stop your
+						periods.
+					</b>
+					If you were not in menopause before you started the medication, it may be difficult to know
+					if you are truly in menopause at this time.
+					<br /><br />
+					<b>
+						Examples of medications that can give you a regular period include birth control pills
+						and menopausal hormone therapy.
+					</b>
+					Whether you get a period on these medications, depends on how your doctor has told you to take
+					them. If you are getting any unexpected bleeding, you should speak to your doctor.
 				</Paragraph>
+
+				<div class="flex flex-row justify-center print:hidden">
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/birth_control_pill.png"
+						alt="Birth control pill"
+					/>
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/cyclic_progesterone.png"
+						alt="Cyclic progesterone"
+					/>
+				</div>
 			{/if}
 			{#if $basics.bleeding === 'yes'}
 				<Paragraph customized>

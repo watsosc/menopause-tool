@@ -522,9 +522,10 @@
 					</Paragraph>
 					<Paragraph>
 						<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in
-						combination with estrogen), and intrauterine delivery (progesterone containing
-						intrauterine device, or IUD). Your doctor may also suggest you use one of the oral
-						progesterone pills vaginally (micronized progesterone, <b><i>Prometrium</i></b>)
+						combination with estrogen), and intrauterine delivery through a progesterone-containing
+						intrauterine device (<b><i>Mirenia</i></b> IUD). Your doctor may also suggest you use
+						one of the oral progesterone pills vaginally (micronized progesterone,
+						<b><i>Prometrium</i></b>).
 					</Paragraph>
 					<Paragraph>
 						Progesterone tablets can be given in two ways: continuously (meaning that you take a
@@ -539,10 +540,10 @@
 						patch) or orally (e.g., <b><i>Activelle</i></b> and <b><i>Activelle Lo</i></b>).
 					</Paragraph>
 					<Paragraph>
-						Tibolone (Brand Name: <b><i>Tibella</i></b>), is a synthetic steroid that has estrogen,
-						progesterone and androgen properties. It has been available in Europe for many years but
-						is newer in Canada. It has favourable effects on bone density and research has shown it
-						may have less unscheduled bleeding compared to other menopausal hormone therapy
+						<b>Tibolone</b> (Brand Name: <b><i>Tibella</i></b>), is a synthetic steroid that has
+						estrogen, progesterone and androgen properties. It has been available in Europe for many
+						years but is newer in Canada. It has favourable effects on bone density and research has
+						shown it may have less unscheduled bleeding compared to other menopausal hormone therapy
 						regimens.
 					</Paragraph>
 					{#if ($basics.period === 'regular' || $basics.period === 'irregular') && !$medication.medicationSelection.includes('menopause')}
@@ -559,7 +560,7 @@
 							doctor may discuss switching you over to a continuous progesterone regimen so you
 							won’t have the monthly withdrawal bleed.
 						</Paragraph>
-					{:else if $basics.period === 'one-year' && !$surgeries.received.includes('hysterectomy')}
+					{:else if $basics.period === 'one-year' && !$surgeries.received.includes('hysterectomy') && !$history.conditions.includes('endo-cancer')}
 						<Paragraph customized>
 							<b>
 								You have indicated it has been more than one year since your last menstrual period.
