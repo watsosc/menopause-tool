@@ -1,10 +1,9 @@
 export const surgeryOptions = {
   surgeries: [
     { id: 'hysterectomy', description: 'Hysterectomy (removal of uterus)' },
-    { id: 'bilateral', description: 'Bilateral salpingo-oophorectomy (removal of ovaries and fallopian tubes)' },
-  ],
-  ovaries: [
-    { id: 'no', description: 'I have never had my ovaries removed.' },
-    { id: 'yes', description: 'I have had my ovaries removed and I was:' },
+    { id: 'bilateral', description: 'Bilateral oophorectomy (removal of <b>both</b> ovaries)' },
+    { id: 'unilateral', description: 'Unilateral oophorectomy (removal of <b>one</b> ovary)' },
+    { id: 'bilateral-salp', description: 'Bilateral salpingectomy (removal of <b>both</b> fallopian tubes)' },
+    { id: 'unilateral-salp', description: 'Unilateral salpingectomy (removal of <b>one</b> fallopian tube)' },
   ],
 }

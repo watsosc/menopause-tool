@@ -5,14 +5,22 @@ const initializeBasics = () => ({
   heightFeet: '',
   heightInch: '',
   weight: '',
-  period: '',
+  period: [],
   bleeding: '',
 });
-export const basics = writable(initializeBasics());
+type Basics = {
+  age: string,
+  heightFeet: string,
+  heightInch: string,
+  weight: string,
+  period: string[],
+  bleeding: string,
+}
+export const basics = writable<Basics>(initializeBasics());
 
 export const bleedingEntryDisabled = derived(
   basics,
-  $basics => !['one-year', 'ten-year'].includes($basics.period)
+  $basics => !$basics.period.some((selection) => ['one-year', 'ten-year'].includes(selection))
 )
 
 export const bmi = derived(
@@ -104,24 +112,19 @@ export const bloodPressureEntryDisabled = derived(
 
 export const initializeSurgeries = () => ({
   received: [],
-  ovariesRemoved: '',
   ovariesAge: '',
+  otherSurgeries: '',
 });
 type Surgeries = {
   received: string[];
-  ovariesRemoved: string;
   ovariesAge: string;
+  otherSurgeries: string;
 }
 export const surgeries = writable<Surgeries>(initializeSurgeries());
 
 export const surgeriesOvariesDisabled = derived(
   surgeries,
   $surgeries => !$surgeries.received.includes('bilateral')
-)
-
-export const surgeriesEntryDisabled = derived(
-  [surgeries, surgeriesOvariesDisabled],
-  ([$surgeries, $surgeriesOvariesDisabled]) => $surgeriesOvariesDisabled || $surgeries.ovariesRemoved !== 'yes'
 )
 
 const initializeHabits = () => ({

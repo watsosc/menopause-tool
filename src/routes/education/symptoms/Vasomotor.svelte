@@ -29,7 +29,7 @@
 		].some((condition) => $history.conditions.includes(condition)) ||
 		$genetics.genes.includes('clot') ||
 		Number($basics.age) > 60 ||
-		$basics.period === 'ten-year';
+		$basics.period.includes('ten-year');
 	const takingTamoxifen = $medication.medicationSelection.includes('tamoxifen');
 	const takingAnxietyMeds = $medication.medicationSelection.includes('anxiety');
 </script>
@@ -272,7 +272,7 @@
 					{/if}
 				{/if}
 			{/if}
-			{#if $basics.period === 'ten-year'}
+			{#if $basics.period.includes('ten-year')}
 				<Paragraph customized>
 					<b>You have indicated that you are more than 10 years from your last menstrual period.</b>
 					Taking menopausal hormone therapy is likely not the best option. Speak to your doctor about
@@ -425,7 +425,7 @@
 						about whether MHT is right for you.
 					</Paragraph>
 				{/if}
-				{#if ($genetics.genes.includes('brca1') || $genetics.genes.includes('brca2')) && $surgeries.ovariesRemoved === 'yes'}
+				{#if ($genetics.genes.includes('brca1') || $genetics.genes.includes('brca2')) && $surgeries.received.includes('bilateral')}
 					<Paragraph customized>
 						<b>
 							You have indicated you carry a BRCA gene and have had surgery to remove your ovaries
@@ -546,7 +546,7 @@
 						shown it may have less unscheduled bleeding compared to other menopausal hormone therapy
 						regimens.
 					</Paragraph>
-					{#if ($basics.period === 'regular' || $basics.period === 'irregular') && !$medication.medicationSelection.includes('menopause')}
+					{#if ($basics.period.includes('regular') || $basics.period.includes('irregular')) && !$medication.medicationSelection.includes('menopause')}
 						<Paragraph customized>
 							<b>
 								You have indicated you still get your period, which means your ovaries are still
@@ -560,7 +560,7 @@
 							doctor may discuss switching you over to a continuous progesterone regimen so you
 							won’t have the monthly withdrawal bleed.
 						</Paragraph>
-					{:else if $basics.period === 'one-year' && !$surgeries.received.includes('hysterectomy') && !$history.conditions.includes('endo-cancer')}
+					{:else if $basics.period.includes('one-year') && !$surgeries.received.includes('hysterectomy') && !$history.conditions.includes('endo-cancer')}
 						<Paragraph customized>
 							<b>
 								You have indicated it has been more than one year since your last menstrual period.

@@ -9,9 +9,9 @@ export const basicsSchema = yup.object().shape({
   heightFeet: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   heightInch: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   weight: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
-  period: yup.string().required(REQUIRED),
+  period: yup.array().of(yup.string()).required(REQUIRED),
   bleeding: yup.string().when("period", {
-    is: (value: string) => value === 'one-year' || value === 'ten-year',
+    is: (values: string[]) => values.includes('one-year') || values.includes('ten-year'),
     then: yup.string().required(REQUIRED_WHEN("I have not had my period in over a year")),
   }),
 });
@@ -74,14 +74,11 @@ export const historySchema = yup.object().shape({
 
 export const surgeriesSchema = yup.object().shape({
   received: yup.array().of(yup.string()).optional(),
-  ovariesRemoved: yup.string().when("received", {
+  ovariesAge: yup.string().when("received", {
     is: (values: string[]) => values.includes('bilateral'),
-    then: yup.string().required(REQUIRED),
-  }),
-  ovariesAge: yup.string().when("ovariesRemoved", {
-    is: "yes",
     then: yup.string().matches(/^\d+$/, NOT_NUMBER_FORMAT).required(REQUIRED_WHEN("I have had my ovaries removed"))
   }),
+  otherSurgeries: yup.string().optional(),
 });
 
 export const habitsSchema = yup.object().shape({

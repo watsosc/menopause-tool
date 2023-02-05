@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { basics } from '../../store';
-	import { basicsOptions, getAnswer } from '$lib/selections';
+	import { basicsOptions, getMultiSelectList } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 	import Container from '$lib/layouts/Container.svelte';
 
 	const bleeding = () => {
 		if ($basics.bleeding === 'yes') {
-			return `You indicated that you <b>may have had postmenopausal bleeding</b>.`;
+			return `You have not had any postmenopausal bleeding that has not been investigated.`;
 		}
 		if ($basics.bleeding === 'no') {
-			return `You have <b>not</b> had any postmenopausal bleeding.`;
+			return `You have had postmenopausal bleeding that has not been investigated.`;
 		}
 
 		return null;
 	};
 
-	const answer = getAnswer(basicsOptions.period, $basics.period);
+	const answers = getMultiSelectList(basicsOptions.period, $basics.period);
 </script>
 
 <Container>
@@ -27,8 +27,8 @@
 			<p class="font-body text-xl">
 				Regarding your <b>last menstrual period</b>, you have indicated:
 			</p>
-			{#if answer}
-				<CheckmarkList list={[answer]} />
+			{#if answers.length > 0}
+				<CheckmarkList list={answers} />
 			{/if}
 			{#if bleeding() !== null}
 				<p class="font-body text-xl mt-4">

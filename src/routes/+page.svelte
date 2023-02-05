@@ -13,7 +13,6 @@
 		menopauseEntryDisabled,
 		medicationEntryDisabled,
 		treatmentEntryDisabled,
-		surgeriesEntryDisabled,
 		bleedingEntryDisabled,
 		surgeriesOvariesDisabled,
 		store,
@@ -125,10 +124,10 @@
 					</div>
 				</QuestionColumn>
 				<QuestionColumn>
-					<SingleSelectQuestion
+					<MultiSelectQuestion
 						name="period"
-						title="When was your last natural menstrual period?"
-						subtitle="Choose the option that best describes you."
+						title="Which of the following is true of your <b>menstrual period</b>"
+						subtitle="Choose all that apply."
 						bind:selection={$basics.period}
 						error={errors['period']}
 						options={basicsOptions.period}
@@ -136,7 +135,7 @@
 					{#if !$bleedingEntryDisabled}
 						<SingleSelectQuestion
 							name="bleeding"
-							title="<b>If you have had more than one year since your last spontaneous period, have you had any vaginal bleeding that has not been investigated?</b>"
+							title="<b>If you have had more than one year since your last spontaneous period, have you had any unexpected vaginal bleeding that has not been investigated?</b>"
 							bind:selection={$basics.bleeding}
 							error={errors['bleeding']}
 							options={basicsOptions.menopause}
@@ -320,24 +319,19 @@
 							error={errors['received']}
 						/>
 						{#if !$surgeriesOvariesDisabled}
-							<SingleSelectQuestion
-								name="surgery-ovaries"
-								title="If you have had your ovaries removed, how old were you?"
-								bind:selection={$surgeries.ovariesRemoved}
-								options={surgeryOptions.ovaries}
-								error={errors['ovariesRemoved']}
-								disabled={$surgeriesOvariesDisabled}
+							<TextEntryQuestion
+								name="surgery-ovaries-age"
+								title="How old were you when you had your ovaries removed?"
+								bind:text={$surgeries.ovariesAge}
+								context="years old"
+								error={errors['ovariesAge']}
 							/>
-							<div class="-mt-2">
-								<FreeTextEntry
-									name="surgery-ovaries-age"
-									bind:text={$surgeries.ovariesAge}
-									context="years old"
-									disabled={$surgeriesEntryDisabled}
-									error={errors['ovariesAge']}
-								/>
-							</div>
 						{/if}
+						<FreeTextEntryQuestion
+							name="other-surgeries"
+							title="Please list any other surgeries you have had."
+							bind:text={$surgeries.otherSurgeries}
+						/>
 					</div>
 				</Card>
 			</div>

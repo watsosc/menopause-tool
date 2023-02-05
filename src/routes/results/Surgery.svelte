@@ -11,13 +11,6 @@
 		$surgeries.received,
 		(primary, suboptions) => `${primary} (${suboptions})`
 	);
-	const ovariesText = () => {
-		if ($surgeries.ovariesRemoved === 'yes') {
-			return `You had your ovaries removed when you were ${$surgeries.ovariesAge} years old`;
-		}
-
-		return 'You have never had surgery to remove your ovaries';
-	};
 </script>
 
 <Container>
@@ -35,8 +28,23 @@
 					You <b>have not</b> had any surgery to remove your uterus, and/or ovaries and fallopian tubes.
 				</p>
 			{/if}
-			<p class="font-body text-xl mt-4 font-bold">Regarding your ovaries:</p>
-			<CheckmarkList list={[ovariesText()]} />
+			{#if $surgeries.received.includes('bilateral')}
+				<p class="font-body text-xl mt-4 font-bold">Regarding your ovaries:</p>
+				<CheckmarkList
+					list={[`You had your ovaries removed when you were ${$surgeries.ovariesAge} years old`]}
+				/>
+			{/if}
+			{#if $surgeries.otherSurgeries !== ''}
+				<p class="font-body text-xl mt-4">
+					You were asked to list any other previous surgeries. You indicated you have had the
+					following procedure(s): <b>{$surgeries.otherSurgeries}</b>
+				</p>
+			{:else}
+				<p class="font-body text-xl mt-4">
+					You were asked to list any other previous surgeries.
+					<b>You indicated you have had no other procedures.</b>
+				</p>
+			{/if}
 		</Content>
 	</Card>
 </Container>
