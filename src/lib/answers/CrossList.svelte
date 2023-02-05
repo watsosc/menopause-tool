@@ -2,7 +2,7 @@
 	export let list: string[] = [];
 </script>
 
-<ul class="ml-10 pb-2 print:list-disc print:pb-6">
+<ul class="ml-10 pb-2 print:list-disc print:pb-6 print:break-inside-avoid">
 	{#each list as item}
 		<li class="font-body text-xl">{@html item}</li>
 	{/each}
