@@ -126,6 +126,18 @@
 					If you were not in menopause before you started the medication, it may be difficult to know
 					if you are truly in menopause at this time.
 				</Paragraph>
+				<div class="flex flex-row justify-center mt-4 print:hidden">
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/birth_control_pill.png"
+						alt="Birth control pill"
+					/>
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/cyclic_progesterone.png"
+						alt="Cyclic progesterone"
+					/>
+				</div>
 			{/if}
 
 			{#if $basics.period.includes('medication-expected') && !$basics.period.includes('surgery-ovarian')}
@@ -139,19 +151,19 @@
 					doctor has told you to take them. If you are getting any unexpected bleeding, you should speak
 					to your doctor.
 				</Paragraph>
+				<div class="flex flex-row justify-center mt-4 print:hidden">
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/birth_control_pill.png"
+						alt="Birth control pill"
+					/>
+					<img
+						class="max-w-[350px] mx-4"
+						src="/images/cyclic_progesterone.png"
+						alt="Cyclic progesterone"
+					/>
+				</div>
 			{/if}
-			<div class="flex flex-row justify-center mt-4 print:hidden">
-				<img
-					class="max-w-[350px] mx-4"
-					src="/images/birth_control_pill.png"
-					alt="Birth control pill"
-				/>
-				<img
-					class="max-w-[350px] mx-4"
-					src="/images/cyclic_progesterone.png"
-					alt="Cyclic progesterone"
-				/>
-			</div>
 			{#if $basics.bleeding === 'yes'}
 				<Paragraph customized>
 					<b>Postmenopausal bleeding</b> occurs when someone has vaginal bleeding after having 12 or
