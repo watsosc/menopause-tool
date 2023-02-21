@@ -10,7 +10,7 @@
 		open = !open;
 	};
 
-	$: visibility = () => `overflow-hidden ${open ? 'block' : 'hidden'}`;
+	$: visibility = () => `overflow-hidden ${open ? 'block' : 'hidden'} print:block`;
 </script>
 
 <Card>
