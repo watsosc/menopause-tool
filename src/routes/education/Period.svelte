@@ -36,13 +36,13 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('regular') && $medication.medicationSelection.includes('hormone')}
+		{#if $basics.period.includes('regular') && $medication.medicationSelection.includes('hormone') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>You have indicated you still get a natural period regularly.</b> It is possible to be in perimenopause
 				or menopause and still get regular periods if you are taking a hormonal medication that is giving
 				you a regular period.
 			</Paragraph>
-		{:else if $basics.period.includes('regular')}
+		{:else if $basics.period.includes('regular') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>You have indicated you still get a natural period regularly.</b> It is possible to be in perimenopause
 				and still get regular periods. You may have noticed the time between periods has begun to change.
@@ -51,7 +51,7 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('irregular') && !$basics.period.some( (selection) => ['regular', 'one-year', 'ten-year', 'ovarian-surgery', 'medication-stop', 'medication-expected'].includes(selection) )}
+		{#if $basics.period.includes('irregular') && !$basics.period.some( (selection) => ['regular', 'one-year', 'ten-year', 'ovarian-surgery', 'medication-stop'].includes(selection) )}
 			<Paragraph customized>
 				<b>
 					You have indicated you still get your period but it is irregular. You may be in
@@ -65,7 +65,7 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('one-year')}
+		{#if $basics.period.includes('one-year') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>
 					You have indicated it has been at least 1 year since your last natural period but less
@@ -83,7 +83,7 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('surgery')}
+		{#if $basics.period.includes('surgery') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>You have indicated you have had uterine surgery that stopped your periods.</b> You may experience
 				symptoms of menopause when your ovaries begin to decrease their functioning. You may not know
@@ -91,14 +91,14 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('surgery-ovarian')}
+		{#if $basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>You have indicated you have had surgery to remove BOTH your ovaries.</b> If you were not in
 				menopause before your surgery, you will be menopausal now.
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('medical-treatment') && !$basics.period.includes('surgery-ovarian')}
+		{#if $basics.period.includes('medical-treatment') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				You have indicated you had
 				<b>medical treatment (e.g., chemotherapy, radiation therapy)</b>
@@ -111,7 +111,7 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('medication-stop') && !$basics.period.includes('surgery-ovarian')}
+		{#if $basics.period.includes('medication-stop') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>
 					You have indicated you aren’t sure if you still get a natural period because you take
@@ -124,7 +124,7 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('medication-expected') && !$basics.period.includes('surgery-ovarian')}
+		{#if $basics.period.includes('medication-expected') && !$basics.period.includes('ovarian-surgery')}
 			<Paragraph customized>
 				<b>
 					You have indicated you aren’t sure if you still get a natural period because you take
