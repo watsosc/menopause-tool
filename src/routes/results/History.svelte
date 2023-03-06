@@ -7,10 +7,10 @@
 	import Container from '$lib/layouts/Container.svelte';
 
 	const bleeding = () => {
-		if ($basics.bleeding === 'yes') {
+		if ($basics.bleeding === 'no') {
 			return `You have not had any postmenopausal bleeding that has not been investigated.`;
 		}
-		if ($basics.bleeding === 'no') {
+		if ($basics.bleeding === 'yes') {
 			return `You have had postmenopausal bleeding that has not been investigated.`;
 		}
 
