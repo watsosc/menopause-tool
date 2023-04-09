@@ -516,7 +516,7 @@
 				<Paragraph>
 					<b>Progesterone</b> is available in the form of oral pills, transdermal preparations (in
 					combination with estrogen), and intrauterine delivery through a progesterone-containing
-					intrauterine device (<b><i>Mirenia</i></b> IUD). Your doctor may also suggest you use one
+					intrauterine device (<b><i>Mirena</i></b> IUD). Your doctor may also suggest you use one
 					of the oral progesterone pills vaginally (micronized progesterone,
 					<b><i>Prometrium</i></b>).
 				</Paragraph>

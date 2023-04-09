@@ -51,35 +51,37 @@
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('irregular') && !$basics.period.some( (selection) => ['regular', 'one-year', 'ten-year', 'ovarian-surgery', 'medication-stop'].includes(selection) )}
+		{#if $basics.period.includes('irregular')}
 			<Paragraph customized>
 				<b>
 					You have indicated you still get your period but it is irregular. You may be in
-					perimenopause.
+					perimenopause. It is also possible you have bleeding that needs to be assessed by your
+					doctor.
 				</b>
 				Perimenopause occurs during a time of fluctuating hormones. You may experience menstrual cycle
 				irregularity and menopausal symptoms. However, your doctor may look for other reasons why you
-				have irregular cycles. If your bleeding is very heavy, lasts longer than a normal period or you
-				have bleeding between your periods, your doctor may recommend further testing or investigations
+				have irregular bleeding. If your bleeding is very heavy, lasts longer than a normal period or
+				you have bleeding between your periods, your doctor may recommend further testing or investigations
 				to you.
 			</Paragraph>
 		{/if}
 
-		{#if $basics.period.includes('one-year') && !$basics.period.includes('ovarian-surgery')}
+		{#if $basics.period.includes('one-year') && !$basics.period.some( (selection) => ['medication-expected', 'ovarian-surgery', 'medication-stop'].includes(selection) )}
 			<Paragraph customized>
 				<b>
 					You have indicated it has been at least 1 year since your last natural period but less
-					than 10 years since your last period. You are likely now postmenopausal.
+					than 10 years since your last period.
 				</b>
+				You are likely now postmenopausal unless you are taking medication that suppresses your periods
+				or you had a uterine surgery that stopped them and your ovaries are still functioning well.
 			</Paragraph>
 		{/if}
 
 		{#if $basics.period.includes('ten-year')}
 			<Paragraph customized>
-				<b>
-					You have indicated it has been more than 10 years since your last natural period. You are
-					most likely now postmenopausal.
-				</b>
+				<b> You have indicated it has been more than 10 years since your last natural period.</b>
+				You are likely now postmenopausal unless you are taking medication that suppresses your periods
+				or you had a uterine surgery that stopped them and your ovaries are still functioning well.
 			</Paragraph>
 		{/if}
 

@@ -103,12 +103,6 @@
 					density scan.
 				</b>
 				<br /><br />
-				<b>You have indicated that you still have regular or irregular vaginal bleeding.</b>
-				<br /><br />
-				The average age of menopause in Canada is 51. For patients not taking hormonal therapy, vaginal
-				bleeding after menopause should be evaluated by a physician. You should speak to your healthcare
-				provider about your post-menopausal bleeding.
-				<br /><br />
 				Post-menopausal people aged 65 or older
 				<u>should undergo bone mineral density assessment</u>
 				and discuss their individualized fracture risk with their healthcare provider.

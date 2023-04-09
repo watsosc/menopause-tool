@@ -23,7 +23,7 @@
 			Weight gain and control is a common concern around perimenopause and menopause.
 			<b>The average person gains 2 kg throughout the menopausal transition.</b> Energy requirements
 			decrease as age progresses. In order to maintain or decrease weight, menopausal people need to
-			restrict caloric intake and increase physical activity in comparison to in the pre-menopausal phase.
+			restrict caloric intake and increase physical activity in comparison to the pre-menopausal phase.
 		</Paragraph>
 		{#if $bmi && Number($bmi) > 25}
 			<Paragraph customized>

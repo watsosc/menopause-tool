@@ -85,7 +85,7 @@
 				option for some breast cancer survivors.
 			</Paragraph>
 			<Paragraph>
-				<b>Ospemiphene</b> (Brand Name: <b><i>Osphena</i></b>) is a selective estrogen receptor
+				<b>Ospemifene</b> (Brand Name: <b><i>Osphena</i></b>) is a selective estrogen receptor
 				modulator (SERM) that is used to treat GSM and sexual dysfunction. It is taken as an oral
 				tablet daily. It can be good for people who find it challenging to insert anything into the
 				vagina. While uncommon, side effects can include hot flashes, as well as risk of blood

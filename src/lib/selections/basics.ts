@@ -23,7 +23,7 @@ export const basicsOptions = {
     {
       id: 'surgery',
       description: 'I have had <b>uterine surgery that stopped my periods (e.g., hysterectomy, uterine ablation).</b>',
-      answer: 'You have had <b>uterine surgery that stopped your periods(e.g., hysterectomy, uterine ablation)</b>'
+      answer: 'You have had <b>uterine surgery that stopped your periods (e.g., hysterectomy, uterine ablation)</b>'
     },
     {
       id: 'ovarian-surgery',

@@ -126,7 +126,7 @@
 				<QuestionColumn>
 					<MultiSelectQuestion
 						name="period"
-						title="Which of the following is true of your <b>menstrual period</b>"
+						title="Which of the following is true of your <b>menstrual period</b>?"
 						subtitle="Choose all that apply."
 						bind:selection={$basics.period}
 						error={errors['period']}

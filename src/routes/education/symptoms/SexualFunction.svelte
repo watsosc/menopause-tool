@@ -79,9 +79,10 @@
 			<b>Low sex drive</b> can sometimes be treated with topical testosterone therapy.
 			<b>This is considered “off label” use in Canada</b>, although topical testosterone is approved
 			for use by women for this indication in many other countries. Testosterone use requires
-			frequent blood tests to monitor blood levels. Less than 5 % of women will have a mild increase
-			in acne and facial hair associated with testosterone use. Speak to your doctor about whether
-			topical testosterone therapy could be considered for you.
+			frequent blood tests to monitor blood levels. Less than 5% of women will have a
+			<b>mild increase in acne and facial hair</b>
+			associated with testosterone use. Speak to your doctor about whether topical testosterone therapy
+			could be considered for you.
 		</Paragraph>
 	</SubSection>
 </CollapsibleCard>
