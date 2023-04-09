@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { Card, Content } from '$lib/layouts';
 	import { basics } from '../../store';
-	import { basicsOptions, getMultiSelectList } from '$lib/selections';
+	import { basicsOptions, getAnswer, getMultiSelectList } from '$lib/selections';
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 	import Container from '$lib/layouts/Container.svelte';
+	import EarlyMenopause from '../education/EarlyMenopause.svelte';
 
 	const bleeding = () => {
 		if ($basics.bleeding === 'no') {
@@ -25,6 +26,9 @@
 		<SummaryTitleBar>Menstrual History</SummaryTitleBar>
 		<Content>
 			<p class="font-body text-xl">
+				{@html getAnswer(basicsOptions.earlyMenopause, $basics.earlyMenopause)}
+			</p>
+			<p class="font-body text-xl mt-4">
 				Regarding your <b>last menstrual period</b>, you have indicated:
 			</p>
 			{#if answers.length > 0}

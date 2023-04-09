@@ -5,7 +5,7 @@
 </script>
 
 <div class="container mx-auto px-4">
-	<CollapsibleCard title="Your Menstrual Period">
+	<CollapsibleCard title="When Menopause is Premature or Early">
 		{#if $basics.earlyMenopause === 'before-forty'}
 			<Paragraph customized>
 				<b>Premature menopause</b> happens when someone goes through menopause

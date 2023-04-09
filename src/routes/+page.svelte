@@ -122,14 +122,16 @@
 						<p class="text-xl uppercase">Your body mass index (bmi) is:</p>
 						<p class="text-xl font-body font-bold mx-2">{`${$bmi ?? '_____'} kg/m\u00B2`}</p>
 					</div>
-					<SingleSelectQuestion
-						name="early-menopause"
-						title="Menopause happens when ovaries decrease their function and no longer release eggs.  This leads to low estrogen and menstrual periods stop."
-						subtitle="Choose the option that best describes you."
-						bind:selection={$basics.earlyMenopause}
-						error={errors['earlyMenopause']}
-						options={basicsOptions.earlyMenopause}
-					/>
+					<div class="mt-6">
+						<SingleSelectQuestion
+							name="early-menopause"
+							title="Menopause happens when ovaries decrease their function and no longer release eggs.  This leads to low estrogen and menstrual periods stop."
+							subtitle="Choose the option that best describes you."
+							bind:selection={$basics.earlyMenopause}
+							error={errors['earlyMenopause']}
+							options={basicsOptions.earlyMenopause}
+						/>
+					</div>
 				</QuestionColumn>
 				<QuestionColumn>
 					<MultiSelectQuestion
