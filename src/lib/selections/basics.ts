@@ -1,4 +1,21 @@
 export const basicsOptions = {
+  earlyMenopause: [
+    {
+      id: 'before-forty',
+      description: 'I went through menopause <b>before the age of 40 years old</b>.',
+      answer: 'You indicated you experienced menopause <b>before the age of 40 years old.</b>',
+    },
+    {
+      id: 'after-forty',
+      description: 'I went through menopause <b>between 40 and 45 years old</b>.',
+      answer: 'You indicated you experienced menopause <b>between 40 and 45 years old</b>.',
+    },
+    {
+      id: 'none',
+      description: 'I don\'t think either statement applies to me.',
+      answer: 'You have <b>not experienced</b> premature or early menopause.'
+    },
+  ],
   period: [
     {
       id: 'regular',

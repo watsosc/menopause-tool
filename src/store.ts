@@ -5,6 +5,7 @@ const initializeBasics = () => ({
   heightFeet: '',
   heightInch: '',
   weight: '',
+  earlyMenopause: '',
   period: [],
   bleeding: '',
 });
@@ -13,6 +14,7 @@ type Basics = {
   heightFeet: string,
   heightInch: string,
   weight: string,
+  earlyMenopause: string,
   period: string[],
   bleeding: string,
 }

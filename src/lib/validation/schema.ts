@@ -9,6 +9,7 @@ export const basicsSchema = yup.object().shape({
   heightFeet: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   heightInch: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
   weight: yup.number().typeError(NOT_NUMBER_FORMAT).required(REQUIRED),
+  earlyMenopause: yup.string().required(REQUIRED),
   period: yup.array().of(yup.string()).required(REQUIRED),
   bleeding: yup.string().when("period", {
     is: (values: string[]) => values.includes('one-year') || values.includes('ten-year'),

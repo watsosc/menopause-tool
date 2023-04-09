@@ -1,5 +1,5 @@
 <script>
-	import { habits, menopause, treatment } from '../../store';
+	import { basics, habits, menopause } from '../../store';
 	import Alcohol from './Alcohol.svelte';
 	import BoneHealth from './BoneHealth.svelte';
 	import BreastScreening from './BreastScreening.svelte';
@@ -13,11 +13,15 @@
 	import Weight from './Weight.svelte';
 	import Symptoms from './symptoms/Symptoms.svelte';
 	import Container from '$lib/layouts/Container.svelte';
+	import EarlyMenopause from './EarlyMenopause.svelte';
 </script>
 
 <Title />
 <Definition />
 <Period />
+{#if $basics.earlyMenopause !== 'none'}
+	<EarlyMenopause />
+{/if}
 {#if $menopause.symptoms.length > 0}
 	<Symptoms />
 {/if}

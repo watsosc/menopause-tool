@@ -572,6 +572,15 @@
 				</Paragraph>
 				<img src="/images/MHT_Table_Sept23.png" alt="MHT doses and combinations table" />
 			</div>
+		{:else}
+			<Paragraph customized>
+				<b>
+					Based on your responses to the questionnaire, benefits of using menopausal hormone therapy
+					may not outweigh risks.
+				</b>
+				You may not be able to use this treatment safely. Speak to your doctor about treatments that
+				are right for you.
+			</Paragraph>
 		{/if}
 	</SubSection>
 </CollapsibleCard>
