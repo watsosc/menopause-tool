@@ -5,7 +5,6 @@
 	import SummaryTitleBar from '$lib/titles/SummaryTitleBar.svelte';
 	import CheckmarkList from '$lib/answers/CheckmarkList.svelte';
 	import Container from '$lib/layouts/Container.svelte';
-	import EarlyMenopause from '../education/EarlyMenopause.svelte';
 
 	const bleeding = () => {
 		if ($basics.bleeding === 'no') {

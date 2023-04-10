@@ -6,7 +6,9 @@
 
 	const underSixtyFive = Number($basics.age) < 65;
 	const preMenopausal = $basics.period.some((p) => ['regular', 'irregular'].includes(p));
-	const postMenopausal = $basics.period.some((p) => ['one-year', 'ten-year'].includes(p));
+	const postMenopausal = $basics.period.some((p) =>
+		['one-year', 'ten-year', 'ovarian-surgery'].includes(p)
+	);
 	const hysterectomyWithOvaries = $basics.period.includes('surgery');
 	const periodMedication = $basics.period.includes('medication-stop');
 

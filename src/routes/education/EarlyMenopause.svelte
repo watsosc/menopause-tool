@@ -1,7 +1,21 @@
 <script>
 	import CollapsibleCard from '$lib/layouts/CollapsibleCard.svelte';
 	import Paragraph from '$lib/layouts/Paragraph.svelte';
-	import { basics } from '../../store';
+	import { basics, genetics, history } from '../../store';
+
+	const hideMht =
+		[
+			'breast-cancer',
+			'heart-attack',
+			'heart-disease',
+			'stroke',
+			'blood-clot',
+			'thrombo',
+			'liver-disease'
+		].some((condition) => $history.conditions.includes(condition)) ||
+		$genetics.genes.includes('clot') ||
+		Number($basics.age) > 60 ||
+		$basics.period.includes('ten-year');
 </script>
 
 <div class="container mx-auto px-4">
@@ -43,6 +57,16 @@
 					Risks of MHT for younger women are usually lower than for older people. At some point,
 					your doctor will recommend stopping it.
 				</b>
+			</Paragraph>
+		{/if}
+		{#if hideMht}
+			<Paragraph customized>
+				<b>
+					Based on your responses to the questionnaire, benefits of using menopausal hormone therapy
+					may not outweigh risks.
+				</b>
+				You may not be able to use this treatment safely. Speak to your doctor about treatments that
+				are right for you.
 			</Paragraph>
 		{/if}
 	</CollapsibleCard>
